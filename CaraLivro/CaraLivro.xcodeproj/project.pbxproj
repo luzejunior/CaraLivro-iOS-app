@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4E3441920BD8BE300ADF70F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3441820BD8BE300ADF70F /* AppDelegate.swift */; };
+		D4E3441B20BD8BE300ADF70F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3441A20BD8BE300ADF70F /* ViewController.swift */; };
+		D4E3441E20BD8BE300ADF70F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E3441C20BD8BE300ADF70F /* Main.storyboard */; };
+		D4E3442020BD8BE300ADF70F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4E3441F20BD8BE300ADF70F /* Assets.xcassets */; };
+		D4E3442320BD8BE300ADF70F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E3442120BD8BE300ADF70F /* LaunchScreen.storyboard */; };
+		D4E3442E20BD8BE300ADF70F /* CaraLivroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3442D20BD8BE300ADF70F /* CaraLivroTests.swift */; };
+		D4E3443920BD8BE300ADF70F /* CaraLivroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3443820BD8BE300ADF70F /* CaraLivroUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4E3442A20BD8BE300ADF70F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4E3440D20BD8BE300ADF70F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4E3441420BD8BE300ADF70F;
+			remoteInfo = CaraLivro;
+		};
+		D4E3443520BD8BE300ADF70F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4E3440D20BD8BE300ADF70F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4E3441420BD8BE300ADF70F;
+			remoteInfo = CaraLivro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D4E3441520BD8BE300ADF70F /* CaraLivro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaraLivro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4E3441820BD8BE300ADF70F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4E3441A20BD8BE300ADF70F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4E3441D20BD8BE300ADF70F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4E3441F20BD8BE300ADF70F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4E3442220BD8BE300ADF70F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D4E3442420BD8BE300ADF70F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4E3442920BD8BE300ADF70F /* CaraLivroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaraLivroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4E3442D20BD8BE300ADF70F /* CaraLivroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaraLivroTests.swift; sourceTree = "<group>"; };
+		D4E3442F20BD8BE300ADF70F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4E3443420BD8BE300ADF70F /* CaraLivroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaraLivroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4E3443820BD8BE300ADF70F /* CaraLivroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaraLivroUITests.swift; sourceTree = "<group>"; };
+		D4E3443A20BD8BE300ADF70F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4E3441220BD8BE300ADF70F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4E3442620BD8BE300ADF70F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4E3443120BD8BE300ADF70F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4E3440C20BD8BE300ADF70F = {
+			isa = PBXGroup;
+			children = (
+				D4E3441720BD8BE300ADF70F /* CaraLivro */,
+				D4E3442C20BD8BE300ADF70F /* CaraLivroTests */,
+				D4E3443720BD8BE300ADF70F /* CaraLivroUITests */,
+				D4E3441620BD8BE300ADF70F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4E3441620BD8BE300ADF70F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4E3441520BD8BE300ADF70F /* CaraLivro.app */,
+				D4E3442920BD8BE300ADF70F /* CaraLivroTests.xctest */,
+				D4E3443420BD8BE300ADF70F /* CaraLivroUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4E3441720BD8BE300ADF70F /* CaraLivro */ = {
+			isa = PBXGroup;
+			children = (
+				D4E3441820BD8BE300ADF70F /* AppDelegate.swift */,
+				D4E3441A20BD8BE300ADF70F /* ViewController.swift */,
+				D4E3441C20BD8BE300ADF70F /* Main.storyboard */,
+				D4E3441F20BD8BE300ADF70F /* Assets.xcassets */,
+				D4E3442120BD8BE300ADF70F /* LaunchScreen.storyboard */,
+				D4E3442420BD8BE300ADF70F /* Info.plist */,
+			);
+			path = CaraLivro;
+			sourceTree = "<group>";
+		};
+		D4E3442C20BD8BE300ADF70F /* CaraLivroTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4E3442D20BD8BE300ADF70F /* CaraLivroTests.swift */,
+				D4E3442F20BD8BE300ADF70F /* Info.plist */,
+			);
+			path = CaraLivroTests;
+			sourceTree = "<group>";
+		};
+		D4E3443720BD8BE300ADF70F /* CaraLivroUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D4E3443820BD8BE300ADF70F /* CaraLivroUITests.swift */,
+				D4E3443A20BD8BE300ADF70F /* Info.plist */,
+			);
+			path = CaraLivroUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4E3441420BD8BE300ADF70F /* CaraLivro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4E3443D20BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivro" */;
+			buildPhases = (
+				D4E3441120BD8BE300ADF70F /* Sources */,
+				D4E3441220BD8BE300ADF70F /* Frameworks */,
+				D4E3441320BD8BE300ADF70F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CaraLivro;
+			productName = CaraLivro;
+			productReference = D4E3441520BD8BE300ADF70F /* CaraLivro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4E3442820BD8BE300ADF70F /* CaraLivroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4E3444020BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivroTests" */;
+			buildPhases = (
+				D4E3442520BD8BE300ADF70F /* Sources */,
+				D4E3442620BD8BE300ADF70F /* Frameworks */,
+				D4E3442720BD8BE300ADF70F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4E3442B20BD8BE300ADF70F /* PBXTargetDependency */,
+			);
+			name = CaraLivroTests;
+			productName = CaraLivroTests;
+			productReference = D4E3442920BD8BE300ADF70F /* CaraLivroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D4E3443320BD8BE300ADF70F /* CaraLivroUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4E3444320BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivroUITests" */;
+			buildPhases = (
+				D4E3443020BD8BE300ADF70F /* Sources */,
+				D4E3443120BD8BE300ADF70F /* Frameworks */,
+				D4E3443220BD8BE300ADF70F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4E3443620BD8BE300ADF70F /* PBXTargetDependency */,
+			);
+			name = CaraLivroUITests;
+			productName = CaraLivroUITests;
+			productReference = D4E3443420BD8BE300ADF70F /* CaraLivroUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4E3440D20BD8BE300ADF70F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Luzenildo Junior";
+				TargetAttributes = {
+					D4E3441420BD8BE300ADF70F = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					D4E3442820BD8BE300ADF70F = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D4E3441420BD8BE300ADF70F;
+					};
+					D4E3443320BD8BE300ADF70F = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D4E3441420BD8BE300ADF70F;
+					};
+				};
+			};
+			buildConfigurationList = D4E3441020BD8BE300ADF70F /* Build configuration list for PBXProject "CaraLivro" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4E3440C20BD8BE300ADF70F;
+			productRefGroup = D4E3441620BD8BE300ADF70F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4E3441420BD8BE300ADF70F /* CaraLivro */,
+				D4E3442820BD8BE300ADF70F /* CaraLivroTests */,
+				D4E3443320BD8BE300ADF70F /* CaraLivroUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4E3441320BD8BE300ADF70F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4E3442320BD8BE300ADF70F /* LaunchScreen.storyboard in Resources */,
+				D4E3442020BD8BE300ADF70F /* Assets.xcassets in Resources */,
+				D4E3441E20BD8BE300ADF70F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4E3442720BD8BE300ADF70F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4E3443220BD8BE300ADF70F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4E3441120BD8BE300ADF70F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4E3441B20BD8BE300ADF70F /* ViewController.swift in Sources */,
+				D4E3441920BD8BE300ADF70F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4E3442520BD8BE300ADF70F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4E3442E20BD8BE300ADF70F /* CaraLivroTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4E3443020BD8BE300ADF70F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4E3443920BD8BE300ADF70F /* CaraLivroUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4E3442B20BD8BE300ADF70F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4E3441420BD8BE300ADF70F /* CaraLivro */;
+			targetProxy = D4E3442A20BD8BE300ADF70F /* PBXContainerItemProxy */;
+		};
+		D4E3443620BD8BE300ADF70F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4E3441420BD8BE300ADF70F /* CaraLivro */;
+			targetProxy = D4E3443520BD8BE300ADF70F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4E3441C20BD8BE300ADF70F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4E3441D20BD8BE300ADF70F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D4E3442120BD8BE300ADF70F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4E3442220BD8BE300ADF70F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4E3443B20BD8BE300ADF70F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D4E3443C20BD8BE300ADF70F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4E3443E20BD8BE300ADF70F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H67F7VXCAB;
+				INFOPLIST_FILE = CaraLivro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.luzejunior.CaraLivro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4E3443F20BD8BE300ADF70F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H67F7VXCAB;
+				INFOPLIST_FILE = CaraLivro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.luzejunior.CaraLivro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D4E3444120BD8BE300ADF70F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H67F7VXCAB;
+				INFOPLIST_FILE = CaraLivroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.luzejunior.CaraLivroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CaraLivro.app/CaraLivro";
+			};
+			name = Debug;
+		};
+		D4E3444220BD8BE300ADF70F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H67F7VXCAB;
+				INFOPLIST_FILE = CaraLivroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.luzejunior.CaraLivroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CaraLivro.app/CaraLivro";
+			};
+			name = Release;
+		};
+		D4E3444420BD8BE300ADF70F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H67F7VXCAB;
+				INFOPLIST_FILE = CaraLivroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.luzejunior.CaraLivroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CaraLivro;
+			};
+			name = Debug;
+		};
+		D4E3444520BD8BE300ADF70F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H67F7VXCAB;
+				INFOPLIST_FILE = CaraLivroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.luzejunior.CaraLivroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CaraLivro;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4E3441020BD8BE300ADF70F /* Build configuration list for PBXProject "CaraLivro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4E3443B20BD8BE300ADF70F /* Debug */,
+				D4E3443C20BD8BE300ADF70F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4E3443D20BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4E3443E20BD8BE300ADF70F /* Debug */,
+				D4E3443F20BD8BE300ADF70F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4E3444020BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4E3444120BD8BE300ADF70F /* Debug */,
+				D4E3444220BD8BE300ADF70F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4E3444320BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivroUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4E3444420BD8BE300ADF70F /* Debug */,
+				D4E3444520BD8BE300ADF70F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4E3440D20BD8BE300ADF70F /* Project object */;
+}
