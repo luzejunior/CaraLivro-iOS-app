@@ -36,6 +36,7 @@ protocol UITableViewRepresentable {
 protocol UITableViewContent {
     associatedtype Presenter
     func load(presenter: Presenter)
+    func configureView()
 }
 
 final class UITableViewContentAssembler<TVCell>: UITableViewRepresentable where TVCell : UITableViewContent, TVCell: UIView {
