@@ -9,7 +9,7 @@ import UIKit
 
 final class GenericDataSource: NSObject, UITableViewDataSource {
 
-    var items: [UITableViewRepresentable] = []
+    var items: [UITableViewModels] = []
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -17,10 +17,14 @@ final class GenericDataSource: NSObject, UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = items[indexPath.item]
-        let cell = tableView.dequeueReusableCell(withIdentifier: model.identifier, for: indexPath)
-        model.update(view: cell)
+        let cell = tableView.dequeueReusableCell(withIdentifier: model.representable.identifier, for: indexPath)
+        model.representable.update(view: cell)
         return cell
     }
+}
+
+protocol UITableViewModels {
+    var representable: UITableViewRepresentable { get }
 }
 
 protocol UITableViewRepresentable {
@@ -34,16 +38,16 @@ protocol UITableViewContent {
     func load(presenter: Presenter)
 }
 
-final class UITableViewContentAssembler<View>: UITableViewRepresentable where View : UITableViewContent, View: UIView {
-    let presenter: View.Presenter
-    let tvClass: AnyClass = View.self
+final class UITableViewContentAssembler<TVCell>: UITableViewRepresentable where TVCell : UITableViewContent, TVCell: UIView {
+    let presenter: TVCell.Presenter
+    let tvClass: AnyClass = TVCell.self
 
-    init(presenter: View.Presenter) {
+    init(presenter: TVCell.Presenter) {
         self.presenter = presenter
     }
 
     func update(view: UIView) {
-        (view as? View)?.load(presenter: presenter)
+        (view as? TVCell)?.load(presenter: presenter)
     }
 
     var identifier: String {
