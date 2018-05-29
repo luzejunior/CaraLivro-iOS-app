@@ -14,6 +14,7 @@
 		D4E3442320BD8BE300ADF70F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E3442120BD8BE300ADF70F /* LaunchScreen.storyboard */; };
 		D4E3442E20BD8BE300ADF70F /* CaraLivroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3442D20BD8BE300ADF70F /* CaraLivroTests.swift */; };
 		D4E3443920BD8BE300ADF70F /* CaraLivroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3443820BD8BE300ADF70F /* CaraLivroUITests.swift */; };
+		D4E3444820BDAEFE00ADF70F /* GenericDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3444720BDAEFE00ADF70F /* GenericDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D4E3443420BD8BE300ADF70F /* CaraLivroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaraLivroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E3443820BD8BE300ADF70F /* CaraLivroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaraLivroUITests.swift; sourceTree = "<group>"; };
 		D4E3443A20BD8BE300ADF70F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4E3444720BDAEFE00ADF70F /* GenericDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		D4E3441720BD8BE300ADF70F /* CaraLivro */ = {
 			isa = PBXGroup;
 			children = (
+				D4E3444620BDAEE400ADF70F /* Core */,
 				D4E3441820BD8BE300ADF70F /* AppDelegate.swift */,
 				D4E3441A20BD8BE300ADF70F /* ViewController.swift */,
 				D4E3441C20BD8BE300ADF70F /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				D4E3443A20BD8BE300ADF70F /* Info.plist */,
 			);
 			path = CaraLivroUITests;
+			sourceTree = "<group>";
+		};
+		D4E3444620BDAEE400ADF70F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D4E3444720BDAEFE00ADF70F /* GenericDataSource.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 			files = (
 				D4E3441B20BD8BE300ADF70F /* ViewController.swift in Sources */,
 				D4E3441920BD8BE300ADF70F /* AppDelegate.swift in Sources */,
+				D4E3444820BDAEFE00ADF70F /* GenericDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
