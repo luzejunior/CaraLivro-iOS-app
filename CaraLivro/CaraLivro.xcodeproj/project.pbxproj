@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */; };
+		D4C6309220BEE25C00CFEC6F /* ActionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */; };
+		D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */; };
+		D4C6309620BEE80800CFEC6F /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309520BEE80800CFEC6F /* TestData.swift */; };
 		D4E3441920BD8BE300ADF70F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3441820BD8BE300ADF70F /* AppDelegate.swift */; };
 		D4E3441B20BD8BE300ADF70F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3441A20BD8BE300ADF70F /* FeedViewController.swift */; };
 		D4E3441E20BD8BE300ADF70F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E3441C20BD8BE300ADF70F /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsProtocols.swift; sourceTree = "<group>"; };
+		D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		D4C6309520BEE80800CFEC6F /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		D4E3441520BD8BE300ADF70F /* CaraLivro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaraLivro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E3441820BD8BE300ADF70F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4E3441A20BD8BE300ADF70F /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +151,8 @@
 				D4E3444720BDAEFE00ADF70F /* GenericDataSource.swift */,
 				D4E3444F20BE266900ADF70F /* CoordinatorProtocols.swift */,
 				D4E3445120BE2ACB00ADF70F /* MainCoordinator.swift */,
+				D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */,
+				D4C6309520BEE80800CFEC6F /* TestData.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 			children = (
 				D4E3441A20BD8BE300ADF70F /* FeedViewController.swift */,
 				D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */,
+				D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -304,10 +313,13 @@
 			files = (
 				D4E3441B20BD8BE300ADF70F /* FeedViewController.swift in Sources */,
 				D4E3445220BE2ACB00ADF70F /* MainCoordinator.swift in Sources */,
+				D4C6309220BEE25C00CFEC6F /* ActionsProtocols.swift in Sources */,
+				D4C6309620BEE80800CFEC6F /* TestData.swift in Sources */,
 				D4E3444E20BDDB4B00ADF70F /* FeedTableViewCell.swift in Sources */,
 				D4E3445020BE266900ADF70F /* CoordinatorProtocols.swift in Sources */,
 				D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */,
 				D4E3441920BD8BE300ADF70F /* AppDelegate.swift in Sources */,
+				D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */,
 				D4E3444820BDAEFE00ADF70F /* GenericDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,7 +30,7 @@ final class FriendListViewController: UIViewController, Storyboarded {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "FriendList"
+        navigationController?.navigationBar.topItem?.title = "Friends List"
     }
 
     override func viewDidLoad() {

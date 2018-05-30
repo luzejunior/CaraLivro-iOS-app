@@ -8,7 +8,8 @@
 
 import UIKit
 
-final class MainCoordinator: Coordinator, FeedViewControllerActions {
+final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfileViewControllerActions {
+
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
@@ -22,10 +23,26 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions {
         push(feed, animated: true)
     }
 
-    func didTouchFriendList() {
+    func didTouchProfileButton(userToDisplay: UserDetails) {
+        let userProfile = UserProfileViewController.instantiate()
+        let userProfilePresenter = UserProfileViewControllerPresenter(with: userProfile, currentUser: userToDisplay)
+        userProfile.presenter = userProfilePresenter
+        userProfile.coordinator = self
+        push(userProfile, animated: true)
+    }
+
+    func didTouchFriendListButton() {
         let friendList = FriendListViewController.instantiate()
         friendList.coordinator = self
         push(friendList, animated: true)
+    }
+
+    func didTouchGroupsButton() {
+
+    }
+
+    func didTouchPostButton() {
+
     }
 
     private func push(_ viewController: UIViewController?, animated: Bool = false) {

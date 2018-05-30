@@ -52,10 +52,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWE-yo-Wvr">
                                 <rect key="frame" x="0.0" y="0.0" width="162.5" height="26"/>
                                 <state key="normal" title="Like"/>
+                                <connections>
+                                    <action selector="likeButtonTouched:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="rkC-8q-nph"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hs-h0-ajQ">
                                 <rect key="frame" x="180.5" y="0.0" width="162.5" height="26"/>
                                 <state key="normal" title="Comments"/>
+                                <connections>
+                                    <action selector="commentButtonTouched:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="0p1-o0-Gvx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

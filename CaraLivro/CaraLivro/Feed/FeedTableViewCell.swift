@@ -18,6 +18,14 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
 
+    @IBAction func likeButtonTouched(_ sender: Any) {
+        print("Liked")
+    }
+
+    @IBAction func commentButtonTouched(_ sender: Any) {
+        print("commented")
+    }
+
     func load(presenter: FeedTableViewCellPresenter) {
         self.presenter = presenter
         configureView()
@@ -40,9 +48,9 @@ final class FeedTableViewCellPresenter: UITableViewModels {
     var userImage: String?
     var userContent: String?
 
-    init(userDetails: UserDetails) {
-        userName = userDetails.userName
-        userImage = userDetails.userImage
-        userContent = userDetails.textContent
+    init(textPost: TextPost) {
+        userName = textPost.userPosted?.userName
+        userImage = textPost.userPosted?.userImage
+        userContent = textPost.contentText
     }
 }

@@ -8,22 +8,7 @@
 
 import UIKit
 
-struct UserDetails {
-    var userName: String?
-    var userImage: String?
-    var textContent: String?
-
-    init(name: String, content: String, imageName: String) {
-        userName = name
-        userImage = imageName
-        textContent = content
-    }
-}
-
-protocol FeedViewControllerActions {
-    func didTouchFriendList()
-}
-
+// PRESENTER
 final class FeedViewControllerPresenter {
     var dataSource = GenericDataSource()
     private var view: FeedViewController?
@@ -33,17 +18,16 @@ final class FeedViewControllerPresenter {
     }
 
     func fetchData() {
-        var user1 = UserDetails(name: "Luzenildo", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus lacus in lorem tristique, tristique gravida ex pellentesque. Proin tristique, eros ut lobortis luctus, erat odio ultricies lacus, sit amet gravida est risus non turpis. Cras odio mi, sagittis at convallis non, ultricies eu nulla.", imageName: "luzenildo")
-        var user2 = UserDetails(name: "Luan", content: "Quisque sit amet massa sem. Mauris euismod sit amet nibh volutpat commodo.", imageName: "luan")
-
-        let tableContent1 = FeedTableViewCellPresenter(userDetails: user1)
-        dataSource.items.append(tableContent1)
-        let tableContent2 = FeedTableViewCellPresenter(userDetails: user2)
-        dataSource.items.append(tableContent2)
+        dataSource.items.removeAll()
+        for item in testPosts {
+            let tableContent1 = FeedTableViewCellPresenter(textPost: item)
+            dataSource.items.append(tableContent1)
+        }
         view?.finishedFetching()
     }
 }
 
+// CONTROLLER
 final class FeedViewController: UIViewController, Storyboarded {
     @IBOutlet weak var tableView: UITableView!{
         didSet {
@@ -75,7 +59,7 @@ final class FeedViewController: UIViewController, Storyboarded {
     }
 
     @objc func friendListButtonAction() {
-        coordinator?.didTouchFriendList()
+        coordinator?.didTouchProfileButton(userToDisplay: testUsers[0])
     }
 
     func finishedFetching() {
