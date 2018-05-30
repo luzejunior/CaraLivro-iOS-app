@@ -17,6 +17,8 @@
 		D4E3444820BDAEFE00ADF70F /* GenericDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3444720BDAEFE00ADF70F /* GenericDataSource.swift */; };
 		D4E3444C20BDDB3200ADF70F /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E3444B20BDDB3200ADF70F /* FeedTableViewCell.xib */; };
 		D4E3444E20BDDB4B00ADF70F /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3444D20BDDB4B00ADF70F /* FeedTableViewCell.swift */; };
+		D4E3445020BE266900ADF70F /* CoordinatorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3444F20BE266900ADF70F /* CoordinatorProtocols.swift */; };
+		D4E3445220BE2ACB00ADF70F /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3445120BE2ACB00ADF70F /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		D4E3444720BDAEFE00ADF70F /* GenericDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataSource.swift; sourceTree = "<group>"; };
 		D4E3444B20BDDB3200ADF70F /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		D4E3444D20BDDB4B00ADF70F /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		D4E3444F20BE266900ADF70F /* CoordinatorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocols.swift; sourceTree = "<group>"; };
+		D4E3445120BE2ACB00ADF70F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +110,6 @@
 				D4E3444920BDDB0A00ADF70F /* Feed */,
 				D4E3444620BDAEE400ADF70F /* Core */,
 				D4E3441820BD8BE300ADF70F /* AppDelegate.swift */,
-				D4E3441A20BD8BE300ADF70F /* ViewController.swift */,
-				D4E3441C20BD8BE300ADF70F /* Main.storyboard */,
 				D4E3441F20BD8BE300ADF70F /* Assets.xcassets */,
 				D4E3442120BD8BE300ADF70F /* LaunchScreen.storyboard */,
 				D4E3442420BD8BE300ADF70F /* Info.plist */,
@@ -137,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				D4E3444720BDAEFE00ADF70F /* GenericDataSource.swift */,
+				D4E3444F20BE266900ADF70F /* CoordinatorProtocols.swift */,
+				D4E3445120BE2ACB00ADF70F /* MainCoordinator.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -144,6 +148,8 @@
 		D4E3444920BDDB0A00ADF70F /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				D4E3441C20BD8BE300ADF70F /* Main.storyboard */,
+				D4E3441A20BD8BE300ADF70F /* ViewController.swift */,
 				D4E3444B20BDDB3200ADF70F /* FeedTableViewCell.xib */,
 				D4E3444D20BDDB4B00ADF70F /* FeedTableViewCell.swift */,
 			);
@@ -286,7 +292,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4E3441B20BD8BE300ADF70F /* ViewController.swift in Sources */,
+				D4E3445220BE2ACB00ADF70F /* MainCoordinator.swift in Sources */,
 				D4E3444E20BDDB4B00ADF70F /* FeedTableViewCell.swift in Sources */,
+				D4E3445020BE266900ADF70F /* CoordinatorProtocols.swift in Sources */,
 				D4E3441920BD8BE300ADF70F /* AppDelegate.swift in Sources */,
 				D4E3444820BDAEFE00ADF70F /* GenericDataSource.swift in Sources */,
 			);

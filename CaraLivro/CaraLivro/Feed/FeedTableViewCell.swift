@@ -6,7 +6,6 @@
 //  Copyright © 2018 Luzenildo Junior. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 final class FeedTableViewCell: UITableViewCell, UITableViewContent {

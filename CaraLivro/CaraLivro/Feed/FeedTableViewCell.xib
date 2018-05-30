@@ -55,7 +55,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hs-h0-ajQ">
                                 <rect key="frame" x="180.5" y="0.0" width="162.5" height="26"/>
-                                <state key="normal" title="Comment"/>
+                                <state key="normal" title="Comments"/>
                             </button>
                         </subviews>
                         <constraints>

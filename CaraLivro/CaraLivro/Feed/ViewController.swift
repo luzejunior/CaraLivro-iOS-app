@@ -20,7 +20,7 @@ struct UserDetails {
     }
 }
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!{
         didSet {
