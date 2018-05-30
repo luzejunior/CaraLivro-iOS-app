@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MainCoordinator: Coordinator {
+final class MainCoordinator: Coordinator, FeedViewControllerActions {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
@@ -17,8 +17,15 @@ final class MainCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = ViewController.instantiate()
-        push(vc, animated: true)
+        let feed = FeedViewController.instantiate()
+        feed.coordinator = self
+        push(feed, animated: true)
+    }
+
+    func didTouchFriendList() {
+        let friendList = FriendListViewController.instantiate()
+        friendList.coordinator = self
+        push(friendList, animated: true)
     }
 
     private func push(_ viewController: UIViewController?, animated: Bool = false) {
@@ -27,5 +34,4 @@ final class MainCoordinator: Coordinator {
         }
         navigationController.pushViewController(viewController, animated: animated)
     }
-
 }

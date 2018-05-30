@@ -19,17 +19,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L10-QI-1Bf">
-                                <rect key="frame" x="19" y="43.5" width="337.5" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L10-QI-1Bf">
+                                <rect key="frame" x="0.5" y="66.5" width="375" height="600.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="L10-QI-1Bf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="94M-N3-c9w"/>
+                            <constraint firstItem="L10-QI-1Bf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="94M-N3-c9w"/>
                             <constraint firstItem="L10-QI-1Bf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cct-qq-akD"/>
-                            <constraint firstItem="L10-QI-1Bf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.9" id="LWd-KK-VnS"/>
-                            <constraint firstItem="L10-QI-1Bf" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Oii-F3-R0T"/>
+                            <constraint firstItem="L10-QI-1Bf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.9" id="d7v-YC-Id2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L10-QI-1Bf" secondAttribute="bottom" id="s5q-3c-Abf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +40,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Friend List View Controller-->
+        <scene sceneID="rYp-Az-h4n">
+            <objects>
+                <viewController storyboardIdentifier="FriendListViewController" id="NnP-sA-TvX" customClass="FriendListViewController" customModule="CaraLivro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e8U-6d-3O6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="JSy-ct-b3w"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A5Z-Bb-Rsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="136"/>
         </scene>
     </scenes>
 </document>

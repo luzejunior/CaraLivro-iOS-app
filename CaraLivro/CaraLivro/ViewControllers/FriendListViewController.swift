@@ -7,3 +7,33 @@
 //
 
 import Foundation
+import UIKit
+
+final class FriendListViewControllerPresenter {
+    var dataSource = GenericDataSource()
+    private var view: FriendListViewController?
+
+    init(with view: FriendListViewController) {
+        self.view = view
+    }
+}
+
+final class FriendListViewController: UIViewController, Storyboarded {
+
+    var presenter: FriendListViewControllerPresenter?
+    var coordinator: Coordinator?
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        presenter = FriendListViewControllerPresenter(with: self)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBar.topItem?.title = "FriendList"
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
