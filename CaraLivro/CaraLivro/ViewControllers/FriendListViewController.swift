@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// PRESENTER
 final class FriendListViewControllerPresenter {
     var dataSource = GenericDataSource()
     private var view: FriendListViewController?
@@ -16,10 +17,27 @@ final class FriendListViewControllerPresenter {
     init(with view: FriendListViewController) {
         self.view = view
     }
+    
+    func fetchData() {
+        dataSource.items.removeAll()
+        for item in testUsers {
+            let tableContent1 = FriendListTableViewCellPresenter(userDetails: item)
+            dataSource.items.append(tableContent1)
+        }
+        view?.finishedFetching()
+    }
 }
 
+// CONTROLLER
 final class FriendListViewController: UIViewController, Storyboarded {
-
+    @IBOutlet weak var tableView: UITableView!{
+        didSet {
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.backgroundColor = UIColor.clear
+            RegisterCells()
+        }
+    }
+    
     var presenter: FriendListViewControllerPresenter?
     var coordinator: Coordinator?
 
@@ -31,9 +49,19 @@ final class FriendListViewController: UIViewController, Storyboarded {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Friends List"
+        presenter?.fetchData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = presenter?.dataSource
+    }
+    
+    func finishedFetching() {
+        tableView.reloadData()
+    }
+    
+    func RegisterCells() {
+        tableView.register(FriendListTableViewCell.self)
     }
 }
