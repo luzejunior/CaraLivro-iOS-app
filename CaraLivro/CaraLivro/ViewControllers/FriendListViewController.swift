@@ -49,11 +49,11 @@ final class FriendListViewController: UIViewController, Storyboarded {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Friends List"
-        presenter?.fetchData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.fetchData()
         tableView.dataSource = presenter?.dataSource
     }
     

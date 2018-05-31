@@ -48,11 +48,11 @@ final class FeedViewController: UIViewController, Storyboarded {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Feed"
-        presenter?.fetchData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.fetchData()
         let button1 = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.friendListButtonAction))
         self.navigationItem.rightBarButtonItem  = button1
         tableView.dataSource = presenter?.dataSource
