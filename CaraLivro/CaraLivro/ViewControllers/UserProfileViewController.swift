@@ -49,6 +49,7 @@ final class UserProfileViewController: UIViewController, Storyboarded {
     }
 
     @IBAction func groupsButton(_ sender: Any) {
+        coordinator?.didTouchGroupsButton()
     }
 
     @IBAction func postButton(_ sender: Any) {

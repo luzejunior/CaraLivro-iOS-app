@@ -33,12 +33,18 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
 
     func didTouchFriendListButton() {
         let friendList = FriendListViewController.instantiate()
+        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .friends)
+        friendList.presenter = friendListPresenter
         friendList.coordinator = self
         push(friendList, animated: true)
     }
 
     func didTouchGroupsButton() {
-
+        let friendList = FriendListViewController.instantiate()
+        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .groups)
+        friendList.presenter = friendListPresenter
+        friendList.coordinator = self
+        push(friendList, animated: true)
     }
 
     func didTouchPostButton() {

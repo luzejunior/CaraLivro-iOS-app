@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum ListType {
+    case friends, groups
+}
+
 final class FriendListTableViewCell: UITableViewCell, UITableViewContent {
     
     weak var presenter: FriendListTableViewCellPresenter?
@@ -23,7 +27,9 @@ final class FriendListTableViewCell: UITableViewCell, UITableViewContent {
     func configureView() {
         userName.text = presenter?.userName
         userImage.image = UIImage(named: presenter?.userImage ?? "")
-        
+        if presenter?.listType == .groups {
+            userImage.isHidden = true
+        }
     }
 }
 
@@ -34,9 +40,16 @@ final class FriendListTableViewCellPresenter: UITableViewModels {
     
     var userName: String?
     var userImage: String?
+    var listType: ListType?
     
     init(userDetails: UserDetails) {
         userName = userDetails.userName
         userImage = userDetails.userImage
+        listType = .friends
+    }
+
+    init(groupDetails: GroupsDetails) {
+        userName = groupDetails.groupName
+        listType = .groups
     }
 }

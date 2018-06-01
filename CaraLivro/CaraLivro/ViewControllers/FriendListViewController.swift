@@ -13,16 +13,27 @@ import UIKit
 final class FriendListViewControllerPresenter {
     var dataSource = GenericDataSource()
     private var view: FriendListViewController?
+    var listType: ListType?
 
-    init(with view: FriendListViewController) {
+    init(with view: FriendListViewController, listType: ListType) {
         self.view = view
+        self.listType = listType
+
     }
     
     func fetchData() {
         dataSource.items.removeAll()
-        for item in testUsers {
-            let tableContent1 = FriendListTableViewCellPresenter(userDetails: item)
-            dataSource.items.append(tableContent1)
+        if listType == .friends {
+            for item in testUsers {
+                let tableContent1 = FriendListTableViewCellPresenter(userDetails: item)
+                dataSource.items.append(tableContent1)
+            }
+        }
+        if listType == .groups {
+            for item in groupList {
+                let tableContent1 = FriendListTableViewCellPresenter(groupDetails: item)
+                dataSource.items.append(tableContent1)
+            }
         }
         view?.finishedFetching()
     }
@@ -41,14 +52,13 @@ final class FriendListViewController: UIViewController, Storyboarded {
     var presenter: FriendListViewControllerPresenter?
     var coordinator: Coordinator?
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        presenter = FriendListViewControllerPresenter(with: self)
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "Friends List"
+        if presenter?.listType == .friends {
+            navigationController?.navigationBar.topItem?.title = "Friends List"
+        } else {
+            navigationController?.navigationBar.topItem?.title = "Groups List"
+        }
     }
 
     override func viewDidLoad() {
