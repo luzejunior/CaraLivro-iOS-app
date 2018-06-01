@@ -38,6 +38,18 @@ struct TextPost {
     }
 }
 
+struct ImagePost {
+    var contentText: String?
+    var imageName: String?
+    var userPosted: UserDetails?
+
+    init(content: String, image: String, user: UserDetails) {
+        contentText = content
+        imageName = image
+        userPosted = user
+    }
+}
+
 let user1 = UserDetails(name: "Luzenildo", email: "luzenildo@email.cu", imageName: "luzenildo")
 let user2 = UserDetails(name: "Luan", email: "luanviadao@email.cu", imageName: "luan")
 let testUsers: [UserDetails] = [user1, user2]
@@ -46,6 +58,9 @@ let post1 = TextPost(content: "Lorem ipsum dolor sit amet, consectetur adipiscin
 let post2 = TextPost(content: "Quisque sit amet massa sem. Mauris euismod sit amet nibh volutpat commodo.", user: user2)
 let post3 = TextPost(content: "Texto do tamanho do mundo porque eu to sem paciencia pra escrever texto aqui, meu Deus pensa num trabalho trabalhoso.", user: user1)
 let testPosts: [TextPost] = [post1, post2, post3]
+
+let textPost1 = ImagePost(content: "Imagem linda e maravilhosa", image: "photo", user: user1)
+let imagePosts: [ImagePost] = [textPost1]
 
 let group1 = GroupsDetails(name: "Amamos Alan")
 let group2 = GroupsDetails(name: "BD é Vida")

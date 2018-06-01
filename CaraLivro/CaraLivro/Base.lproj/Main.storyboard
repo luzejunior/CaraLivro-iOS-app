@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,6 @@
         <!--Feed View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FeedViewController" id="BYZ-38-t0r" customClass="FeedViewController" customModule="CaraLivro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -38,6 +37,7 @@
                         <outlet property="tableView" destination="L10-QI-1Bf" id="aKK-tR-iu6"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
@@ -142,10 +142,68 @@
             </objects>
             <point key="canvasLocation" x="1501.5999999999999" y="133.5832083958021"/>
         </scene>
+        <!--Commentaries View Controller-->
+        <scene sceneID="cnI-Hz-Sb9">
+            <objects>
+                <viewController storyboardIdentifier="CommentariesViewController" id="wUH-4I-XHj" customClass="CommentariesViewController" customModule="CaraLivro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VDK-RP-Tkf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eCg-tS-F6Q">
+                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eCg-tS-F6Q" firstAttribute="height" secondItem="VDK-RP-Tkf" secondAttribute="height" id="MbP-Jt-l7N"/>
+                            <constraint firstItem="eCg-tS-F6Q" firstAttribute="centerY" secondItem="Spe-Ql-gqf" secondAttribute="centerY" id="WqB-Na-hjD"/>
+                            <constraint firstItem="eCg-tS-F6Q" firstAttribute="width" secondItem="VDK-RP-Tkf" secondAttribute="width" id="tJp-hD-cLC"/>
+                            <constraint firstItem="eCg-tS-F6Q" firstAttribute="centerX" secondItem="Spe-Ql-gqf" secondAttribute="centerX" id="zoO-Jx-5Q0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Spe-Ql-gqf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WAe-wc-0Su" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2186.4000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Create Post View Controller-->
+        <scene sceneID="ntj-Bb-nJB">
+            <objects>
+                <viewController storyboardIdentifier="CreatePostViewController" id="CkY-nD-Agj" customClass="CreatePostViewController" customModule="CaraLivro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mnI-HI-F05">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GMF-3W-blQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEe-gG-ChU">
+                                <rect key="frame" x="251" y="617" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Image"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="o7r-KG-VeF"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputText" destination="GMF-3W-blQ" id="kW5-4r-dK5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MeN-0T-dLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2868" y="133.5832083958021"/>
+        </scene>
         <!--Friend List View Controller-->
         <scene sceneID="CbM-Ue-Fin">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ts6-su-CPA" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FriendListViewController" id="P2n-os-G2j" customClass="FriendListViewController" customModule="CaraLivro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OAh-Nh-PkU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -169,6 +227,7 @@
                         <outlet property="tableView" destination="Fql-ff-iOi" id="OzL-ov-vG4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ts6-su-CPA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="814" y="134"/>
         </scene>

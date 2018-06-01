@@ -13,6 +13,11 @@
 		D4C6309220BEE25C00CFEC6F /* ActionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */; };
 		D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */; };
 		D4C6309620BEE80800CFEC6F /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309520BEE80800CFEC6F /* TestData.swift */; };
+		D4C6309820C1E31800CFEC6F /* FeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309720C1E31800CFEC6F /* FeedImageTableViewCell.swift */; };
+		D4C6309A20C1E32700CFEC6F /* FeedImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C6309920C1E32700CFEC6F /* FeedImageTableViewCell.xib */; };
+		D4C6309C20C1EBF400CFEC6F /* CommentariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309B20C1EBF400CFEC6F /* CommentariesViewController.swift */; };
+		D4C6309E20C1ED2800CFEC6F /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309D20C1ED2800CFEC6F /* CreatePostViewController.swift */; };
+		D4C630A020C1EEFA00CFEC6F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309F20C1EEFA00CFEC6F /* Extensions.swift */; };
 		D4E3441920BD8BE300ADF70F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3441820BD8BE300ADF70F /* AppDelegate.swift */; };
 		D4E3441B20BD8BE300ADF70F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3441A20BD8BE300ADF70F /* FeedViewController.swift */; };
 		D4E3441E20BD8BE300ADF70F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E3441C20BD8BE300ADF70F /* Main.storyboard */; };
@@ -51,6 +56,11 @@
 		D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsProtocols.swift; sourceTree = "<group>"; };
 		D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		D4C6309520BEE80800CFEC6F /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		D4C6309720C1E31800CFEC6F /* FeedImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageTableViewCell.swift; sourceTree = "<group>"; };
+		D4C6309920C1E32700CFEC6F /* FeedImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedImageTableViewCell.xib; sourceTree = "<group>"; };
+		D4C6309B20C1EBF400CFEC6F /* CommentariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentariesViewController.swift; sourceTree = "<group>"; };
+		D4C6309D20C1ED2800CFEC6F /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		D4C6309F20C1EEFA00CFEC6F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D4E3441520BD8BE300ADF70F /* CaraLivro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaraLivro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E3441820BD8BE300ADF70F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4E3441A20BD8BE300ADF70F /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +177,7 @@
 				D4E3445120BE2ACB00ADF70F /* MainCoordinator.swift */,
 				D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */,
 				D4C6309520BEE80800CFEC6F /* TestData.swift */,
+				D4C6309F20C1EEFA00CFEC6F /* Extensions.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -176,6 +187,8 @@
 			children = (
 				D4E3444B20BDDB3200ADF70F /* FeedTableViewCell.xib */,
 				D4E3444D20BDDB4B00ADF70F /* FeedTableViewCell.swift */,
+				D4C6309920C1E32700CFEC6F /* FeedImageTableViewCell.xib */,
+				D4C6309720C1E31800CFEC6F /* FeedImageTableViewCell.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -186,6 +199,8 @@
 				D4E3441A20BD8BE300ADF70F /* FeedViewController.swift */,
 				D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */,
 				D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */,
+				D4C6309B20C1EBF400CFEC6F /* CommentariesViewController.swift */,
+				D4C6309D20C1ED2800CFEC6F /* CreatePostViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -300,6 +315,7 @@
 				D4E3442320BD8BE300ADF70F /* LaunchScreen.storyboard in Resources */,
 				D4E3444C20BDDB3200ADF70F /* FeedTableViewCell.xib in Resources */,
 				D4E3442020BD8BE300ADF70F /* Assets.xcassets in Resources */,
+				D4C6309A20C1E32700CFEC6F /* FeedImageTableViewCell.xib in Resources */,
 				D4E3441E20BD8BE300ADF70F /* Main.storyboard in Resources */,
 				ACDBCB1020BF28270034AA70 /* FriendListTableViewCell.xib in Resources */,
 			);
@@ -334,7 +350,11 @@
 				D4E3445020BE266900ADF70F /* CoordinatorProtocols.swift in Sources */,
 				D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */,
 				ACDBCB1220BF28570034AA70 /* FriendListTableViewCell.swift in Sources */,
+				D4C6309E20C1ED2800CFEC6F /* CreatePostViewController.swift in Sources */,
 				D4E3441920BD8BE300ADF70F /* AppDelegate.swift in Sources */,
+				D4C630A020C1EEFA00CFEC6F /* Extensions.swift in Sources */,
+				D4C6309C20C1EBF400CFEC6F /* CommentariesViewController.swift in Sources */,
+				D4C6309820C1E31800CFEC6F /* FeedImageTableViewCell.swift in Sources */,
 				D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */,
 				D4E3444820BDAEFE00ADF70F /* GenericDataSource.swift in Sources */,
 			);

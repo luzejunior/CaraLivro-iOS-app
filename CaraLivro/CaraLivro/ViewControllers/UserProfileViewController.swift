@@ -27,12 +27,19 @@ final class UserProfileViewControllerPresenter {
                 dataSource.items.append(tableContent)
             }
         }
+        for item in imagePosts {
+            if item.userPosted?.userName == currentUser?.userName {
+                let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
+                dataSource.items.append(tableContent)
+            }
+        }
         view?.finishedFetching()
     }
 }
 
 // CONTROLLER
 final class UserProfileViewController: UIViewController, Storyboarded, MoreOptionsConform {
+
     @IBOutlet weak var tableView: UITableView!{
         didSet {
             tableView.rowHeight = UITableViewAutomaticDimension
@@ -53,6 +60,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
     }
 
     @IBAction func postButton(_ sender: Any) {
+        coordinator?.didTouchPostButton()
     }
     
     public func presentUIAlert() {
@@ -83,6 +91,10 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         presenter?.fetchData()
     }
 
+    func openCommentaries() {
+        coordinator?.didTouchCommentariesButton()
+    }
+
     func configureUser() {
         userImage.image = UIImage(named: presenter?.currentUser?.userImage ?? "")
         userName.text = presenter?.currentUser?.userName ?? ""
@@ -95,5 +107,6 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
 
     func RegisterCells() {
         tableView.register(FeedTableViewCell.self)
+        tableView.register(FeedImageTableViewCell.self)
     }
 }

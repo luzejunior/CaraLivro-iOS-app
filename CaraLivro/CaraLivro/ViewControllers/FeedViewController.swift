@@ -23,6 +23,10 @@ final class FeedViewControllerPresenter {
             let tableContent1 = FeedTableViewCellPresenter(textPost: item, view: view!)
             dataSource.items.append(tableContent1)
         }
+        for item in imagePosts {
+            let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
+            dataSource.items.append(tableContent)
+        }
         view?.finishedFetching()
     }
 }
@@ -71,6 +75,10 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         tableView.dataSource = presenter?.dataSource
     }
 
+    func openCommentaries() {
+        coordinator?.didTouchCommentariesButton()
+    }
+
     @objc func friendListButtonAction() {
         coordinator?.didTouchProfileButton(userToDisplay: testUsers[0])
     }
@@ -81,6 +89,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
 
     func RegisterCells() {
         tableView.register(FeedTableViewCell.self)
+        tableView.register(FeedImageTableViewCell.self)
     }
 }
 

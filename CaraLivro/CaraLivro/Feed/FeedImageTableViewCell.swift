@@ -1,22 +1,24 @@
 //
-//  FeedTableViewCell.swift
+//  Cell.swift
 //  CaraLivro
 //
-//  Created by Luzenildo Junior on 29/05/18.
+//  Created by Luzenildo Junior on 01/06/18.
 //  Copyright © 2018 Luzenildo Junior. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-final class FeedTableViewCell: UITableViewCell, UITableViewContent {
+final class FeedImageTableViewCell: UITableViewCell, UITableViewContent {
 
-    weak var presenter: FeedTableViewCellPresenter?
+    weak var presenter: FeedImageTableViewCellPresenter?
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var imagem: UIImageView!
 
     @IBAction func likeButtonTouched(_ sender: Any) {
         print("Liked")
@@ -30,12 +32,8 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
         presenter?.view?.presentUIAlert()
     }
 
-    @IBAction func didTuchCommentaries(_ sender: Any) {
-        presenter?.view?.openCommentaries()
-    }
 
-    
-    func load(presenter: FeedTableViewCellPresenter) {
+    func load(presenter: FeedImageTableViewCellPresenter) {
         self.presenter = presenter
         configureView()
     }
@@ -43,24 +41,27 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
     func configureView() {
         userName.text = presenter?.userName
         userImage.image = UIImage(named: presenter?.userImage ?? "")
+        imagem.image = UIImage(named: presenter?.imageName ?? "")
         contentLabel.text = presenter?.userContent
 
     }
 }
 
-final class FeedTableViewCellPresenter: UITableViewModels {
+final class FeedImageTableViewCellPresenter: UITableViewModels {
     var representable: UITableViewRepresentable {
-        return UITableViewContentAssembler<FeedTableViewCell>(presenter: self)
+        return UITableViewContentAssembler<FeedImageTableViewCell>(presenter: self)
     }
 
     var userName: String?
     var userImage: String?
     var userContent: String?
+    var imageName: String?
     var view: MoreOptionsConform?
 
-    init(textPost: TextPost, view: MoreOptionsConform) {
+    init(textPost: ImagePost, view: MoreOptionsConform) {
         userName = textPost.userPosted?.userName
         userImage = textPost.userPosted?.userImage
+        imageName = textPost.imageName
         userContent = textPost.contentText
         self.view = view
     }

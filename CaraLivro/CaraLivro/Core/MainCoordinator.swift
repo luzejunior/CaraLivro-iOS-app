@@ -31,6 +31,11 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         push(userProfile, animated: true)
     }
 
+    func didTouchCommentariesButton() {
+        let commentaries = CommentariesViewController.instantiate()
+        push(commentaries, animated: true)
+    }
+
     func didTouchFriendListButton() {
         let friendList = FriendListViewController.instantiate()
         let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .friends)
@@ -48,7 +53,8 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     }
 
     func didTouchPostButton() {
-
+        let createPost = CreatePostViewController.instantiate()
+        push(createPost, animated: true)
     }
 
     private func push(_ viewController: UIViewController?, animated: Bool = false) {

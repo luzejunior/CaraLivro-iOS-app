@@ -8,11 +8,12 @@
 
 import Foundation
 
-protocol FeedViewControllerActions {
+protocol FeedViewControllerActions: CommentariesButtonProtocol {
     func didTouchProfileButton(userToDisplay: UserDetails)
+    func didTouchCommentariesButton()
 }
 
-protocol UserProfileViewControllerActions: postButtonProtocol {
+protocol UserProfileViewControllerActions: postButtonProtocol, CommentariesButtonProtocol {
     func didTouchFriendListButton()
     func didTouchGroupsButton()
 }
@@ -23,4 +24,9 @@ protocol postButtonProtocol {
 
 protocol MoreOptionsConform {
     func presentUIAlert()
+    func openCommentaries()
+}
+
+protocol CommentariesButtonProtocol {
+    func didTouchCommentariesButton()
 }
