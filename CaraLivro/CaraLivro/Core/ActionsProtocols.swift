@@ -20,3 +20,7 @@ protocol UserProfileViewControllerActions: postButtonProtocol {
 protocol postButtonProtocol {
     func didTouchPostButton()
 }
+
+protocol MoreOptionsConform {
+    func presentUIAlert()
+}

@@ -19,6 +19,10 @@ final class FriendListTableViewCell: UITableViewCell, UITableViewContent {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
+    @IBAction func moreOptions(_ sender: Any) {
+        presenter?.view?.presentUIAlert()
+    }
+    
     func load(presenter: FriendListTableViewCellPresenter) {
         self.presenter = presenter
         configureView()
@@ -41,15 +45,18 @@ final class FriendListTableViewCellPresenter: UITableViewModels {
     var userName: String?
     var userImage: String?
     var listType: ListType?
+    var view: FriendListViewController?
     
-    init(userDetails: UserDetails) {
+    init(userDetails: UserDetails, view: FriendListViewController) {
         userName = userDetails.userName
         userImage = userDetails.userImage
         listType = .friends
+        self.view = view
     }
 
-    init(groupDetails: GroupsDetails) {
+    init(groupDetails: GroupsDetails, view: FriendListViewController) {
         userName = groupDetails.groupName
         listType = .groups
+        self.view = view
     }
 }

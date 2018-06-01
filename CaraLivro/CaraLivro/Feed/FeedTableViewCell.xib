@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -41,23 +33,23 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="User:Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWw-q6-3on">
-                        <rect key="frame" x="16" y="74" width="343" height="17"/>
+                        <rect key="frame" x="16" y="74" width="343" height="13"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QXA-km-WJR">
-                        <rect key="frame" x="16" y="99" width="343" height="26"/>
+                        <rect key="frame" x="16" y="95" width="343" height="30"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWE-yo-Wvr">
-                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="26"/>
+                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="30"/>
                                 <state key="normal" title="Like"/>
                                 <connections>
                                     <action selector="likeButtonTouched:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="rkC-8q-nph"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hs-h0-ajQ">
-                                <rect key="frame" x="180.5" y="0.0" width="162.5" height="26"/>
+                                <rect key="frame" x="180.5" y="0.0" width="162.5" height="30"/>
                                 <state key="normal" title="Comments"/>
                                 <connections>
                                     <action selector="commentButtonTouched:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="0p1-o0-Gvx"/>
@@ -69,6 +61,17 @@
                             <constraint firstItem="6Hs-h0-ajQ" firstAttribute="centerY" secondItem="QXA-km-WJR" secondAttribute="centerY" id="aFu-bi-ZB4"/>
                         </constraints>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-vE-5vR">
+                        <rect key="frame" x="349" y="6" width="19" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                        <state key="normal" title="•••">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                        <connections>
+                            <action selector="moreOptions:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="clG-Kx-W3N"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="LmW-NC-5mx" firstAttribute="top" secondItem="sXO-TD-A5B" secondAttribute="topMargin" id="8A4-BV-Tmc"/>

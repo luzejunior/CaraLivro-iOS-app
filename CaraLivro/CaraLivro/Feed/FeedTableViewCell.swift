@@ -26,6 +26,11 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
         print("commented")
     }
 
+    @IBAction func moreOptions(_ sender: Any) {
+        presenter?.view?.presentUIAlert()
+    }
+    
+    
     func load(presenter: FeedTableViewCellPresenter) {
         self.presenter = presenter
         configureView()
@@ -47,10 +52,12 @@ final class FeedTableViewCellPresenter: UITableViewModels {
     var userName: String?
     var userImage: String?
     var userContent: String?
+    var view: MoreOptionsConform?
 
-    init(textPost: TextPost) {
+    init(textPost: TextPost, view: MoreOptionsConform) {
         userName = textPost.userPosted?.userName
         userImage = textPost.userPosted?.userImage
         userContent = textPost.contentText
+        self.view = view
     }
 }

@@ -20,7 +20,7 @@ final class FeedViewControllerPresenter {
     func fetchData() {
         dataSource.items.removeAll()
         for item in testPosts {
-            let tableContent1 = FeedTableViewCellPresenter(textPost: item)
+            let tableContent1 = FeedTableViewCellPresenter(textPost: item, view: view!)
             dataSource.items.append(tableContent1)
         }
         view?.finishedFetching()
@@ -28,7 +28,7 @@ final class FeedViewControllerPresenter {
 }
 
 // CONTROLLER
-final class FeedViewController: UIViewController, Storyboarded {
+final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConform {
     @IBOutlet weak var tableView: UITableView!{
         didSet {
             tableView.rowHeight = UITableViewAutomaticDimension
@@ -50,6 +50,19 @@ final class FeedViewController: UIViewController, Storyboarded {
         navigationController?.navigationBar.topItem?.title = "Feed"
     }
 
+    public func presentUIAlert () {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(alert, animated: true, completion: nil)
+        
+        alert.addAction(UIAlertAction(title: "Apagar", style: .destructive, handler: { action in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Denunciar", style: .default, handler: { action in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.fetchData()

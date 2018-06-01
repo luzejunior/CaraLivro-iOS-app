@@ -23,7 +23,7 @@ final class UserProfileViewControllerPresenter {
     func fetchData() {
         for item in testPosts {
             if item.userPosted?.userName == currentUser?.userName {
-                let tableContent = FeedTableViewCellPresenter(textPost: item)
+                let tableContent = FeedTableViewCellPresenter(textPost: item, view: view!)
                 dataSource.items.append(tableContent)
             }
         }
@@ -32,7 +32,7 @@ final class UserProfileViewControllerPresenter {
 }
 
 // CONTROLLER
-final class UserProfileViewController: UIViewController, Storyboarded {
+final class UserProfileViewController: UIViewController, Storyboarded, MoreOptionsConform {
     @IBOutlet weak var tableView: UITableView!{
         didSet {
             tableView.rowHeight = UITableViewAutomaticDimension
@@ -53,6 +53,19 @@ final class UserProfileViewController: UIViewController, Storyboarded {
     }
 
     @IBAction func postButton(_ sender: Any) {
+    }
+    
+    public func presentUIAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(alert, animated: true, completion: nil)
+        
+        alert.addAction(UIAlertAction(title: "Apagar", style: .destructive, handler: { action in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Denunciar", style: .default, handler: { action in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
     }
 
     var presenter: UserProfileViewControllerPresenter?
