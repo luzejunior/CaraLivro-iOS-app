@@ -76,5 +76,10 @@ extension UITextView: UITextViewDelegate {
         self.resizePlaceholder()
         self.delegate = self
     }
+}
 
+extension UIResponder {
+    func sendAction(_ selector: Selector, sender: Any? = nil) {
+        UIApplication.shared.sendAction(selector, to: nil, from: sender, for: nil)
+    }
 }

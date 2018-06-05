@@ -18,6 +18,7 @@
 		D4C6309C20C1EBF400CFEC6F /* CommentariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309B20C1EBF400CFEC6F /* CommentariesViewController.swift */; };
 		D4C6309E20C1ED2800CFEC6F /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309D20C1ED2800CFEC6F /* CreatePostViewController.swift */; };
 		D4C630A020C1EEFA00CFEC6F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309F20C1EEFA00CFEC6F /* Extensions.swift */; };
+		D4C630A220C701F400CFEC6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C630A120C701F400CFEC6F /* LoginViewController.swift */; };
 		D4E3441920BD8BE300ADF70F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3441820BD8BE300ADF70F /* AppDelegate.swift */; };
 		D4E3441B20BD8BE300ADF70F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3441A20BD8BE300ADF70F /* FeedViewController.swift */; };
 		D4E3441E20BD8BE300ADF70F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E3441C20BD8BE300ADF70F /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		D4C6309B20C1EBF400CFEC6F /* CommentariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentariesViewController.swift; sourceTree = "<group>"; };
 		D4C6309D20C1ED2800CFEC6F /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		D4C6309F20C1EEFA00CFEC6F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D4C630A120C701F400CFEC6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D4E3441520BD8BE300ADF70F /* CaraLivro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaraLivro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E3441820BD8BE300ADF70F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4E3441A20BD8BE300ADF70F /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */,
 				D4C6309B20C1EBF400CFEC6F /* CommentariesViewController.swift */,
 				D4C6309D20C1ED2800CFEC6F /* CreatePostViewController.swift */,
+				D4C630A120C701F400CFEC6F /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				D4E3441920BD8BE300ADF70F /* AppDelegate.swift in Sources */,
 				D4C630A020C1EEFA00CFEC6F /* Extensions.swift in Sources */,
 				D4C6309C20C1EBF400CFEC6F /* CommentariesViewController.swift in Sources */,
+				D4C630A220C701F400CFEC6F /* LoginViewController.swift in Sources */,
 				D4C6309820C1E31800CFEC6F /* FeedImageTableViewCell.swift in Sources */,
 				D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */,
 				D4E3444820BDAEFE00ADF70F /* GenericDataSource.swift in Sources */,

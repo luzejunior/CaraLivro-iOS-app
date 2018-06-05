@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol FriendListViewActions: class {
+    @objc optional func didSelectedFriend(_ sender: FeedTableViewCell)
+}
+
 enum ListType {
     case friends, groups
 }
@@ -22,7 +26,11 @@ final class FriendListTableViewCell: UITableViewCell, UITableViewContent {
     @IBAction func moreOptions(_ sender: Any) {
         presenter?.view?.presentUIAlert()
     }
-    
+
+    @IBAction func didTouchColumn(_ sender: Any) {
+        self.sendAction(#selector(FriendListViewActions.didSelectedFriend(_:)), sender: self)
+    }
+
     func load(presenter: FriendListTableViewCellPresenter) {
         self.presenter = presenter
         configureView()

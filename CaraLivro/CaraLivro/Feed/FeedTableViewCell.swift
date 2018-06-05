@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol FeedTableViewCellActions: class {
+    @objc optional func didTouchUser(_ sender: FeedTableViewCell)
+}
+
 final class FeedTableViewCell: UITableViewCell, UITableViewContent {
 
     weak var presenter: FeedTableViewCellPresenter?
@@ -34,7 +38,10 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
         presenter?.view?.openCommentaries()
     }
 
-    
+    @IBAction func didSelectedUserButton(_ sender: Any) {
+        self.sendAction(#selector(FeedTableViewCellActions.didTouchUser(_:)), sender: self)
+    }
+
     func load(presenter: FeedTableViewCellPresenter) {
         self.presenter = presenter
         configureView()
@@ -53,6 +60,7 @@ final class FeedTableViewCellPresenter: UITableViewModels {
         return UITableViewContentAssembler<FeedTableViewCell>(presenter: self)
     }
 
+    var posterUser: UserDetails?
     var userName: String?
     var userImage: String?
     var userContent: String?
@@ -62,6 +70,7 @@ final class FeedTableViewCellPresenter: UITableViewModels {
         userName = textPost.userPosted?.userName
         userImage = textPost.userPosted?.userImage
         userContent = textPost.contentText
+        posterUser = textPost.userPosted
         self.view = view
     }
 }

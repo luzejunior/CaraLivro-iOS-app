@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfileViewControllerActions {
+final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfileViewControllerActions, FeedTableViewCellActions {
 
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
@@ -18,9 +18,23 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     }
 
     func start() {
+        //presentLogin()
         let feed = FeedViewController.instantiate()
         feed.coordinator = self
         push(feed, animated: true)
+    }
+
+    func presentLogin() {
+        let login = LoginViewController.instantiate()
+        push(login, animated: true)
+    }
+
+    func presentUserPage(user: UserDetails) {
+        let userProfile = UserProfileViewController.instantiate()
+        let userProfilePresenter = UserProfileViewControllerPresenter(with: userProfile, currentUser: user)
+        userProfile.presenter = userProfilePresenter
+        userProfile.coordinator = self
+        push(userProfile, animated: true)
     }
 
     func didTouchProfileButton(userToDisplay: UserDetails) {
@@ -62,5 +76,12 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
             return
         }
         navigationController.pushViewController(viewController, animated: animated)
+    }
+
+    private func present(_ viewController: UIViewController?, animated: Bool = false) {
+        guard let viewController = viewController else {
+            return
+        }
+        navigationController.view.window?.rootViewController?.present(viewController, animated: animated)
     }
 }

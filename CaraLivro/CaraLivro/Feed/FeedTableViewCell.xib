@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -70,9 +71,11 @@
                             <constraint firstItem="6Hs-h0-ajQ" firstAttribute="centerY" secondItem="QXA-km-WJR" secondAttribute="centerY" id="aFu-bi-ZB4"/>
                         </constraints>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-vE-5vR">
-                        <rect key="frame" x="349" y="6" width="19" height="15"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-vE-5vR">
+                        <rect key="frame" x="338" y="6" width="30" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="dL2-md-A2t"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                         <state key="normal" title="•••">
                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -81,21 +84,34 @@
                             <action selector="moreOptions:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="clG-Kx-W3N"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAZ-li-hKi">
+                        <rect key="frame" x="0.0" y="0.0" width="330" height="66"/>
+                        <connections>
+                            <action selector="didSelectedUserButton:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="mJe-LS-SiE"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="LmW-NC-5mx" firstAttribute="top" secondItem="sXO-TD-A5B" secondAttribute="topMargin" id="8A4-BV-Tmc"/>
+                    <constraint firstItem="yAZ-li-hKi" firstAttribute="leading" secondItem="sXO-TD-A5B" secondAttribute="leading" id="AL0-ki-hsW"/>
                     <constraint firstItem="QXA-km-WJR" firstAttribute="leading" secondItem="sXO-TD-A5B" secondAttribute="leadingMargin" id="EXE-jb-bXE"/>
+                    <constraint firstItem="KWw-q6-3on" firstAttribute="top" secondItem="yAZ-li-hKi" secondAttribute="bottom" constant="8" id="Ftw-jT-nqu"/>
                     <constraint firstItem="KWw-q6-3on" firstAttribute="top" secondItem="FpC-AJ-MEM" secondAttribute="bottom" constant="8" id="It5-bn-mzl"/>
                     <constraint firstItem="FpC-AJ-MEM" firstAttribute="leading" secondItem="sXO-TD-A5B" secondAttribute="leadingMargin" id="J6W-Xh-UIH"/>
+                    <constraint firstItem="yAZ-li-hKi" firstAttribute="top" secondItem="sXO-TD-A5B" secondAttribute="top" id="JaJ-eG-qAz"/>
                     <constraint firstItem="QXA-km-WJR" firstAttribute="top" secondItem="KWw-q6-3on" secondAttribute="bottom" constant="8" id="KW3-yg-7Cv"/>
                     <constraint firstItem="KWw-q6-3on" firstAttribute="leading" secondItem="sXO-TD-A5B" secondAttribute="leadingMargin" id="NUH-fO-n2I"/>
+                    <constraint firstAttribute="trailing" secondItem="Inr-vE-5vR" secondAttribute="trailing" constant="7" id="RMN-Oo-xck"/>
                     <constraint firstItem="FpC-AJ-MEM" firstAttribute="top" secondItem="sXO-TD-A5B" secondAttribute="topMargin" id="TvA-qB-Zdp"/>
                     <constraint firstAttribute="trailingMargin" secondItem="KWw-q6-3on" secondAttribute="trailing" id="ZMH-NL-Ffz"/>
                     <constraint firstAttribute="bottomMargin" secondItem="QXA-km-WJR" secondAttribute="bottom" constant="8" id="aM1-or-WLs"/>
                     <constraint firstItem="LmW-NC-5mx" firstAttribute="leading" secondItem="FpC-AJ-MEM" secondAttribute="trailing" constant="8" id="ft3-E6-lg0"/>
                     <constraint firstItem="KWw-q6-3on" firstAttribute="centerX" secondItem="sXO-TD-A5B" secondAttribute="centerX" id="jgM-f8-VAf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="QXA-km-WJR" secondAttribute="trailing" id="lBq-dK-NK4"/>
+                    <constraint firstItem="Inr-vE-5vR" firstAttribute="leading" secondItem="yAZ-li-hKi" secondAttribute="trailing" constant="8" id="p8h-OH-z2F"/>
+                    <constraint firstItem="yAZ-li-hKi" firstAttribute="width" secondItem="sXO-TD-A5B" secondAttribute="width" multiplier="0.88" id="rkH-nG-ql9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="LmW-NC-5mx" secondAttribute="trailing" id="vdc-K8-UD3"/>
+                    <constraint firstItem="Inr-vE-5vR" firstAttribute="top" secondItem="sXO-TD-A5B" secondAttribute="top" constant="6" id="y6S-f0-oBW"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

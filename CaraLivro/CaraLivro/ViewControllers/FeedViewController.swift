@@ -32,7 +32,7 @@ final class FeedViewControllerPresenter {
 }
 
 // CONTROLLER
-final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConform {
+final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConform, FeedTableViewCellActions {
     @IBOutlet weak var tableView: UITableView!{
         didSet {
             tableView.rowHeight = UITableViewAutomaticDimension
@@ -81,6 +81,10 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
 
     @objc func friendListButtonAction() {
         coordinator?.didTouchProfileButton(userToDisplay: testUsers[0])
+    }
+
+    func didTouchUser(_ sender: FeedTableViewCell) {
+        coordinator?.presentUserPage(user: (sender.presenter?.posterUser)!)
     }
 
     func finishedFetching() {

@@ -201,6 +201,60 @@
             </objects>
             <point key="canvasLocation" x="2868" y="133.5832083958021"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="0e6-YP-wAf">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="pNL-NW-oje" customClass="LoginViewController" customModule="CaraLivro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GD7-yS-Ljr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtj-TU-hZU">
+                                <rect key="frame" x="28.5" y="40" width="319" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECIONE UM USUÁRIO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COM-su-80f">
+                                <rect key="frame" x="-0.5" y="69" width="375" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GdX-lv-Y63">
+                                <rect key="frame" x="0.0" y="104" width="375" height="505"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CARA FACE APP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-V4-Mh7">
+                                <rect key="frame" x="0.0" y="629" width="375" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.51429578990000002" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="COM-su-80f" firstAttribute="top" secondItem="Mtj-TU-hZU" secondAttribute="bottom" constant="8" id="37Z-XL-jNi"/>
+                            <constraint firstItem="tdO-V4-Mh7" firstAttribute="centerX" secondItem="dkp-0J-WMn" secondAttribute="centerX" id="6Wr-ha-B1I"/>
+                            <constraint firstItem="GdX-lv-Y63" firstAttribute="top" secondItem="COM-su-80f" secondAttribute="bottom" constant="20" id="7NS-wZ-o78"/>
+                            <constraint firstItem="Mtj-TU-hZU" firstAttribute="width" secondItem="GD7-yS-Ljr" secondAttribute="width" multiplier="0.85" id="D2d-6T-g1d"/>
+                            <constraint firstItem="Mtj-TU-hZU" firstAttribute="top" secondItem="dkp-0J-WMn" secondAttribute="top" constant="20" id="IFK-MY-XRs"/>
+                            <constraint firstItem="tdO-V4-Mh7" firstAttribute="top" secondItem="GdX-lv-Y63" secondAttribute="bottom" constant="20" id="N3e-J8-C0l"/>
+                            <constraint firstItem="Mtj-TU-hZU" firstAttribute="centerX" secondItem="dkp-0J-WMn" secondAttribute="centerX" id="aDx-7Q-FqF"/>
+                            <constraint firstItem="GdX-lv-Y63" firstAttribute="width" secondItem="GD7-yS-Ljr" secondAttribute="width" id="g7r-8x-9tQ"/>
+                            <constraint firstItem="dkp-0J-WMn" firstAttribute="bottom" secondItem="tdO-V4-Mh7" secondAttribute="bottom" constant="20" id="kco-rZ-lOi"/>
+                            <constraint firstItem="COM-su-80f" firstAttribute="width" secondItem="GD7-yS-Ljr" secondAttribute="width" id="oOX-9T-IBw"/>
+                            <constraint firstItem="COM-su-80f" firstAttribute="centerX" secondItem="dkp-0J-WMn" secondAttribute="centerX" id="qfV-s4-3ch"/>
+                            <constraint firstItem="tdO-V4-Mh7" firstAttribute="width" secondItem="GD7-yS-Ljr" secondAttribute="width" id="xTv-K6-3S3"/>
+                            <constraint firstItem="GdX-lv-Y63" firstAttribute="centerX" secondItem="dkp-0J-WMn" secondAttribute="centerX" id="yUY-kd-gED"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dkp-0J-WMn"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ljK-9a-ti3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3540" y="133.5832083958021"/>
+        </scene>
         <!--Friend List View Controller-->
         <scene sceneID="CbM-Ue-Fin">
             <objects>
