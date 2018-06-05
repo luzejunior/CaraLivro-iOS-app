@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5702FDD8EE9EAE3901573C8C /* Pods_CaraLivroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A46E7C4EFF8E8F1A77A5DF9 /* Pods_CaraLivroTests.framework */; };
+		70CA0E106313F2E3B7A3F997 /* Pods_CaraLivro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5165C7F3621468CB9D388956 /* Pods_CaraLivro.framework */; };
 		ACDBCB1020BF28270034AA70 /* FriendListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACDBCB0F20BF28270034AA70 /* FriendListTableViewCell.xib */; };
 		ACDBCB1220BF28570034AA70 /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDBCB1120BF28570034AA70 /* FriendListTableViewCell.swift */; };
+		BEE1FA73B90848219254D29A /* Pods_CaraLivroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC9CC669AE22B394B25408C /* Pods_CaraLivroUITests.framework */; };
 		D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */; };
 		D4C6309220BEE25C00CFEC6F /* ActionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */; };
 		D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */; };
@@ -51,6 +54,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A46E7C4EFF8E8F1A77A5DF9 /* Pods_CaraLivroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CaraLivroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B649930FF74D2EFF2E968C9 /* Pods-CaraLivroUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaraLivroUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CaraLivroUITests/Pods-CaraLivroUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		43C26686374F6CC659D9D381 /* Pods-CaraLivroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaraLivroUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CaraLivroUITests/Pods-CaraLivroUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5165C7F3621468CB9D388956 /* Pods_CaraLivro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CaraLivro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FC9CC669AE22B394B25408C /* Pods_CaraLivroUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CaraLivroUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DDD6A4C56BE7077BCFC0CAA /* Pods-CaraLivro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaraLivro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro.debug.xcconfig"; sourceTree = "<group>"; };
+		A47631F79634347D4AAE7431 /* Pods-CaraLivroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaraLivroTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests.release.xcconfig"; sourceTree = "<group>"; };
 		ACDBCB0F20BF28270034AA70 /* FriendListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListTableViewCell.xib; sourceTree = "<group>"; };
 		ACDBCB1120BF28570034AA70 /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
 		D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +91,8 @@
 		D4E3444D20BDDB4B00ADF70F /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		D4E3444F20BE266900ADF70F /* CoordinatorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocols.swift; sourceTree = "<group>"; };
 		D4E3445120BE2ACB00ADF70F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		D9AB6EDD09B3EF835C2973BF /* Pods-CaraLivroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaraLivroTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F48521F74C0A92DC0EFC511D /* Pods-CaraLivro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaraLivro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70CA0E106313F2E3B7A3F997 /* Pods_CaraLivro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5702FDD8EE9EAE3901573C8C /* Pods_CaraLivroTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,12 +116,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEE1FA73B90848219254D29A /* Pods_CaraLivroUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45536FE3278D007E7A4064AB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD6A4C56BE7077BCFC0CAA /* Pods-CaraLivro.debug.xcconfig */,
+				F48521F74C0A92DC0EFC511D /* Pods-CaraLivro.release.xcconfig */,
+				D9AB6EDD09B3EF835C2973BF /* Pods-CaraLivroTests.debug.xcconfig */,
+				A47631F79634347D4AAE7431 /* Pods-CaraLivroTests.release.xcconfig */,
+				2B649930FF74D2EFF2E968C9 /* Pods-CaraLivroUITests.debug.xcconfig */,
+				43C26686374F6CC659D9D381 /* Pods-CaraLivroUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ACDBCB0E20BF27EC0034AA70 /* FriendList */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +152,8 @@
 				D4E3442C20BD8BE300ADF70F /* CaraLivroTests */,
 				D4E3443720BD8BE300ADF70F /* CaraLivroUITests */,
 				D4E3441620BD8BE300ADF70F /* Products */,
+				45536FE3278D007E7A4064AB /* Pods */,
+				ED8DA12C96E5EC67CE04DF65 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,6 +238,16 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		ED8DA12C96E5EC67CE04DF65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5165C7F3621468CB9D388956 /* Pods_CaraLivro.framework */,
+				1A46E7C4EFF8E8F1A77A5DF9 /* Pods_CaraLivroTests.framework */,
+				5FC9CC669AE22B394B25408C /* Pods_CaraLivroUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,6 +255,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4E3443D20BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivro" */;
 			buildPhases = (
+				080995F9A3D7FAF5A16B131C /* [CP] Check Pods Manifest.lock */,
 				D4E3441120BD8BE300ADF70F /* Sources */,
 				D4E3441220BD8BE300ADF70F /* Frameworks */,
 				D4E3441320BD8BE300ADF70F /* Resources */,
@@ -232,9 +273,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4E3444020BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivroTests" */;
 			buildPhases = (
+				AD6D85B7D06F04C627372D88 /* [CP] Check Pods Manifest.lock */,
 				D4E3442520BD8BE300ADF70F /* Sources */,
 				D4E3442620BD8BE300ADF70F /* Frameworks */,
 				D4E3442720BD8BE300ADF70F /* Resources */,
+				29494A2EF94BA97042210254 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,6 +293,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4E3444320BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivroUITests" */;
 			buildPhases = (
+				AF59B67B19087401325CEA11 /* [CP] Check Pods Manifest.lock */,
 				D4E3443020BD8BE300ADF70F /* Sources */,
 				D4E3443120BD8BE300ADF70F /* Frameworks */,
 				D4E3443220BD8BE300ADF70F /* Resources */,
@@ -339,6 +383,83 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		080995F9A3D7FAF5A16B131C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CaraLivro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29494A2EF94BA97042210254 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD6D85B7D06F04C627372D88 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CaraLivroTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF59B67B19087401325CEA11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CaraLivroUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D4E3441120BD8BE300ADF70F /* Sources */ = {
@@ -528,6 +649,7 @@
 		};
 		D4E3443E20BD8BE300ADF70F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DDD6A4C56BE7077BCFC0CAA /* Pods-CaraLivro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -544,6 +666,7 @@
 		};
 		D4E3443F20BD8BE300ADF70F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F48521F74C0A92DC0EFC511D /* Pods-CaraLivro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -560,6 +683,7 @@
 		};
 		D4E3444120BD8BE300ADF70F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9AB6EDD09B3EF835C2973BF /* Pods-CaraLivroTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -577,6 +701,7 @@
 		};
 		D4E3444220BD8BE300ADF70F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A47631F79634347D4AAE7431 /* Pods-CaraLivroTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -594,6 +719,7 @@
 		};
 		D4E3444420BD8BE300ADF70F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B649930FF74D2EFF2E968C9 /* Pods-CaraLivroUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -610,6 +736,7 @@
 		};
 		D4E3444520BD8BE300ADF70F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43C26686374F6CC659D9D381 /* Pods-CaraLivroUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
