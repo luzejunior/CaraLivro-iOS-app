@@ -12,6 +12,7 @@
 		ACDBCB1020BF28270034AA70 /* FriendListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACDBCB0F20BF28270034AA70 /* FriendListTableViewCell.xib */; };
 		ACDBCB1220BF28570034AA70 /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDBCB1120BF28570034AA70 /* FriendListTableViewCell.swift */; };
 		BEE1FA73B90848219254D29A /* Pods_CaraLivroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC9CC669AE22B394B25408C /* Pods_CaraLivroUITests.framework */; };
+		D4734DB220C7286200479EB7 /* StringStylizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4734DB320C7286200479EB7 /* StringStylizer.framework */; };
 		D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */; };
 		D4C6309220BEE25C00CFEC6F /* ActionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */; };
 		D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */; };
@@ -63,6 +64,7 @@
 		A47631F79634347D4AAE7431 /* Pods-CaraLivroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaraLivroTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests.release.xcconfig"; sourceTree = "<group>"; };
 		ACDBCB0F20BF28270034AA70 /* FriendListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListTableViewCell.xib; sourceTree = "<group>"; };
 		ACDBCB1120BF28570034AA70 /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
+		D4734DB320C7286200479EB7 /* StringStylizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StringStylizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsProtocols.swift; sourceTree = "<group>"; };
 		D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 		D4C6309D20C1ED2800CFEC6F /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		D4C6309F20C1EEFA00CFEC6F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D4C630A120C701F400CFEC6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D4C630A520C718F200CFEC6F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C630A620C718F200CFEC6F /* Cloudinary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cloudinary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E3441520BD8BE300ADF70F /* CaraLivro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaraLivro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E3441820BD8BE300ADF70F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4E3441A20BD8BE300ADF70F /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4734DB220C7286200479EB7 /* StringStylizer.framework in Frameworks */,
 				70CA0E106313F2E3B7A3F997 /* Pods_CaraLivro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +246,9 @@
 		ED8DA12C96E5EC67CE04DF65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4734DB320C7286200479EB7 /* StringStylizer.framework */,
+				D4C630A520C718F200CFEC6F /* Alamofire.framework */,
+				D4C630A620C718F200CFEC6F /* Cloudinary.framework */,
 				5165C7F3621468CB9D388956 /* Pods_CaraLivro.framework */,
 				1A46E7C4EFF8E8F1A77A5DF9 /* Pods_CaraLivroTests.framework */,
 				5FC9CC669AE22B394B25408C /* Pods_CaraLivroUITests.framework */,
@@ -259,6 +267,8 @@
 				D4E3441120BD8BE300ADF70F /* Sources */,
 				D4E3441220BD8BE300ADF70F /* Frameworks */,
 				D4E3441320BD8BE300ADF70F /* Resources */,
+				D700662990F7F07AFF0E6C9E /* [CP] Embed Pods Frameworks */,
+				B3826F4444E2335B102507CE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,6 +288,7 @@
 				D4E3442620BD8BE300ADF70F /* Frameworks */,
 				D4E3442720BD8BE300ADF70F /* Resources */,
 				29494A2EF94BA97042210254 /* [CP] Embed Pods Frameworks */,
+				1D65A7564892237C8A3A6B3C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,6 +308,8 @@
 				D4E3443020BD8BE300ADF70F /* Sources */,
 				D4E3443120BD8BE300ADF70F /* Frameworks */,
 				D4E3443220BD8BE300ADF70F /* Resources */,
+				B33EBD450ED7B64DD77A42DD /* [CP] Embed Pods Frameworks */,
+				D4B67386EA6A548AFE4562AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -403,6 +416,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1D65A7564892237C8A3A6B3C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		29494A2EF94BA97042210254 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -457,6 +485,73 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B33EBD450ED7B64DD77A42DD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroUITests/Pods-CaraLivroUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3826F4444E2335B102507CE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4B67386EA6A548AFE4562AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroUITests/Pods-CaraLivroUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D700662990F7F07AFF0E6C9E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/StringStylizer/StringStylizer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StringStylizer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

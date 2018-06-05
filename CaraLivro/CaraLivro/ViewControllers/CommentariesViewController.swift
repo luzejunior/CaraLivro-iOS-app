@@ -8,11 +8,23 @@
 
 import Foundation
 import UIKit
+import StringStylizer
 
 final class CommentariesViewController: UIViewController, Storyboarded {
+
+    var dataSource = GenericDataSource()
+    var string: NSAttributedString?
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Comments"
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    func loadCommentaries() {
     }
 
     override func viewDidLoad() {
