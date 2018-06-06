@@ -16,9 +16,15 @@ final class CommentariesViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
+            tableView.isHidden = true
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.backgroundColor = UIColor.clear
             RegisterCells()
+        }
+    }
+    @IBOutlet weak var messageLabel: UILabel! {
+        didSet {
+            messageLabel.isHidden = true
         }
     }
 
@@ -42,7 +48,12 @@ final class CommentariesViewController: UIViewController, Storyboarded {
     }
 
     func loadCommentaries() {
-        tableView.reloadData()
+        if presenter?.dataSource.items.isEmpty ?? true {
+            messageLabel.isHidden = false
+        } else {
+            tableView.reloadData()
+            tableView.isHidden = false
+        }
     }
 }
 

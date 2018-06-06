@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaraLivro/ViewControllers/CommentariesViewController.swift"
-            timestampString = "550010829.3306299"
+            timestampString = "550014772.092141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "fetchData()"
             landmarkType = "7">
          </BreakpointContent>

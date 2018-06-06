@@ -154,17 +154,26 @@
                                 <rect key="frame" x="0.0" y="10" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhum comentário encontrado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDw-17-3lB">
+                                <rect key="frame" x="76" y="335" width="222" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eCg-tS-F6Q" firstAttribute="height" secondItem="VDK-RP-Tkf" secondAttribute="height" id="MbP-Jt-l7N"/>
                             <constraint firstItem="eCg-tS-F6Q" firstAttribute="centerY" secondItem="Spe-Ql-gqf" secondAttribute="centerY" id="WqB-Na-hjD"/>
+                            <constraint firstItem="CDw-17-3lB" firstAttribute="centerY" secondItem="Spe-Ql-gqf" secondAttribute="centerY" id="a7X-UT-VYT"/>
+                            <constraint firstItem="CDw-17-3lB" firstAttribute="centerX" secondItem="Spe-Ql-gqf" secondAttribute="centerX" id="g0d-Ve-sk0"/>
                             <constraint firstItem="eCg-tS-F6Q" firstAttribute="width" secondItem="VDK-RP-Tkf" secondAttribute="width" id="tJp-hD-cLC"/>
                             <constraint firstItem="eCg-tS-F6Q" firstAttribute="centerX" secondItem="Spe-Ql-gqf" secondAttribute="centerX" id="zoO-Jx-5Q0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Spe-Ql-gqf"/>
                     </view>
                     <connections>
+                        <outlet property="messageLabel" destination="CDw-17-3lB" id="X9n-M3-Xcx"/>
                         <outlet property="tableView" destination="eCg-tS-F6Q" id="ZHb-fl-fQN"/>
                     </connections>
                 </viewController>
@@ -184,6 +193,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="298"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -196,11 +206,11 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EmN-gi-Vdn">
-                                <rect key="frame" x="67" y="340" width="240" height="128"/>
+                                <rect key="frame" x="67" y="340" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="o7r-KG-VeF"/>
                     </view>
                     <connections>
@@ -210,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeN-0T-dLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2867.5" y="133.5"/>
+            <point key="canvasLocation" x="2866.4000000000001" y="132.68365817091455"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="0e6-YP-wAf">
