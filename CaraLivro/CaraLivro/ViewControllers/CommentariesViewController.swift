@@ -8,12 +8,19 @@
 
 import Foundation
 import UIKit
-import StringStylizer
 
 final class CommentariesViewController: UIViewController, Storyboarded {
 
-    var dataSource = GenericDataSource()
+    var presenter: CommentariesViewControllerPresenter?
     var string: NSAttributedString?
+
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.backgroundColor = UIColor.clear
+            RegisterCells()
+        }
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -24,10 +31,40 @@ final class CommentariesViewController: UIViewController, Storyboarded {
         super.init(coder: aDecoder)
     }
 
-    func loadCommentaries() {
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = presenter?.dataSource
+        presenter?.fetchData()
+    }
+
+    func RegisterCells() {
+        tableView.register(CommentTableViewCell.self)
+    }
+
+    func loadCommentaries() {
+        tableView.reloadData()
+    }
+}
+
+final class CommentariesViewControllerPresenter {
+
+    var dataSource = GenericDataSource()
+    private var view: CommentariesViewController?
+    var postID: Int?
+
+    init(with view: CommentariesViewController, postID: Int) {
+        self.view = view
+        self.postID = postID
+    }
+
+    func fetchData() {
+        dataSource.items.removeAll()
+        for comments in testComments {
+            if comments.idPost == postID {
+                let tableContent = CommentTableViewCellPresenter(comment: comments)
+                dataSource.items.append(tableContent)
+            }
+        }
+        view?.loadCommentaries()
     }
 }

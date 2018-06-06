@@ -9,11 +9,13 @@
 import Foundation
 
 struct UserDetails {
+    var userId: Int?
     var userName: String?
     var userImage: String?
     var userEmail: String?
 
-    init(name: String, email: String, imageName: String) {
+    init(id: Int?, name: String, email: String, imageName: String) {
+        userId = id
         userName = name
         userImage = imageName
         userEmail = email
@@ -75,8 +77,8 @@ struct CommentResponses {
 
 }
 
-let user1 = UserDetails(name: "Luzenildo", email: "luzenildo@email.cu", imageName: "luzenildo")
-let user2 = UserDetails(name: "Luan", email: "luanviadao@email.cu", imageName: "luan")
+let user1 = UserDetails(id: 0, name: "Luzenildo", email: "luzenildo@email.cu", imageName: "luzenildo")
+let user2 = UserDetails(id: 1, name: "Luan", email: "luanviadao@email.cu", imageName: "luan")
 let testUsers: [UserDetails] = [user1, user2]
 
 let post1 = TextPost(id: 0, content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus lacus in lorem tristique, tristique gravida ex pellentesque. Proin tristique, eros ut lobortis luctus, erat odio ultricies lacus, sit amet gravida est risus non turpis. Cras odio mi, sagittis at convallis non, ultricies eu nulla.", user: user1)
@@ -91,5 +93,9 @@ let group1 = GroupsDetails(name: "Amamos Alan")
 let group2 = GroupsDetails(name: "BD é Vida")
 let group3 = GroupsDetails(name: "BD melhor disciplina")
 let groupList: [GroupsDetails] = [group1, group2, group3]
+
+let comment1 = Comments(id: 0, nmbrResponses: 0, idPost: 2, postOwner: post2.userPosted?.userId, postCommenter: user2.userId ?? 0, text: "Belíssimo texto, muito obrigado pelas sábias palavras")
+let comment2 = Comments(id: 0, nmbrResponses: 0, idPost: 2, postOwner: post2.userPosted?.userId, postCommenter: user2.userId ?? 0, text: "Thanks so much!!")
+let testComments: [Comments] = [comment1, comment2]
 
 

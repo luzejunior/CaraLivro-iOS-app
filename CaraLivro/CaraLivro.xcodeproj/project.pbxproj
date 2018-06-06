@@ -13,6 +13,8 @@
 		ACDBCB1220BF28570034AA70 /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDBCB1120BF28570034AA70 /* FriendListTableViewCell.swift */; };
 		BEE1FA73B90848219254D29A /* Pods_CaraLivroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC9CC669AE22B394B25408C /* Pods_CaraLivroUITests.framework */; };
 		D4734DB220C7286200479EB7 /* StringStylizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4734DB320C7286200479EB7 /* StringStylizer.framework */; };
+		D4734DB620C86E5C00479EB7 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4734DB520C86E5C00479EB7 /* CommentTableViewCell.xib */; };
+		D4734DB820C86E7C00479EB7 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DB720C86E7C00479EB7 /* CommentTableViewCell.swift */; };
 		D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */; };
 		D4C6309220BEE25C00CFEC6F /* ActionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */; };
 		D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */; };
@@ -65,6 +67,8 @@
 		ACDBCB0F20BF28270034AA70 /* FriendListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListTableViewCell.xib; sourceTree = "<group>"; };
 		ACDBCB1120BF28570034AA70 /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
 		D4734DB320C7286200479EB7 /* StringStylizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StringStylizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4734DB520C86E5C00479EB7 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		D4734DB720C86E7C00479EB7 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsProtocols.swift; sourceTree = "<group>"; };
 		D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,15 @@
 			path = FriendList;
 			sourceTree = "<group>";
 		};
+		D4734DB420C86E3B00479EB7 /* Commentaries */ = {
+			isa = PBXGroup;
+			children = (
+				D4734DB520C86E5C00479EB7 /* CommentTableViewCell.xib */,
+				D4734DB720C86E7C00479EB7 /* CommentTableViewCell.swift */,
+			);
+			path = Commentaries;
+			sourceTree = "<group>";
+		};
 		D4E3440C20BD8BE300ADF70F = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +191,7 @@
 				D4E3445320BE2F5600ADF70F /* ViewControllers */,
 				D4E3444920BDDB0A00ADF70F /* Feed */,
 				ACDBCB0E20BF27EC0034AA70 /* FriendList */,
+				D4734DB420C86E3B00479EB7 /* Commentaries */,
 				D4E3444620BDAEE400ADF70F /* Core */,
 				D4E3441820BD8BE300ADF70F /* AppDelegate.swift */,
 				D4E3441C20BD8BE300ADF70F /* Main.storyboard */,
@@ -263,7 +277,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4E3443D20BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivro" */;
 			buildPhases = (
-				080995F9A3D7FAF5A16B131C /* [CP] Check Pods Manifest.lock */,
 				D4E3441120BD8BE300ADF70F /* Sources */,
 				D4E3441220BD8BE300ADF70F /* Frameworks */,
 				D4E3441320BD8BE300ADF70F /* Resources */,
@@ -287,7 +300,7 @@
 				D4E3442520BD8BE300ADF70F /* Sources */,
 				D4E3442620BD8BE300ADF70F /* Frameworks */,
 				D4E3442720BD8BE300ADF70F /* Resources */,
-				29494A2EF94BA97042210254 /* [CP] Embed Pods Frameworks */,
+				29494A2EF94BA97042210254 /* [CP] Check Pods Manifest.lock */,
 				1D65A7564892237C8A3A6B3C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -376,6 +389,7 @@
 				D4E3444C20BDDB3200ADF70F /* FeedTableViewCell.xib in Resources */,
 				D4E3442020BD8BE300ADF70F /* Assets.xcassets in Resources */,
 				D4C6309A20C1E32700CFEC6F /* FeedImageTableViewCell.xib in Resources */,
+				D4734DB620C86E5C00479EB7 /* CommentTableViewCell.xib in Resources */,
 				D4E3441E20BD8BE300ADF70F /* Main.storyboard in Resources */,
 				ACDBCB1020BF28270034AA70 /* FriendListTableViewCell.xib in Resources */,
 			);
@@ -398,26 +412,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		06678BF23BD1CEF4F88CBD4B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1D65A7564892237C8A3A6B3C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -433,7 +427,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		29494A2EF94BA97042210254 /* [CP] Embed Pods Frameworks */ = {
+		29494A2EF94BA97042210254 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -567,6 +561,7 @@
 				D4C6309620BEE80800CFEC6F /* TestData.swift in Sources */,
 				D4E3444E20BDDB4B00ADF70F /* FeedTableViewCell.swift in Sources */,
 				D4E3445020BE266900ADF70F /* CoordinatorProtocols.swift in Sources */,
+				D4734DB820C86E7C00479EB7 /* CommentTableViewCell.swift in Sources */,
 				D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */,
 				ACDBCB1220BF28570034AA70 /* FriendListTableViewCell.swift in Sources */,
 				D4C6309E20C1ED2800CFEC6F /* CreatePostViewController.swift in Sources */,
