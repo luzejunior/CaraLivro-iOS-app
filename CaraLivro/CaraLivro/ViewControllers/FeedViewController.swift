@@ -18,19 +18,10 @@ final class FeedViewControllerPresenter {
     }
 
     func fetchData() {
-        let stringURL = "http://192.168.100.100:3000/user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/allposts"
-        guard let url = URL(string: stringURL) else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
-            guard let data = data else { return }
-            do {
-                let posts = try JSONDecoder().decode([TextPost].self, from: data)
-                DispatchQueue.main.async {
-                    self.configureTableView(posts: posts)
-                }
-            } catch let jsonErr {
-                print(jsonErr.localizedDescription)
-            }
-            }.resume()
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/allposts"
+        getDataFromServer(path: stringURL) { (posts: [TextPost]) in
+            self.configureTableView(posts: posts)
+        }
     }
 
     func configureTableView(posts: [TextPost]) {

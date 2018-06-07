@@ -61,20 +61,11 @@ final class LoginViewControllerPresenter {
     }
 
     func fetchData() {
-        let stringURL = "http://192.168.100.100:3000/users"
-        guard let url = URL(string: stringURL) else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
-            guard let data = data else { return }
-            do {
-                let users = try JSONDecoder().decode([UserDetails].self, from: data)
-                apiUsers.append(contentsOf: users)
-                DispatchQueue.main.async {
-                    self.configureTableView()
-                }
-            } catch let jsonErr {
-                print(jsonErr.localizedDescription)
-            }
-        }.resume()
+        let stringURL = "users"
+        getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+            apiUsers.append(contentsOf: users)
+            self.configureTableView()
+        }
     }
 
     func configureTableView() {
