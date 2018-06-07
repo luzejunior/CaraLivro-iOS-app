@@ -33,15 +33,31 @@ struct GroupsDetails {
     }
 }
 
-struct TextPost {
+struct Post {
     var idPost: Int?
-    var contentText: String?
-    var userPosted: UserDetails?
+    var Text: String?
+    var NumberOfComments: Int?
+    var Visibility: Int?
+    var UserProfile_idUserProfile_postOwner: Int?
+    var GroupsMural_idGroups: Int?
+    var UserProfileMural_idUserProfile: Int?
+    var NumberOfLikes: Int?
+}
 
-    init(id: Int, content: String, user: UserDetails) {
+struct TextPost: Decodable {
+    var idPost: Int?
+    var Text: String?
+    var NumberOfComments: Int?
+    var Visibility: Int?
+    var UserProfile_idUserProfile_postOwner: Int?
+    var GroupsMural_idGroups: Int?
+    var UserProfileMural_idUserProfile: Int?
+    var NumberOfLikes: Int?
+
+    init(id: Int, content: String, user: Int) {
         idPost = id
-        contentText = content
-        userPosted = user
+        Text = content
+        UserProfileMural_idUserProfile = user
     }
 }
 
@@ -86,9 +102,9 @@ let testUsers: [UserDetails] = [user1, user2]
 var apiUsers = [UserDetails]()
 var currentUserInUse: UserDetails?
 
-let post1 = TextPost(id: 0, content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus lacus in lorem tristique, tristique gravida ex pellentesque. Proin tristique, eros ut lobortis luctus, erat odio ultricies lacus, sit amet gravida est risus non turpis. Cras odio mi, sagittis at convallis non, ultricies eu nulla.", user: user1)
-let post2 = TextPost(id: 1, content: "Quisque sit amet massa sem. Mauris euismod sit amet nibh volutpat commodo.", user: user2)
-let post3 = TextPost(id: 2, content: "Texto do tamanho do mundo porque eu to sem paciencia pra escrever texto aqui, meu Deus pensa num trabalho trabalhoso.", user: user1)
+let post1 = TextPost(id: 0, content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus lacus in lorem tristique, tristique gravida ex pellentesque. Proin tristique, eros ut lobortis luctus, erat odio ultricies lacus, sit amet gravida est risus non turpis. Cras odio mi, sagittis at convallis non, ultricies eu nulla.", user: 0)
+let post2 = TextPost(id: 1, content: "Quisque sit amet massa sem. Mauris euismod sit amet nibh volutpat commodo.", user: 1)
+let post3 = TextPost(id: 2, content: "Texto do tamanho do mundo porque eu to sem paciencia pra escrever texto aqui, meu Deus pensa num trabalho trabalhoso.", user: 0)
 let testPosts: [TextPost] = [post1, post2, post3]
 
 let textPost1 = ImagePost(content: "Imagem linda e maravilhosa", image: "photo", user: user1)
@@ -99,8 +115,8 @@ let group2 = GroupsDetails(name: "BD é Vida")
 let group3 = GroupsDetails(name: "BD melhor disciplina")
 let groupList: [GroupsDetails] = [group1, group2, group3]
 
-let comment1 = Comments(id: 0, nmbrResponses: 0, idPost: 2, postOwner: post2.userPosted?.idUserProfile, postCommenter: user2.idUserProfile ?? 0, text: "Belíssimo texto, muito obrigado pelas sábias palavras")
-let comment2 = Comments(id: 0, nmbrResponses: 0, idPost: 2, postOwner: post2.userPosted?.idUserProfile, postCommenter: user2.idUserProfile ?? 0, text: "Thanks so much!!")
+let comment1 = Comments(id: 0, nmbrResponses: 0, idPost: 2, postOwner: post2.UserProfileMural_idUserProfile!, postCommenter: user2.idUserProfile ?? 0, text: "Belíssimo texto, muito obrigado pelas sábias palavras")
+let comment2 = Comments(id: 0, nmbrResponses: 0, idPost: 2, postOwner: post2.UserProfileMural_idUserProfile!, postCommenter: user2.idUserProfile ?? 0, text: "Thanks so much!!")
 let testComments: [Comments] = [comment1, comment2]
 
 

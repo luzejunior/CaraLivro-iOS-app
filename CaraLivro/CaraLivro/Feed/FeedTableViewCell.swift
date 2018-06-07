@@ -49,7 +49,7 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
 
     func configureView() {
         userName.text = presenter?.userName
-        userImage.image = UIImage(named: presenter?.userImage ?? "")
+        userImage.image = UIImage(named: presenter?.userImage ?? "profilePic")
         contentLabel.text = presenter?.userContent
 
     }
@@ -66,13 +66,23 @@ final class FeedTableViewCellPresenter: UITableViewModels {
     var userImage: String?
     var userContent: String?
     var view: MoreOptionsConform?
+    var isCurrentUser: Bool?
 
     init(textPost: TextPost, view: MoreOptionsConform) {
         postID = textPost.idPost
-        userName = textPost.userPosted?.FirstName
-        userImage = textPost.userPosted?.ProfilePicture
-        userContent = textPost.contentText
-        posterUser = textPost.userPosted
+        userContent = textPost.Text
+        getPostUserData(userID: textPost.UserProfile_idUserProfile_postOwner ?? 0)
         self.view = view
+    }
+
+    func getPostUserData(userID: Int) {
+        for user in apiUsers {
+            if user.idUserProfile == userID {
+                userName = (user.FirstName ?? "") + " " + (user.LastName ?? "")
+                userImage = user.ProfilePicture
+                posterUser = user
+            }
+        }
+        isCurrentUser = userID == currentUserInUse?.idUserProfile ? true : false
     }
 }

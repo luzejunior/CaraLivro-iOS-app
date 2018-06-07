@@ -22,7 +22,7 @@ final class UserProfileViewControllerPresenter {
 
     func fetchData() {
         for item in testPosts {
-            if item.userPosted?.idUserProfile == currentUser?.idUserProfile {
+            if item.UserProfileMural_idUserProfile == currentUser?.idUserProfile {
                 let tableContent = FeedTableViewCellPresenter(textPost: item, view: view!)
                 dataSource.items.append(tableContent)
             }
