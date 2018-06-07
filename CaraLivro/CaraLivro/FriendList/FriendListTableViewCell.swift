@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol FriendListViewActions: class {
-    @objc optional func didSelectedFriend(_ sender: FeedTableViewCell)
+    @objc optional func didSelectedFriend(_ sender: FriendListTableViewCell)
 }
 
 enum ListType {
@@ -38,7 +38,7 @@ final class FriendListTableViewCell: UITableViewCell, UITableViewContent {
     
     func configureView() {
         userName.text = presenter?.userName
-        userImage.image = UIImage(named: presenter?.userImage ?? "")
+        userImage.image = UIImage(named: presenter?.userImage ?? "profilePic")
         if presenter?.listType == .groups {
             userImage.isHidden = true
         }
@@ -49,15 +49,17 @@ final class FriendListTableViewCellPresenter: UITableViewModels {
     var representable: UITableViewRepresentable {
         return UITableViewContentAssembler<FriendListTableViewCell>(presenter: self)
     }
-    
+
+    var user: UserDetails?
     var userName: String?
     var userImage: String?
     var listType: ListType?
-    var view: FriendListViewController?
+    var view: FriendListTableViewCellConform?
     
-    init(userDetails: UserDetails, view: FriendListViewController) {
-        userName = userDetails.userName
-        userImage = userDetails.userImage
+    init(userDetails: UserDetails, view: FriendListTableViewCellConform) {
+        user = userDetails
+        userName = (userDetails.FirstName ?? "") + " " + (userDetails.LastName ?? "")
+        userImage = userDetails.ProfilePicture
         listType = .friends
         self.view = view
     }

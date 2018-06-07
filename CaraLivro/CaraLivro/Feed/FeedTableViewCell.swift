@@ -69,8 +69,8 @@ final class FeedTableViewCellPresenter: UITableViewModels {
 
     init(textPost: TextPost, view: MoreOptionsConform) {
         postID = textPost.idPost
-        userName = textPost.userPosted?.userName
-        userImage = textPost.userPosted?.userImage
+        userName = textPost.userPosted?.FirstName
+        userImage = textPost.userPosted?.ProfilePicture
         userContent = textPost.contentText
         posterUser = textPost.userPosted
         self.view = view

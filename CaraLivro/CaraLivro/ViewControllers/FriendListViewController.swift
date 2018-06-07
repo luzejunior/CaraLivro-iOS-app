@@ -40,7 +40,7 @@ final class FriendListViewControllerPresenter {
 }
 
 // CONTROLLER
-final class FriendListViewController: UIViewController, Storyboarded {
+final class FriendListViewController: UIViewController, Storyboarded, FriendListTableViewCellConform {
     @IBOutlet weak var tableView: UITableView!{
         didSet {
             tableView.rowHeight = UITableViewAutomaticDimension

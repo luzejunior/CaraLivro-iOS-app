@@ -8,25 +8,36 @@
 
 import UIKit
 
-final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfileViewControllerActions, FeedTableViewCellActions {
+final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfileViewControllerActions, FeedTableViewCellActions, LoginViewControllerActions {
 
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    var window: UIWindow?
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, window: UIWindow?) {
         self.navigationController = navigationController
+        self.window = window
     }
 
     func start() {
-        //presentLogin()
-        let feed = FeedViewController.instantiate()
-        feed.coordinator = self
-        push(feed, animated: true)
+        presentLogin()
     }
 
     func presentLogin() {
         let login = LoginViewController.instantiate()
+        let loginPresenter = LoginViewControllerPresenter(with: login)
+        login.presenter = loginPresenter
+        login.coordinator = self
         push(login, animated: true)
+    }
+
+    func didSelectedUserToLogin(currentUser: UserDetails) {
+        currentUserInUse = currentUser
+        navigationController = UINavigationController()
+        window?.rootViewController = navigationController
+        let feed = FeedViewController.instantiate()
+        feed.coordinator = self
+        push(feed, animated: true)
     }
 
     func presentUserPage(user: UserDetails) {

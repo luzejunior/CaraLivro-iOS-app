@@ -39,8 +39,8 @@ final class CommentTableViewCellPresenter: UITableViewModels {
         userID = comment.idUserProfilePostCommenter
 
         for user in testUsers {
-            if user.userId == userID {
-                userName = user.userName
+            if user.idUserProfile == userID {
+                userName = user.FirstName
                 break
             }
         }

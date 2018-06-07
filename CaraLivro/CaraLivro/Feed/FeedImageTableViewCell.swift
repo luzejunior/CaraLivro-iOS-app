@@ -59,8 +59,8 @@ final class FeedImageTableViewCellPresenter: UITableViewModels {
     var view: MoreOptionsConform?
 
     init(textPost: ImagePost, view: MoreOptionsConform) {
-        userName = textPost.userPosted?.userName
-        userImage = textPost.userPosted?.userImage
+        userName = textPost.userPosted?.FirstName
+        userImage = textPost.userPosted?.ProfilePicture
         imageName = textPost.imageName
         userContent = textPost.contentText
         self.view = view

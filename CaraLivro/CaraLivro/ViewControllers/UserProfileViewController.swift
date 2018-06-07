@@ -22,13 +22,13 @@ final class UserProfileViewControllerPresenter {
 
     func fetchData() {
         for item in testPosts {
-            if item.userPosted?.userName == currentUser?.userName {
+            if item.userPosted?.idUserProfile == currentUser?.idUserProfile {
                 let tableContent = FeedTableViewCellPresenter(textPost: item, view: view!)
                 dataSource.items.append(tableContent)
             }
         }
         for item in imagePosts {
-            if item.userPosted?.userName == currentUser?.userName {
+            if item.userPosted?.idUserProfile == currentUser?.idUserProfile {
                 let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
                 dataSource.items.append(tableContent)
             }
@@ -96,9 +96,9 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
     }
 
     func configureUser() {
-        userImage.image = UIImage(named: presenter?.currentUser?.userImage ?? "")
-        userName.text = presenter?.currentUser?.userName ?? ""
-        userEmail.text = presenter?.currentUser?.userEmail ?? ""
+        userImage.image = UIImage(named: presenter?.currentUser?.ProfilePicture ?? "profilePic")
+        userName.text = presenter?.currentUser?.FirstName ?? ""
+        userEmail.text = presenter?.currentUser?.Email ?? ""
     }
 
     func finishedFetching() {
