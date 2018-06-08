@@ -243,8 +243,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GdX-lv-Y63">
-                                <rect key="frame" x="0.0" y="104" width="375" height="505"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="103.5" width="375" height="505.5"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CARA FACE APP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-V4-Mh7">
                                 <rect key="frame" x="0.0" y="629" width="375" height="18"/>
@@ -252,6 +252,17 @@
                                 <color key="textColor" white="0.51429578990000002" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1i-rA-EX9">
+                                <rect key="frame" x="313" y="35" width="46" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="YtM-Jn-tok"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="onAddButtonTouched:" destination="pNL-NW-oje" eventType="touchUpInside" id="70v-GA-FKI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -262,8 +273,11 @@
                             <constraint firstItem="Mtj-TU-hZU" firstAttribute="top" secondItem="dkp-0J-WMn" secondAttribute="top" constant="20" id="IFK-MY-XRs"/>
                             <constraint firstItem="tdO-V4-Mh7" firstAttribute="top" secondItem="GdX-lv-Y63" secondAttribute="bottom" constant="20" id="N3e-J8-C0l"/>
                             <constraint firstItem="Mtj-TU-hZU" firstAttribute="centerX" secondItem="dkp-0J-WMn" secondAttribute="centerX" id="aDx-7Q-FqF"/>
+                            <constraint firstItem="B1i-rA-EX9" firstAttribute="top" secondItem="dkp-0J-WMn" secondAttribute="top" constant="15" id="bjZ-Qb-xoh"/>
                             <constraint firstItem="GdX-lv-Y63" firstAttribute="width" secondItem="GD7-yS-Ljr" secondAttribute="width" id="g7r-8x-9tQ"/>
+                            <constraint firstItem="B1i-rA-EX9" firstAttribute="leading" secondItem="dkp-0J-WMn" secondAttribute="leading" constant="313" id="hAo-Wy-ltQ"/>
                             <constraint firstItem="dkp-0J-WMn" firstAttribute="bottom" secondItem="tdO-V4-Mh7" secondAttribute="bottom" constant="20" id="kco-rZ-lOi"/>
+                            <constraint firstItem="dkp-0J-WMn" firstAttribute="trailing" secondItem="B1i-rA-EX9" secondAttribute="trailing" constant="16" id="oGp-by-jDy"/>
                             <constraint firstItem="COM-su-80f" firstAttribute="width" secondItem="GD7-yS-Ljr" secondAttribute="width" id="oOX-9T-IBw"/>
                             <constraint firstItem="COM-su-80f" firstAttribute="centerX" secondItem="dkp-0J-WMn" secondAttribute="centerX" id="qfV-s4-3ch"/>
                             <constraint firstItem="tdO-V4-Mh7" firstAttribute="width" secondItem="GD7-yS-Ljr" secondAttribute="width" id="xTv-K6-3S3"/>

@@ -20,7 +20,9 @@ final class FeedViewControllerPresenter {
     func fetchData() {
         let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/allposts"
         getDataFromServer(path: stringURL) { (posts: [TextPost]) in
-            self.configureTableView(posts: posts)
+            DispatchQueue.main.async {
+                self.configureTableView(posts: posts)
+            }
         }
     }
 

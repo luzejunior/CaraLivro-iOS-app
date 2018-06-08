@@ -34,6 +34,15 @@ final class LoginViewController: UIViewController, Storyboarded, FriendListTable
         presenter?.fetchData()
     }
 
+    @IBAction func onAddButtonTouched(_ sender: Any) {
+        let newUser = CreateUserJson(first_name: "Luan", last_name: "Lima", email: "luanlimaviadon@email.cu", password: "eusouviado")
+        postDataToServer(object: newUser, path: "user/signup") { () in
+            DispatchQueue.main.async {
+                self.presenter?.fetchData()
+            }
+        }
+    }
+
     func RegisterCells() {
         tableView.register(FriendListTableViewCell.self)
     }
@@ -63,8 +72,11 @@ final class LoginViewControllerPresenter {
     func fetchData() {
         let stringURL = "users"
         getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+            apiUsers.removeAll()
             apiUsers.append(contentsOf: users)
-            self.configureTableView()
+            DispatchQueue.main.async {
+                self.configureTableView()
+            }
         }
     }
 

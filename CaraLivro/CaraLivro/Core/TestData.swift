@@ -25,6 +25,13 @@ struct UserDetails: Decodable {
     }
 }
 
+struct CreateUserJson: Encodable {
+    var first_name: String
+    var last_name: String
+    var email: String
+    var password: String
+}
+
 struct GroupsDetails {
     var groupName: String?
 
