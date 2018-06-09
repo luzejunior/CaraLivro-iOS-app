@@ -9,6 +9,41 @@
 import Foundation
 import UIKit
 
+// PRESENTER
+final class CommentariesViewControllerPresenter {
+    
+    var dataSource = GenericDataSource()
+    private var view: CommentariesViewController?
+    var postID: Int?
+    var postOwnerID: Int?
+    
+    init(with view: CommentariesViewController, postID: Int, postOwnerID: Int) {
+        self.view = view
+        self.postID = postID
+        self.postOwnerID = postOwnerID
+    }
+    
+    func fetchData() {
+        let stringURL = "post/" + String(describing: postID ?? 0) + "/comments"
+        getDataFromServer(path: stringURL) { (posts: [Comments]) in
+            DispatchQueue.main.async {
+                self.configureTableView(posts: posts)
+            }
+        }
+        view?.loadCommentaries()
+    }
+    
+    func configureTableView(posts: [Comments]) {
+        dataSource.items.removeAll()
+        for item in posts {
+            let tableContent1 = CommentTableViewCellPresenter(comment: item)
+            dataSource.items.append(tableContent1)
+        }
+        view?.finishedFetching()
+    }
+}
+
+// CONTROLLER
 final class CommentariesViewController: UIViewController, Storyboarded {
 
     var presenter: CommentariesViewControllerPresenter?
@@ -77,7 +112,13 @@ final class CommentariesViewController: UIViewController, Storyboarded {
     }
 
     @objc func commentButtonAction() {
-        // Função pra inserir o comentário no BD.
+        let comment = CommentInPost(user_id_poster: self.presenter?.postOwnerID, user_id_commenter: currentUserInUse?.idUserProfile ?? 0, text: inputTextField.text)
+        let stringURL = "post/" + String(describing: self.presenter?.postID ?? 0) + "/comment"
+        postDataToServer(object: comment, path: stringURL) {
+            DispatchQueue.main.async {
+                //self.coordinator?.didTouchPostButton()
+            }
+        }
     }
     
     @objc func handleKeyboardNotification(notification: NSNotification) {
@@ -123,30 +164,5 @@ final class CommentariesViewController: UIViewController, Storyboarded {
             tableView.reloadData()
             tableView.isHidden = false
         }
-    }
-}
-
-final class CommentariesViewControllerPresenter {
-
-    var dataSource = GenericDataSource()
-    private var view: CommentariesViewController?
-    var postID: Int?
-    var postOwnerID: Int?
-
-    init(with view: CommentariesViewController, postID: Int, postOwnerID: Int) {
-        self.view = view
-        self.postID = postID
-        self.postOwnerID = postOwnerID
-    }
-
-    func fetchData() {
-        dataSource.items.removeAll()
-        for comments in testComments {
-            if comments.idPost == postID {
-                let tableContent = CommentTableViewCellPresenter(comment: comments)
-                dataSource.items.append(tableContent)
-            }
-        }
-        view?.loadCommentaries()
     }
 }
