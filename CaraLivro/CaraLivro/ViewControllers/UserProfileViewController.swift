@@ -197,9 +197,6 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         alert.addAction(UIAlertAction(title: "Apagar", style: .destructive, handler: { action in
             
         }))
-        alert.addAction(UIAlertAction(title: "Denunciar", style: .default, handler: { action in
-            
-        }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
     }
 

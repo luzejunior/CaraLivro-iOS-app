@@ -115,6 +115,7 @@
                 <outlet property="commentButton" destination="6Hs-h0-ajQ" id="QzO-op-nPx"/>
                 <outlet property="contentLabel" destination="KWw-q6-3on" id="Ean-lx-UpD"/>
                 <outlet property="likeButton" destination="uWE-yo-Wvr" id="RuH-6F-yOx"/>
+                <outlet property="moreButton" destination="Inr-vE-5vR" id="KqU-bf-6Ar"/>
                 <outlet property="userImage" destination="FpC-AJ-MEM" id="eVt-TS-lhG"/>
                 <outlet property="userName" destination="LmW-NC-5mx" id="QG4-l2-O2C"/>
             </connections>

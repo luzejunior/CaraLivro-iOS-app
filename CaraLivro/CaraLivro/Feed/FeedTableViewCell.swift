@@ -21,6 +21,7 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var moreButton: UIButton!
 
     @IBAction func likeButtonTouched(_ sender: Any) {
         print("Liked")
@@ -48,6 +49,11 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
     }
 
     func configureView() {
+        if presenter?.posterUser?.idUserProfile != currentUserInUse?.idUserProfile {
+            moreButton.isHidden = true
+        } else {
+            moreButton.isHidden = false
+        }
         userName.text = presenter?.userName
         userImage.image = UIImage(named: presenter?.userImage ?? "profilePic")
         contentLabel.text = presenter?.userContent
