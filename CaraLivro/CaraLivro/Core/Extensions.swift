@@ -79,7 +79,30 @@ extension UITextView: UITextViewDelegate {
 }
 
 extension UIResponder {
-    func sendAction(_ selector: Selector, sender: Any? = nil) {
+    public func sendAction(_ selector: Selector, sender: Any? = nil) {
         UIApplication.shared.sendAction(selector, to: nil, from: sender, for: nil)
+    }
+}
+
+extension UIView {
+    public func addConstraintsWithFormat(format: String, views: UIView...) {
+        var viewsDictionary = [String: UIView]()
+        for (index, view) in views.enumerated() {
+            let key = "v\(index)"
+            viewsDictionary[key] = view
+            view.translatesAutoresizingMaskIntoConstraints = false
+        }
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
+    }
+}
+
+extension UIViewController {
+    public func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc public func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

@@ -280,11 +280,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4E3443D20BD8BE300ADF70F /* Build configuration list for PBXNativeTarget "CaraLivro" */;
 			buildPhases = (
+				98E6D83FB7C40354A4394928 /* [CP] Check Pods Manifest.lock */,
 				D4E3441120BD8BE300ADF70F /* Sources */,
 				D4E3441220BD8BE300ADF70F /* Frameworks */,
 				D4E3441320BD8BE300ADF70F /* Resources */,
 				D700662990F7F07AFF0E6C9E /* [CP] Embed Pods Frameworks */,
-				B3826F4444E2335B102507CE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -304,7 +304,6 @@
 				D4E3442620BD8BE300ADF70F /* Frameworks */,
 				D4E3442720BD8BE300ADF70F /* Resources */,
 				29494A2EF94BA97042210254 /* [CP] Check Pods Manifest.lock */,
-				1D65A7564892237C8A3A6B3C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,8 +323,6 @@
 				D4E3443020BD8BE300ADF70F /* Sources */,
 				D4E3443120BD8BE300ADF70F /* Frameworks */,
 				D4E3443220BD8BE300ADF70F /* Resources */,
-				B33EBD450ED7B64DD77A42DD /* [CP] Embed Pods Frameworks */,
-				D4B67386EA6A548AFE4562AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -415,22 +412,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1D65A7564892237C8A3A6B3C /* [CP] Copy Pods Resources */ = {
+		29494A2EF94BA97042210254 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CaraLivro-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		29494A2EF94BA97042210254 /* [CP] Check Pods Manifest.lock */ = {
+		98E6D83FB7C40354A4394928 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -482,51 +482,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B33EBD450ED7B64DD77A42DD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroUITests/Pods-CaraLivroUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B3826F4444E2335B102507CE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4B67386EA6A548AFE4562AE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroUITests/Pods-CaraLivroUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D700662990F7F07AFF0E6C9E /* [CP] Embed Pods Frameworks */ = {
