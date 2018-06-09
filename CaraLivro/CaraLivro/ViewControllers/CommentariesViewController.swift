@@ -131,10 +131,12 @@ final class CommentariesViewControllerPresenter {
     var dataSource = GenericDataSource()
     private var view: CommentariesViewController?
     var postID: Int?
+    var postOwnerID: Int?
 
-    init(with view: CommentariesViewController, postID: Int) {
+    init(with view: CommentariesViewController, postID: Int, postOwnerID: Int) {
         self.view = view
         self.postID = postID
+        self.postOwnerID = postOwnerID
     }
 
     func fetchData() {

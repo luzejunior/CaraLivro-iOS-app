@@ -80,8 +80,8 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         tableView.dataSource = presenter?.dataSource
     }
 
-    func openCommentaries(postID: Int) {
-        coordinator?.didTouchCommentariesButton(postID: postID)
+    func openCommentaries(postID: Int, postOwnerID: Int) {
+        coordinator?.didTouchCommentariesButton(postID: postID, postOwnerID: postOwnerID)
     }
 
     @objc func friendListButtonAction() {

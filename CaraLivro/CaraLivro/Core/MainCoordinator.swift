@@ -58,9 +58,9 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         push(userProfile, animated: true)
     }
 
-    func didTouchCommentariesButton(postID: Int) {
+    func didTouchCommentariesButton(postID: Int, postOwnerID: Int) {
         let commentaries = CommentariesViewController.instantiate()
-        let commentariesPresenter = CommentariesViewControllerPresenter(with: commentaries, postID: postID)
+        let commentariesPresenter = CommentariesViewControllerPresenter(with: commentaries, postID: postID, postOwnerID: postOwnerID)
         commentaries.presenter = commentariesPresenter
         push(commentaries, animated: true)
     }

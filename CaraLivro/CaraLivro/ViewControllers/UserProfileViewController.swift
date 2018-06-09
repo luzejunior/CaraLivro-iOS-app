@@ -228,8 +228,8 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         presenter?.fetchData()
     }
 
-    func openCommentaries(postID: Int) {
-        coordinator?.didTouchCommentariesButton(postID: postID)
+    func openCommentaries(postID: Int, postOwnerID: Int) {
+        coordinator?.didTouchCommentariesButton(postID: postID, postOwnerID: postOwnerID)
     }
 
     func configureUser() {

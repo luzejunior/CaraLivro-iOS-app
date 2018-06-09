@@ -28,7 +28,7 @@ protocol postButtonProtocol {
 }
 
 protocol MoreOptionsConform: UIAlertOptionsConform {
-    func openCommentaries(postID: Int)
+    func openCommentaries(postID: Int, postOwnerID: Int)
 }
 
 protocol UIAlertOptionsConform {
@@ -36,7 +36,7 @@ protocol UIAlertOptionsConform {
 }
 
 protocol CommentariesButtonProtocol {
-    func didTouchCommentariesButton(postID: Int)
+    func didTouchCommentariesButton(postID: Int, postOwnerID: Int)
 }
 
 protocol PresentUserButtonProtocol {

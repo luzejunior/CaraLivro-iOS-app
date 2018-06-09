@@ -36,7 +36,7 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
     }
 
     @IBAction func didTuchCommentaries(_ sender: Any) {
-        presenter?.view?.openCommentaries(postID: presenter?.postID ?? 0)
+        presenter?.view?.openCommentaries(postID: presenter?.postID ?? 0, postOwnerID: presenter?.posterUser?.idUserProfile ?? 0)
     }
 
     @IBAction func didSelectedUserButton(_ sender: Any) {
