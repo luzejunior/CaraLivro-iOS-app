@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 import Cloudinary
 
+protocol CreatePostViewControllerActions {
+    func didTouchPostButton()
+}
 
 final class CreatePostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, Storyboarded {
 
@@ -17,6 +20,8 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     @IBOutlet weak var imagePicked: UIImageView!
     
     var image: UIImage?
+    var currentMuralUserID: Int?
+    var coordinator: CreatePostViewControllerActions?
     
     var url = ""
     
@@ -30,7 +35,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
         }
     }
     
-    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    @objc private func imagePickerController(_private  picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePicked.image = image
         dismiss(animated:true, completion: nil)
@@ -49,6 +54,18 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         inputText.placeholder = "Digite seu texto"
+        let button1 = UIBarButtonItem(title: "Postar", style: .plain, target: self, action: #selector(self.postButtonAction))
+        self.navigationItem.rightBarButtonItem  = button1
+    }
+
+    @objc func postButtonAction() {
+        let post = PostInUserMural(user_id_poster: currentUserInUse?.idUserProfile ?? 0, visibility: "public", text: inputText.text)
+        let stringURL = "user/" + String(describing: currentMuralUserID ?? 0) + "/mural/post"
+        postDataToServer(object: post, path: stringURL) {
+            DispatchQueue.main.async {
+                self.coordinator?.didTouchPostButton()
+            }
+        }
     }
     
     func uploadImage(completion: @escaping () -> ()){

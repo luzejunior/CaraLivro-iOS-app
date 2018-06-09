@@ -18,7 +18,7 @@ final class FeedViewControllerPresenter {
     }
 
     func fetchData() {
-        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/allposts"
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/feed"
         getDataFromServer(path: stringURL) { (posts: [TextPost]) in
             DispatchQueue.main.async {
                 self.configureTableView(posts: posts)
@@ -31,10 +31,6 @@ final class FeedViewControllerPresenter {
         for item in posts {
             let tableContent1 = FeedTableViewCellPresenter(textPost: item, view: view!)
             dataSource.items.append(tableContent1)
-        }
-        for item in imagePosts {
-            let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
-            dataSource.items.append(tableContent)
         }
         view?.finishedFetching()
     }
@@ -61,6 +57,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Feed"
+        presenter?.fetchData()
     }
 
     public func presentUIAlert () {
@@ -78,7 +75,6 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.fetchData()
         let button1 = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.friendListButtonAction))
         self.navigationItem.rightBarButtonItem  = button1
         tableView.dataSource = presenter?.dataSource
@@ -89,7 +85,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
     }
 
     @objc func friendListButtonAction() {
-        coordinator?.didTouchProfileButton(userToDisplay: testUsers[0])
+        coordinator?.didTouchProfileButton(userToDisplay: currentUserInUse!)
     }
 
     func didTouchUser(_ sender: FeedTableViewCell) {

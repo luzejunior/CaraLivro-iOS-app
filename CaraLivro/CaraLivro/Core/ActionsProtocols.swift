@@ -24,7 +24,7 @@ protocol LoginViewControllerActions {
 
 // Conform:
 protocol postButtonProtocol {
-    func didTouchPostButton()
+    func didTouchPostButton(postUserID: Int)
 }
 
 protocol MoreOptionsConform: UIAlertOptionsConform {

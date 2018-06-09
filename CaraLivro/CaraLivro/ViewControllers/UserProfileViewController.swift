@@ -9,30 +9,51 @@
 import Foundation
 import UIKit
 
+enum ProfileType {
+    case uself, other, friend
+}
+
 // PRESENTER
 final class UserProfileViewControllerPresenter {
     var dataSource = GenericDataSource()
     var currentUser: UserDetails?
     private var view: UserProfileViewController?
+    var profileStatus: ProfileType?
 
     init(with view: UserProfileViewController, currentUser: UserDetails) {
         self.view = view
         self.currentUser = currentUser
+        setProfileStatus()
+    }
+
+    func setProfileStatus() {
+        profileStatus = currentUser?.idUserProfile != currentUserInUse?.idUserProfile ? .other : .uself
     }
 
     func fetchData() {
-        for item in testPosts {
-            if item.UserProfileMural_idUserProfile == currentUser?.idUserProfile {
-                let tableContent = FeedTableViewCellPresenter(textPost: item, view: view!)
-                dataSource.items.append(tableContent)
+        var stringURL: String
+        if profileStatus == .uself {
+            stringURL = "user/" + String(describing: currentUser?.idUserProfile ?? 0) + "/mural/posts"
+        } else {
+            stringURL = "user/" + String(describing: currentUser?.idUserProfile ?? 0) + "/mural/posts"
+        }
+        getDataFromServer(path: stringURL) { (posts: [TextPost]) in
+            DispatchQueue.main.async {
+                self.configureTableView(posts: posts)
             }
         }
-        for item in imagePosts {
-            if item.userPosted?.idUserProfile == currentUser?.idUserProfile {
-                let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
-                dataSource.items.append(tableContent)
-            }
+    }
+
+    func configureTableView(posts: [TextPost]) {
+        dataSource.items.removeAll()
+        for item in posts {
+            let tableContent1 = FeedTableViewCellPresenter(textPost: item, view: view!)
+            dataSource.items.append(tableContent1)
         }
+//        for item in imagePosts {
+//            let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
+//            dataSource.items.append(tableContent)
+//        }
         view?.finishedFetching()
     }
 }
@@ -60,7 +81,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
     }
 
     @IBAction func postButton(_ sender: Any) {
-        coordinator?.didTouchPostButton()
+        coordinator?.didTouchPostButton(postUserID: presenter?.currentUser?.idUserProfile ?? 0)
     }
     
     public func presentUIAlert() {
@@ -97,12 +118,12 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
 
     func configureUser() {
         userImage.image = UIImage(named: presenter?.currentUser?.ProfilePicture ?? "profilePic")
-        userName.text = presenter?.currentUser?.FirstName ?? ""
+        userName.text = (presenter?.currentUser?.FirstName ?? "") + " " + (presenter?.currentUser?.LastName ?? "")
         userEmail.text = presenter?.currentUser?.Email ?? ""
     }
 
     func finishedFetching() {
-        tableView.reloadData()
+            tableView.reloadData()
     }
 
     func RegisterCells() {

@@ -72,6 +72,14 @@ final class FeedTableViewCellPresenter: UITableViewModels {
         postID = textPost.idPost
         userContent = textPost.Text
         getPostUserData(userID: textPost.UserProfile_idUserProfile_postOwner ?? 0)
+        if textPost.UserProfileMural_idUserProfile != textPost.UserProfile_idUserProfile_postOwner {
+            for user in apiUsers {
+                if user.idUserProfile == textPost.UserProfileMural_idUserProfile {
+                    self.userName = self.userName! + " -> "
+                    self.userName = self.userName! + (user.FirstName ?? "") + " " + (user.LastName ?? "")
+                }
+            }
+        }
         self.view = view
     }
 

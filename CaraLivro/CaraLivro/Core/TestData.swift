@@ -40,15 +40,10 @@ struct GroupsDetails {
     }
 }
 
-struct Post {
-    var idPost: Int?
-    var Text: String?
-    var NumberOfComments: Int?
-    var Visibility: Int?
-    var UserProfile_idUserProfile_postOwner: Int?
-    var GroupsMural_idGroups: Int?
-    var UserProfileMural_idUserProfile: Int?
-    var NumberOfLikes: Int?
+struct PostInUserMural: Encodable {
+    var user_id_poster: Int
+    var visibility: String?
+    var text: String?
 }
 
 struct TextPost: Decodable {

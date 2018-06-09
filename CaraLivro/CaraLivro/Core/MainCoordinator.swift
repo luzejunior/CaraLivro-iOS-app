@@ -8,11 +8,13 @@
 
 import UIKit
 
-final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfileViewControllerActions, FeedTableViewCellActions, LoginViewControllerActions {
+final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfileViewControllerActions, FeedTableViewCellActions, LoginViewControllerActions, CreatePostViewControllerActions {
 
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var window: UIWindow?
+
+    var userProfile: UserProfileViewController?
 
     init(navigationController: UINavigationController, window: UIWindow?) {
         self.navigationController = navigationController
@@ -41,18 +43,18 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     }
 
     func presentUserPage(user: UserDetails) {
-        let userProfile = UserProfileViewController.instantiate()
-        let userProfilePresenter = UserProfileViewControllerPresenter(with: userProfile, currentUser: user)
-        userProfile.presenter = userProfilePresenter
-        userProfile.coordinator = self
+        userProfile = UserProfileViewController.instantiate()
+        let userProfilePresenter = UserProfileViewControllerPresenter(with: userProfile!, currentUser: user)
+        userProfile?.presenter = userProfilePresenter
+        userProfile?.coordinator = self
         push(userProfile, animated: true)
     }
 
     func didTouchProfileButton(userToDisplay: UserDetails) {
-        let userProfile = UserProfileViewController.instantiate()
-        let userProfilePresenter = UserProfileViewControllerPresenter(with: userProfile, currentUser: userToDisplay)
-        userProfile.presenter = userProfilePresenter
-        userProfile.coordinator = self
+        userProfile = UserProfileViewController.instantiate()
+        let userProfilePresenter = UserProfileViewControllerPresenter(with: userProfile!, currentUser: userToDisplay)
+        userProfile?.presenter = userProfilePresenter
+        userProfile?.coordinator = self
         push(userProfile, animated: true)
     }
 
@@ -79,9 +81,16 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         push(friendList, animated: true)
     }
 
-    func didTouchPostButton() {
+    func didTouchPostButton(postUserID: Int) {
         let createPost = CreatePostViewController.instantiate()
+        createPost.currentMuralUserID = postUserID
+        createPost.coordinator = self
         push(createPost, animated: true)
+    }
+
+    func didTouchPostButton() {
+        pop(animated: true)
+        userProfile?.presenter?.fetchData()
     }
 
     private func push(_ viewController: UIViewController?, animated: Bool = false) {
@@ -89,6 +98,10 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
             return
         }
         navigationController.pushViewController(viewController, animated: animated)
+    }
+
+    private func pop(animated: Bool = false) {
+        navigationController.popViewController(animated: animated)
     }
 
     private func present(_ viewController: UIViewController?, animated: Bool = false) {
