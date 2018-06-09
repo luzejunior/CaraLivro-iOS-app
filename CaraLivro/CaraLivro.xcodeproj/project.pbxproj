@@ -285,7 +285,6 @@
 				D4E3441220BD8BE300ADF70F /* Frameworks */,
 				D4E3441320BD8BE300ADF70F /* Resources */,
 				D700662990F7F07AFF0E6C9E /* [CP] Embed Pods Frameworks */,
-				63E056ECEE8EAE2C25285D3B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -305,8 +304,6 @@
 				D4E3442620BD8BE300ADF70F /* Frameworks */,
 				D4E3442720BD8BE300ADF70F /* Resources */,
 				29494A2EF94BA97042210254 /* [CP] Check Pods Manifest.lock */,
-				96695EDBD8A46CF6ACF2D978 /* [CP] Embed Pods Frameworks */,
-				3CA06EF55E841560848B4874 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,8 +323,6 @@
 				D4E3443020BD8BE300ADF70F /* Sources */,
 				D4E3443120BD8BE300ADF70F /* Frameworks */,
 				D4E3443220BD8BE300ADF70F /* Resources */,
-				59E1A0FE1147FA11D0D26972 /* [CP] Embed Pods Frameworks */,
-				D67B7259B0A909E2EA527770 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -435,66 +430,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3CA06EF55E841560848B4874 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		59E1A0FE1147FA11D0D26972 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroUITests/Pods-CaraLivroUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		63E056ECEE8EAE2C25285D3B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		96695EDBD8A46CF6ACF2D978 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		98E6D83FB7C40354A4394928 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,21 +482,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D67B7259B0A909E2EA527770 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroUITests/Pods-CaraLivroUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D700662990F7F07AFF0E6C9E /* [CP] Embed Pods Frameworks */ = {
