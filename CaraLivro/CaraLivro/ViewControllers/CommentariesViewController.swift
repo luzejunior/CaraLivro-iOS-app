@@ -116,9 +116,10 @@ final class CommentariesViewController: UIViewController, Storyboarded {
         postDataToServer(object: comment, path: stringURL) {
             DispatchQueue.main.async {
                 self.presenter?.fetchData()
-                self.inputTextField.text = ""
+
             }
         }
+        self.inputTextField.text = ""
     }
     
     @objc func handleKeyboardNotification(notification: NSNotification) {
@@ -161,6 +162,7 @@ final class CommentariesViewController: UIViewController, Storyboarded {
         if presenter?.dataSource.items.isEmpty ?? true {
             messageLabel.isHidden = false
         } else {
+            messageLabel.isHidden = true
             tableView.reloadData()
             tableView.isHidden = false
         }
