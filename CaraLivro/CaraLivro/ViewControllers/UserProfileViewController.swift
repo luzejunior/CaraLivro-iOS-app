@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum ProfileType {
-    case uself, other, friend
+    case uself, other, friend, requested
 }
 
 // PRESENTER
@@ -41,6 +41,9 @@ final class UserProfileViewControllerPresenter {
             DispatchQueue.main.async {
                 self.configureTableView(posts: posts)
             }
+            if self.profileStatus != .uself {
+                self.getFriendship()
+            }
         }
     }
 
@@ -50,11 +53,58 @@ final class UserProfileViewControllerPresenter {
             let tableContent1 = FeedTableViewCellPresenter(textPost: item, view: view!)
             dataSource.items.append(tableContent1)
         }
-//        for item in imagePosts {
-//            let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
-//            dataSource.items.append(tableContent)
-//        }
         view?.finishedFetching()
+    }
+
+    func getFriendship() {
+        let stringURL = "user/" + String(describing: currentUser?.idUserProfile ?? 0) + "/friends"
+        getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+            for user in users {
+                if user.idUserProfile == self.currentUser?.idUserProfile {
+                    self.profileStatus = .friend
+                    self.view?.configureAddButton()
+                }
+            }
+            if self.profileStatus != .friend {
+                self.getRequestedFriend()
+            }
+        }
+    }
+
+    func getRequestedFriend() {
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/requests/sent"
+        getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+            DispatchQueue.main.async {
+                for user in users {
+                    if user.idUserProfile == self.currentUser?.idUserProfile {
+                        self.profileStatus = .requested
+                    }
+                }
+                self.view?.configureAddButton()
+            }
+        }
+    }
+
+    func cancelRequest() {
+        let json = FriendshipRequestJson(user_requester_id: currentUserInUse?.idUserProfile ?? 0)
+        let stringURL = "user/" + String(describing: currentUser?.idUserProfile ?? 0) + "/request/cancel"
+        postDataToServer(object: json, path: stringURL) {
+            DispatchQueue.main.async {
+                self.profileStatus = .other
+                self.view?.configureAddButton()
+            }
+        }
+    }
+
+    func requesFriendship() {
+        let json = FriendshipRequestJson(user_requester_id: currentUserInUse?.idUserProfile ?? 0)
+        let stringURL = "user/" + String(describing: currentUser?.idUserProfile ?? 0) + "/request"
+        postDataToServer(object: json, path: stringURL) {
+            DispatchQueue.main.async {
+                self.profileStatus = .requested
+                self.view?.configureAddButton()
+            }
+        }
     }
 }
 
@@ -71,6 +121,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var friendButton: UIButton!
 
     @IBAction func friendListButton(_ sender: Any) {
         coordinator?.didTouchFriendListButton()
@@ -120,7 +171,27 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         userImage.image = UIImage(named: presenter?.currentUser?.ProfilePicture ?? "profilePic")
         userName.text = (presenter?.currentUser?.FirstName ?? "") + " " + (presenter?.currentUser?.LastName ?? "")
         userEmail.text = presenter?.currentUser?.Email ?? ""
+        friendButton.isHidden = presenter?.profileStatus == .uself ? true : false
     }
+
+    func configureAddButton() {
+        if presenter?.profileStatus == .requested {
+            friendButton.setImage(UIImage(named: "requests_icon"), for: .normal)
+        } else if presenter?.profileStatus == .friend {
+            friendButton.setImage(UIImage(named: ""), for: .normal)
+        } else {
+            friendButton.setImage(UIImage(named: "tag_friend_btn"), for: .normal)
+        }
+    }
+
+    @IBAction func addFriendButtonAction(_ sender: Any) {
+        if presenter?.profileStatus == .requested {
+            presenter?.cancelRequest()
+        } else {
+            presenter?.requesFriendship()
+        }
+    }
+
 
     func finishedFetching() {
             tableView.reloadData()
