@@ -24,16 +24,38 @@ final class FriendListViewControllerPresenter {
     func fetchData() {
         dataSource.items.removeAll()
         if listType == .friends {
-            for item in testUsers {
-                let tableContent1 = FriendListTableViewCellPresenter(userDetails: item, view: view!, list: .friends)
-                dataSource.items.append(tableContent1)
+            let stringURL = "users"
+            getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+                DispatchQueue.main.async {
+                    self.configureFriendListTableView(posts: users)
+                }
             }
         }
         if listType == .groups {
-            for item in groupList {
-                let tableContent1 = FriendListTableViewCellPresenter(groupDetails: item, view: view!)
-                dataSource.items.append(tableContent1)
+            let stringURL = "groups"
+            getDataFromServer(path: stringURL) { (groups: [GroupsDetails]) in
+                DispatchQueue.main.async {
+                    self.configureGroupListTableView(posts: groups)
+                }
             }
+        }
+        view?.loadList()
+    }
+    
+    func configureFriendListTableView(posts: [UserDetails]) {
+        dataSource.items.removeAll()
+        for user in apiUsers {
+            let tableContent = FriendListTableViewCellPresenter(userDetails: user, view: view!, list: .friends)
+            dataSource.items.append(tableContent)
+        }
+        view?.finishedFetching()
+    }
+    
+    func configureGroupListTableView(posts: [GroupsDetails]) {
+        dataSource.items.removeAll()
+        for group in apiGroups {
+            let tableContent1 = FriendListTableViewCellPresenter(groupDetails: group, view: view!)
+            dataSource.items.append(tableContent1)
         }
         view?.finishedFetching()
     }
@@ -52,6 +74,13 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     var presenter: FriendListViewControllerPresenter?
     var coordinator: Coordinator?
 
+    
+    @IBOutlet weak var messageLabel: UILabel! {
+        didSet {
+            messageLabel.isHidden = true
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if presenter?.listType == .friends {
@@ -86,5 +115,15 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     
     func RegisterCells() {
         tableView.register(FriendListTableViewCell.self)
+    }
+    
+    func loadList() {
+        if presenter?.dataSource.items.isEmpty ?? true {
+            messageLabel.isHidden = false
+        } else {
+            messageLabel.isHidden = true
+            tableView.reloadData()
+            tableView.isHidden = false
+        }
     }
 }

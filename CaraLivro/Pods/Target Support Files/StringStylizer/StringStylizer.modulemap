@@ -1,0 +1,6 @@
+framework module StringStylizer {
+  umbrella header "StringStylizer-umbrella.h"
+
+  export *
+  module * { export * }
+}

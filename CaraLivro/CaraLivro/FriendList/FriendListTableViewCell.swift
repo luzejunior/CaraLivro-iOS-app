@@ -65,7 +65,7 @@ final class FriendListTableViewCellPresenter: UITableViewModels {
     }
 
     init(groupDetails: GroupsDetails, view: FriendListViewController) {
-        userName = groupDetails.groupName
+        userName = groupDetails.group_name
         listType = .groups
         self.view = view
     }

@@ -265,6 +265,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="onAddButtonTouched:" destination="pNL-NW-oje" eventType="touchUpInside" id="Wbk-pa-0pJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -308,23 +311,34 @@
                                 <rect key="frame" x="0.0" y="66.5" width="375" height="600.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhum amigo encontrado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybp-vY-npP">
+                                <rect key="frame" x="76.5" y="334.5" width="222" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sMh-48-MdF" firstAttribute="bottom" secondItem="Fql-ff-iOi" secondAttribute="bottom" id="4pr-wN-M3z"/>
                             <constraint firstItem="Fql-ff-iOi" firstAttribute="height" secondItem="OAh-Nh-PkU" secondAttribute="height" multiplier="0.9" id="LMk-4H-xMV"/>
                             <constraint firstItem="Fql-ff-iOi" firstAttribute="centerX" secondItem="sMh-48-MdF" secondAttribute="centerX" id="YlO-l2-oMB"/>
+                            <constraint firstItem="ybp-vY-npP" firstAttribute="top" secondItem="sMh-48-MdF" secondAttribute="top" constant="314.5" id="aJp-bF-I3f"/>
+                            <constraint firstItem="ybp-vY-npP" firstAttribute="leading" secondItem="sMh-48-MdF" secondAttribute="leading" constant="76.5" id="gJO-a0-klY"/>
+                            <constraint firstItem="sMh-48-MdF" firstAttribute="trailing" secondItem="ybp-vY-npP" secondAttribute="trailing" constant="76.5" id="i0L-QQ-Q42"/>
                             <constraint firstItem="Fql-ff-iOi" firstAttribute="width" secondItem="OAh-Nh-PkU" secondAttribute="width" id="iCL-g9-rqf"/>
+                            <constraint firstItem="sMh-48-MdF" firstAttribute="bottom" secondItem="ybp-vY-npP" secondAttribute="bottom" constant="314.5" id="lDK-u1-mfd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sMh-48-MdF"/>
                     </view>
                     <connections>
+                        <outlet property="messageLabel" destination="ybp-vY-npP" id="qP0-8N-CmK"/>
                         <outlet property="tableView" destination="Fql-ff-iOi" id="OzL-ov-vG4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ts6-su-CPA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="814" y="134"/>
+            <point key="canvasLocation" x="813.60000000000002" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>

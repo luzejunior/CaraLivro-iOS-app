@@ -8,7 +8,7 @@
 
 import Foundation
 
-let stringURL = "http://192.168.100.100:3000/"
+let stringURL = "http://192.168.15.6:3000/"
 
 func getDataFromServer<T: Decodable>(path: String, completion: @escaping (T) -> ()) {
     let urlPath = stringURL + path

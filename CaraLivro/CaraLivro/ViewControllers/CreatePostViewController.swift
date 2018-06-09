@@ -49,11 +49,10 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
         }
     }
     
-    @objc private func imagePickerController(_private  picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePicked.image = image
         dismiss(animated:true, completion: nil)
-        self.uploadImage(completion: printURL)
     }
     
     func printURL() {
@@ -117,9 +116,11 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     @objc func postButtonAction() {
         let post = PostInUserMural(user_id_poster: currentUserInUse?.idUserProfile ?? 0, visibility: "public", text: inputText.text)
         let stringURL = "user/" + String(describing: currentMuralUserID ?? 0) + "/mural/post"
-        postDataToServer(object: post, path: stringURL) {
-            DispatchQueue.main.async {
-                self.coordinator?.didTouchPostButton()
+        uploadImage {
+            postDataToServer(object: post, path: stringURL) {
+                DispatchQueue.main.async {
+                    self.coordinator?.didTouchPostButton()
+                }
             }
         }
     }
