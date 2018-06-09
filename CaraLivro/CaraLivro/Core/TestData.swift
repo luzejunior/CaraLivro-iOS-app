@@ -72,6 +72,12 @@ struct TextPost: Decodable {
     }
 }
 
+struct CommentInPost: Encodable {
+    var user_id_poster: Int
+    var user_id_commenter: Int
+    var text: String
+}
+
 struct ImagePost {
     var contentText: String?
     var imageName: String?
@@ -84,22 +90,13 @@ struct ImagePost {
     }
 }
 
-struct Comments {
+struct Comments: Decodable {
     var idComments: Int?
-    var numberOfResponses: Int?
-    var idPost: Int?
-    var idUserProfilePostOwner: Int?
-    var idUserProfilePostCommenter: Int?
-    var commentText: String?
-
-    init(id: Int, nmbrResponses: Int, idPost: Int, postOwner: Int?, postCommenter: Int, text: String?) {
-        idComments = id
-        numberOfResponses = nmbrResponses
-        self.idPost = idPost
-        idUserProfilePostOwner = postOwner
-        idUserProfilePostCommenter = postCommenter
-        commentText = text
-    }
+    var NumberOfResponses: Int?
+    var Post_idPost: Int?
+    var Post_UserProfile_idUserProfile_postOwner: Int?
+    var UserProfile_idUserProfile_commenter: Int?
+    var text: String?
 }
 
 struct CommentResponses {
@@ -125,9 +122,9 @@ let group1 = GroupsDetails(name: "Amamos Alan")
 let group2 = GroupsDetails(name: "BD é Vida")
 let group3 = GroupsDetails(name: "BD melhor disciplina")
 let groupList: [GroupsDetails] = [group1, group2, group3]
-
-let comment1 = Comments(id: 0, nmbrResponses: 0, idPost: 2, postOwner: post2.UserProfileMural_idUserProfile!, postCommenter: user2.idUserProfile ?? 0, text: "Belíssimo texto, muito obrigado pelas sábias palavras")
-let comment2 = Comments(id: 0, nmbrResponses: 0, idPost: 2, postOwner: post2.UserProfileMural_idUserProfile!, postCommenter: user2.idUserProfile ?? 0, text: "Thanks so much!!")
-let testComments: [Comments] = [comment1, comment2]
+//
+//let comment1 = Comments(id: 0, nmbrResponses: 0, idPost: 2, postOwner: post2.UserProfileMural_idUserProfile!, postCommenter: user2.idUserProfile ?? 0, text: "Belíssimo texto, muito obrigado pelas sábias palavras")
+//let comment2 = Comments(id: 0, nmbrResponses: 0, idPost: 2, postOwner: post2.UserProfileMural_idUserProfile!, postCommenter: user2.idUserProfile ?? 0, text: "Thanks so much!!")
+//let testComments: [Comments] = [comment1, comment2]
 
 

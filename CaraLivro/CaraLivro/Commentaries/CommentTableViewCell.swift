@@ -36,16 +36,13 @@ final class CommentTableViewCellPresenter: UITableViewModels {
     var commentText: String?
 
     init(comment: Comments) {
-        userID = comment.idUserProfilePostCommenter
-
-        for user in testUsers {
-            if user.idUserProfile == userID {
-                userName = user.FirstName
-                break
+        userID = comment.UserProfile_idUserProfile_commenter
+        for user in apiUsers {
+            if user.idUserProfile == comment.UserProfile_idUserProfile_commenter {
+                userName = (user.FirstName ?? "") + " " + (user.LastName ?? "")
             }
         }
-
-        commentText = comment.commentText
+        commentText = comment.text ?? ""
     }
 
 }

@@ -30,7 +30,6 @@ final class CommentariesViewControllerPresenter {
                 self.configureTableView(posts: posts)
             }
         }
-        view?.loadCommentaries()
     }
     
     func configureTableView(posts: [Comments]) {
@@ -39,7 +38,7 @@ final class CommentariesViewControllerPresenter {
             let tableContent1 = CommentTableViewCellPresenter(comment: item)
             dataSource.items.append(tableContent1)
         }
-        view?.finishedFetching()
+        view?.loadCommentaries()
     }
 }
 
@@ -112,11 +111,12 @@ final class CommentariesViewController: UIViewController, Storyboarded {
     }
 
     @objc func commentButtonAction() {
-        let comment = CommentInPost(user_id_poster: self.presenter?.postOwnerID, user_id_commenter: currentUserInUse?.idUserProfile ?? 0, text: inputTextField.text)
+        let comment = CommentInPost(user_id_poster: self.presenter?.postOwnerID ?? 0, user_id_commenter: currentUserInUse?.idUserProfile ?? 0, text: inputTextField.text ?? "")
         let stringURL = "post/" + String(describing: self.presenter?.postID ?? 0) + "/comment"
         postDataToServer(object: comment, path: stringURL) {
             DispatchQueue.main.async {
-                //self.coordinator?.didTouchPostButton()
+                self.presenter?.fetchData()
+                self.inputTextField.text = ""
             }
         }
     }
