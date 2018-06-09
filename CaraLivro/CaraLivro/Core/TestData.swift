@@ -25,6 +25,11 @@ struct UserDetails: Decodable {
     }
 }
 
+struct networkingMessage: Decodable {
+    var sucess: Bool
+    //var message: String
+}
+
 struct CreateUserJson: Encodable {
     var first_name: String
     var last_name: String

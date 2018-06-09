@@ -13,7 +13,7 @@ import UIKit
 }
 
 enum ListType {
-    case friends, groups
+    case friends, groups, friendRequests
 }
 
 final class FriendListTableViewCell: UITableViewCell, UITableViewContent {
@@ -56,11 +56,11 @@ final class FriendListTableViewCellPresenter: UITableViewModels {
     var listType: ListType?
     var view: FriendListTableViewCellConform?
     
-    init(userDetails: UserDetails, view: FriendListTableViewCellConform) {
+    init(userDetails: UserDetails, view: FriendListTableViewCellConform, list: ListType) {
         user = userDetails
         userName = (userDetails.FirstName ?? "") + " " + (userDetails.LastName ?? "")
         userImage = userDetails.ProfilePicture
-        listType = .friends
+        listType = list
         self.view = view
     }
 

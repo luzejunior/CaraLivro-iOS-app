@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum ProfileType {
-    case uself, other, friend, requested
+    case uself, other, friend, requested, requestedme
 }
 
 // PRESENTER
@@ -42,6 +42,9 @@ final class UserProfileViewControllerPresenter {
                 self.configureTableView(posts: posts)
             }
             if self.profileStatus != .uself {
+                self.getRequestedMe()
+            }
+            if self.profileStatus != .requestedme {
                 self.getFriendship()
             }
         }
@@ -56,17 +59,33 @@ final class UserProfileViewControllerPresenter {
         view?.finishedFetching()
     }
 
+    func getRequestedMe() {
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/requests/received"
+        getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+            DispatchQueue.main.async {
+                for user in users {
+                    if user.idUserProfile == self.currentUser?.idUserProfile {
+                        self.profileStatus = .requestedme
+                        self.view?.configureAddButton()
+                    }
+                }
+            }
+        }
+    }
+
     func getFriendship() {
         let stringURL = "user/" + String(describing: currentUser?.idUserProfile ?? 0) + "/friends"
         getDataFromServer(path: stringURL) { (users: [UserDetails]) in
-            for user in users {
-                if user.idUserProfile == self.currentUser?.idUserProfile {
-                    self.profileStatus = .friend
-                    self.view?.configureAddButton()
+            DispatchQueue.main.sync {
+                for user in users {
+                    if user.idUserProfile == currentUserInUse?.idUserProfile {
+                        self.profileStatus = .friend
+                        self.view?.configureAddButton()
+                    }
                 }
-            }
-            if self.profileStatus != .friend {
-                self.getRequestedFriend()
+                if self.profileStatus != .friend {
+                    self.getRequestedFriend()
+                }
             }
         }
     }
@@ -103,6 +122,42 @@ final class UserProfileViewControllerPresenter {
             DispatchQueue.main.async {
                 self.profileStatus = .requested
                 self.view?.configureAddButton()
+            }
+        }
+    }
+
+    func acceptFriendRequest() {
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/requests/" + String(describing: currentUser?.idUserProfile ?? 0) + "/accept"
+        getDataFromServer(path: stringURL) { (netMessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netMessage.sucess {
+                    self.profileStatus = .friend
+                    self.view?.configureAddButton()
+                }
+            }
+        }
+    }
+
+    func declineFriendRequest() {
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/requests/" + String(describing: currentUser?.idUserProfile ?? 0) + "/deny"
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.profileStatus = .other
+                    self.view?.configureAddButton()
+                }
+            }
+        }
+    }
+
+    func unmakeFrienship() {
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/unfriend/" + String(describing: currentUser?.idUserProfile ?? 0)
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.profileStatus = .other
+                    self.view?.configureAddButton()
+                }
             }
         }
     }
@@ -148,6 +203,19 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
     }
 
+    public func presentFriendRequestUIAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(alert, animated: true, completion: nil)
+
+        alert.addAction(UIAlertAction(title: "Aceitar", style: .destructive, handler: { action in
+            self.presenter?.acceptFriendRequest()
+        }))
+        alert.addAction(UIAlertAction(title: "Recusar", style: .default, handler: { action in
+            self.presenter?.declineFriendRequest()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+    }
+
     var presenter: UserProfileViewControllerPresenter?
     var coordinator: UserProfileViewControllerActions?
 
@@ -175,10 +243,10 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
     }
 
     func configureAddButton() {
-        if presenter?.profileStatus == .requested {
+        if presenter?.profileStatus == .requested || presenter?.profileStatus == .requestedme {
             friendButton.setImage(UIImage(named: "requests_icon"), for: .normal)
         } else if presenter?.profileStatus == .friend {
-            friendButton.setImage(UIImage(named: ""), for: .normal)
+            friendButton.setImage(UIImage(named: "add_feeling_btn"), for: .normal)
         } else {
             friendButton.setImage(UIImage(named: "tag_friend_btn"), for: .normal)
         }
@@ -187,8 +255,12 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
     @IBAction func addFriendButtonAction(_ sender: Any) {
         if presenter?.profileStatus == .requested {
             presenter?.cancelRequest()
-        } else {
+        } else if presenter?.profileStatus == .other {
             presenter?.requesFriendship()
+        } else if presenter?.profileStatus == .requestedme {
+            self.presentFriendRequestUIAlert()
+        } else if presenter?.profileStatus == .friend {
+            self.presenter?.unmakeFrienship()
         }
     }
 

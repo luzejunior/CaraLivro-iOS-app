@@ -8,7 +8,7 @@
 
 import Foundation
 
-let stringURL = "http://192.168.15.6:3000/"
+let stringURL = "http://192.168.100.100:3000/"
 
 func getDataFromServer<T: Decodable>(path: String, completion: @escaping (T) -> ()) {
     let urlPath = stringURL + path
@@ -21,7 +21,7 @@ func getDataFromServer<T: Decodable>(path: String, completion: @escaping (T) -> 
         } catch let jsonErr {
             print(jsonErr.localizedDescription)
         }
-    }.resume()
+        }.resume()
 }
 
 func postDataToServer<T: Encodable>(object: T, path: String, completion: @escaping () -> ()) {
@@ -58,3 +58,4 @@ func postDataToServer<T: Encodable>(object: T, path: String, completion: @escapi
     }
     task.resume()
 }
+

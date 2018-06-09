@@ -25,7 +25,7 @@ final class FriendListViewControllerPresenter {
         dataSource.items.removeAll()
         if listType == .friends {
             for item in testUsers {
-                let tableContent1 = FriendListTableViewCellPresenter(userDetails: item, view: view!)
+                let tableContent1 = FriendListTableViewCellPresenter(userDetails: item, view: view!, list: .friends)
                 dataSource.items.append(tableContent1)
             }
         }
@@ -65,10 +65,10 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(alert, animated: true, completion: nil)
         
-        alert.addAction(UIAlertAction(title: "Apagar", style: .destructive, handler: { action in
+        alert.addAction(UIAlertAction(title: "Aceitar", style: .destructive, handler: { action in
 
         }))
-        alert.addAction(UIAlertAction(title: "Denunciar", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Recusar", style: .default, handler: { action in
             
         }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))

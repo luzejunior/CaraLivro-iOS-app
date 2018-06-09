@@ -83,7 +83,7 @@ final class LoginViewControllerPresenter {
     func configureTableView() {
         dataSource.items.removeAll()
         for user in apiUsers {
-            let tableContent = FriendListTableViewCellPresenter(userDetails: user, view: view!)
+            let tableContent = FriendListTableViewCellPresenter(userDetails: user, view: view!, list: .friends)
             dataSource.items.append(tableContent)
         }
         view?.finishedFetching()
