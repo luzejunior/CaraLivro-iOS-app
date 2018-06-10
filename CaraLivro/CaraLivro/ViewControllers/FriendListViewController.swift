@@ -13,10 +13,13 @@ import UIKit
 final class FriendListViewControllerPresenter {
     var dataSource = GenericDataSource()
     private var view: FriendListViewController?
+    var currentUserID: Int?
     var listType: ListType?
+    var listAll = false
 
-    init(with view: FriendListViewController, listType: ListType) {
+    init(with view: FriendListViewController, listType: ListType, currentUserID: Int) {
         self.view = view
+        self.currentUserID = currentUserID
         self.listType = listType
 
     }
@@ -24,7 +27,12 @@ final class FriendListViewControllerPresenter {
     func fetchData() {
         dataSource.items.removeAll()
         if listType == .friends {
-            let stringURL = "users"
+            var stringURL = ""
+            if listAll {
+                stringURL = "users"
+            } else {
+                stringURL = "user/" + String(describing: currentUserID ?? 0) + "/friends"
+            }
             getDataFromServer(path: stringURL) { (users: [UserDetails]) in
                 DispatchQueue.main.async {
                     self.configureFriendListTableView(posts: users)
@@ -44,7 +52,7 @@ final class FriendListViewControllerPresenter {
     
     func configureFriendListTableView(posts: [UserDetails]) {
         dataSource.items.removeAll()
-        for user in apiUsers {
+        for user in posts {
             let tableContent = FriendListTableViewCellPresenter(userDetails: user, view: view!, list: .friends)
             dataSource.items.append(tableContent)
         }
@@ -53,7 +61,7 @@ final class FriendListViewControllerPresenter {
     
     func configureGroupListTableView(posts: [GroupsDetails]) {
         dataSource.items.removeAll()
-        for group in apiGroups {
+        for group in posts {
             let tableContent1 = FriendListTableViewCellPresenter(groupDetails: group, view: view!)
             dataSource.items.append(tableContent1)
         }
@@ -62,7 +70,7 @@ final class FriendListViewControllerPresenter {
 }
 
 // CONTROLLER
-final class FriendListViewController: UIViewController, Storyboarded, FriendListTableViewCellConform {
+final class FriendListViewController: UIViewController, Storyboarded, FriendListTableViewCellConform, FriendListViewActions {
     @IBOutlet weak var tableView: UITableView!{
         didSet {
             tableView.rowHeight = UITableViewAutomaticDimension
@@ -72,9 +80,8 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     }
     
     var presenter: FriendListViewControllerPresenter?
-    var coordinator: Coordinator?
+    var coordinator: MainCoordinator?
 
-    
     @IBOutlet weak var messageLabel: UILabel! {
         didSet {
             messageLabel.isHidden = true
@@ -105,8 +112,15 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let button1 = UIBarButtonItem(title: "Listar Todos", style: .plain, target: self, action: #selector(self.listAll))
+        self.navigationItem.rightBarButtonItem  = button1
         presenter?.fetchData()
         tableView.dataSource = presenter?.dataSource
+    }
+
+    @objc func listAll() {
+        presenter?.listAll = true
+        presenter?.fetchData()
     }
     
     func finishedFetching() {
@@ -115,6 +129,13 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     
     func RegisterCells() {
         tableView.register(FriendListTableViewCell.self)
+    }
+
+    func didSelectedFriend(_ sender: FriendListTableViewCell) {
+        let senderType = sender.presenter?.listType
+        if senderType == .groups {
+            coordinator?.didTouchGroup(group: (sender.presenter?.group)!)
+        }
     }
     
     func loadList() {

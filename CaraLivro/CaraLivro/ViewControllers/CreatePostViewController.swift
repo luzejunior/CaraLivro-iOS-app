@@ -11,7 +11,7 @@ import UIKit
 import Cloudinary
 
 protocol CreatePostViewControllerActions {
-    func didTouchPostButton()
+    func didTouchPostButton(listType: ListType)
 }
 
 final class CreatePostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, Storyboarded {
@@ -21,9 +21,12 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     
     var image: UIImage?
     var currentMuralUserID: Int?
+    var currentMuralGroupID: Int?
     var coordinator: CreatePostViewControllerActions?
     var bottomConstraint: NSLayoutConstraint?
-    
+    var listType: ListType?
+    @IBOutlet weak var postarButton: UIButton!
+
     let addImagemInputContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white
@@ -67,8 +70,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         inputText.placeholder = "Digite seu texto"
-        let button1 = UIBarButtonItem(title: "Postar", style: .plain, target: self, action: #selector(self.postButtonAction))
-        self.navigationItem.rightBarButtonItem  = button1
+        inputText.layer.cornerRadius = 10
         
         view.addSubview(addImagemInputContainerView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: addImagemInputContainerView)
@@ -113,21 +115,33 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
         addImagemInputContainerView.addConstraintsWithFormat(format: "V:|[v0(0.5)]", views: topBorderView)
     }
     
-    @objc func postButtonAction() {
-        let post = PostInUserMural(user_id_poster: currentUserInUse?.idUserProfile ?? 0, visibility: "public", text: inputText.text)
-        let stringURL = "user/" + String(describing: currentMuralUserID ?? 0) + "/mural/post"
-        uploadImage {
+    func postButtonAction(attachmentType: String?, attachmentPath: String?) {
+        if listType == .friends {
+            let post = PostInUserMural(user_id_poster: currentUserInUse?.idUserProfile ?? 0, visibility: "public", text: inputText.text, attachment_type: attachmentType, attachment_path: attachmentPath)
+            let stringURL = "user/" + String(describing: currentMuralUserID ?? 0) + "/mural/post"
             postDataToServer(object: post, path: stringURL) {
                 DispatchQueue.main.async {
-                    self.coordinator?.didTouchPostButton()
+                    self.coordinator?.didTouchPostButton(listType: self.listType!)
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        } else {
+            let post = PostIntoGroupMural(id_poster: currentMuralGroupID ?? 0, visibility: "public", text: inputText.text, attachment_type: attachmentType, attachment_path: attachmentPath)
+            let stringURL = "group/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/mural/post"
+            postDataToServer(object: post, path: stringURL) {
+                DispatchQueue.main.async {
+                    self.coordinator?.didTouchPostButton(listType: self.listType!)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }
     }
     
     func uploadImage(completion: @escaping () -> ()){
-        
         if ((self.image?.imageAsset) != nil){completion(); return;}
+        guard let image = imagePicked.image else {
+            return;
+        }
         
         let dispatchGroup = DispatchGroup()
         let config = CLDConfiguration(cloudName: "dn1glubhp", apiKey: "718496462185294")
@@ -136,7 +150,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
         dispatchGroup.enter()
         
         let size = CGSize(width: 360, height: 270)
-        let imageResized = imageWithImage(image: imagePicked.image!, scaledToSize: size)
+        let imageResized = imageWithImage(image: image, scaledToSize: size)
         let data = UIImagePNGRepresentation(imageResized)
         cloudinary.createUploader().upload(data: data!, uploadPreset: "presetPamin")
             .response { (result, error) in
@@ -161,5 +175,21 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
         UIGraphicsEndImageContext()
         return newImage
     }
-    
+
+    @IBAction func didTapCloseButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func didTapPostarButton(_ sender: Any) {
+        if imagePicked.image != nil {
+            postarButton.isEnabled = false
+            postarButton.setTitle("Carregando...", for: .disabled)
+            uploadImage {
+                self.printURL()
+                self.postButtonAction(attachmentType: "image", attachmentPath: self.url)
+            }
+        } else {
+            postButtonAction(attachmentType: nil, attachmentPath: nil)
+        }
+    }
 }

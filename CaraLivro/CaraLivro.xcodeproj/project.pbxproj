@@ -18,6 +18,7 @@
 		D4734DBA20C9BDFA00479EB7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DB920C9BDFA00479EB7 /* Networking.swift */; };
 		D4734DBD20CD74D300479EB7 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DBC20CD74D300479EB7 /* ModalViewController.swift */; };
 		D4734DBF20CD7D0300479EB7 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DBE20CD7D0300479EB7 /* CadastroViewController.swift */; };
+		D4734DC120CD9A8700479EB7 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DC020CD9A8700479EB7 /* GroupViewController.swift */; };
 		D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */; };
 		D4C6309220BEE25C00CFEC6F /* ActionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */; };
 		D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */; };
@@ -75,6 +76,7 @@
 		D4734DB920C9BDFA00479EB7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		D4734DBC20CD74D300479EB7 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		D4734DBE20CD7D0300479EB7 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		D4734DC020CD9A8700479EB7 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsProtocols.swift; sourceTree = "<group>"; };
 		D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				D4C630A120C701F400CFEC6F /* LoginViewController.swift */,
 				D4734DBC20CD74D300479EB7 /* ModalViewController.swift */,
 				D4734DBE20CD7D0300479EB7 /* CadastroViewController.swift */,
+				D4734DC020CD9A8700479EB7 /* GroupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				D4734DBF20CD7D0300479EB7 /* CadastroViewController.swift in Sources */,
 				D4C6309620BEE80800CFEC6F /* TestData.swift in Sources */,
 				D4E3444E20BDDB4B00ADF70F /* FeedTableViewCell.swift in Sources */,
+				D4734DC120CD9A8700479EB7 /* GroupViewController.swift in Sources */,
 				D4E3445020BE266900ADF70F /* CoordinatorProtocols.swift in Sources */,
 				D4734DB820C86E7C00479EB7 /* CommentTableViewCell.swift in Sources */,
 				D4734DBD20CD74D300479EB7 /* ModalViewController.swift in Sources */,

@@ -14,8 +14,8 @@ protocol FeedViewControllerActions: CommentariesButtonProtocol, PresentUserButto
 }
 
 protocol UserProfileViewControllerActions: postButtonProtocol, CommentariesButtonProtocol {
-    func didTouchFriendListButton()
-    func didTouchGroupsButton()
+    func didTouchFriendListButton(currentUserID: Int)
+    func didTouchGroupsButton(currentUserID: Int)
 }
 
 protocol LoginViewControllerActions {

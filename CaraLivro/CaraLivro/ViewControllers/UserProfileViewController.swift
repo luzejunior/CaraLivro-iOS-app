@@ -173,17 +173,21 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
             RegisterCells()
         }
     }
-    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userImage: UIImageView! {
+        didSet {
+            userImage.cropAsCircleWithBorder(borderColor: UIColor.black, strokeWidth: 2.0)
+        }
+    }
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var friendButton: UIButton!
 
     @IBAction func friendListButton(_ sender: Any) {
-        coordinator?.didTouchFriendListButton()
+        coordinator?.didTouchFriendListButton(currentUserID: presenter?.currentUser?.idUserProfile ?? 0)
     }
 
     @IBAction func groupsButton(_ sender: Any) {
-        coordinator?.didTouchGroupsButton()
+        coordinator?.didTouchGroupsButton(currentUserID: presenter?.currentUser?.idUserProfile ?? 0)
     }
 
     @IBAction func postButton(_ sender: Any) {

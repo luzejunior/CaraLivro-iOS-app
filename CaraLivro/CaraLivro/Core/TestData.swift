@@ -43,8 +43,8 @@ struct FriendshipRequestJson: Encodable {
 
 struct GroupsDetails: Decodable {
     var idGroups: Int?
-    var group_name: String?
-    var group_description: String?
+    var Name: String?
+    var Description: String?
     var NumberOfMembers: Int?
 }
 
@@ -52,6 +52,8 @@ struct PostInUserMural: Encodable {
     var user_id_poster: Int
     var visibility: String?
     var text: String?
+    var attachment_type: String?
+    var attachment_path: String?
 }
 
 struct TextPost: Decodable {
@@ -75,6 +77,14 @@ struct CommentInPost: Encodable {
     var user_id_poster: Int
     var user_id_commenter: Int
     var text: String
+}
+
+struct PostIntoGroupMural: Encodable {
+    var id_poster: Int
+    var visibility: String
+    var text: String
+    var attachment_type: String?
+    var attachment_path: String?
 }
 
 struct ImagePost {

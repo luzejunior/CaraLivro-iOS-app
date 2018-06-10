@@ -15,6 +15,7 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     var window: UIWindow?
 
     var userProfile: UserProfileViewController?
+    var groupView: GroupViewController?
     var defaultModal: ModalViewController?
 
     init(navigationController: UINavigationController, window: UIWindow?) {
@@ -66,17 +67,17 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         push(commentaries, animated: true)
     }
 
-    func didTouchFriendListButton() {
+    func didTouchFriendListButton(currentUserID: Int) {
         let friendList = FriendListViewController.instantiate()
-        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .friends)
+        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .friends, currentUserID: currentUserID)
         friendList.presenter = friendListPresenter
         friendList.coordinator = self
         push(friendList, animated: true)
     }
 
-    func didTouchGroupsButton() {
+    func didTouchGroupsButton(currentUserID: Int) {
         let friendList = FriendListViewController.instantiate()
-        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .groups)
+        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .groups, currentUserID: currentUserID)
         friendList.presenter = friendListPresenter
         friendList.coordinator = self
         push(friendList, animated: true)
@@ -86,19 +87,39 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         let createPost = CreatePostViewController.instantiate()
         createPost.modalPresentationStyle = UIModalPresentationStyle.popover
         createPost.currentMuralUserID = postUserID
+        createPost.listType = .friends
         createPost.coordinator = self
         present(createPost, animated: true)
     }
 
-    func didTouchPostButton() {
-        pop(animated: true)
-        userProfile?.presenter?.fetchData()
+    func didTouchPostButton(postGroupID: Int) {
+        let createPost = CreatePostViewController.instantiate()
+        createPost.modalPresentationStyle = UIModalPresentationStyle.popover
+        createPost.currentMuralGroupID = postGroupID
+        createPost.listType = .groups
+        createPost.coordinator = self
+        present(createPost, animated: true)
+    }
+
+    func didTouchGroup(group: GroupsDetails) {
+        groupView = GroupViewController.instantiate()
+        let groupPresenter = GroupViewControllerPresenter(with: groupView!, group: group)
+        groupView?.presenter = groupPresenter
+        groupView?.coordinator = self
+        push(groupView, animated: true)
+    }
+
+    func didTouchPostButton(listType: ListType) {
+        if listType == .friends {
+            userProfile?.presenter?.fetchData()
+        } else {
+            groupView?.presenter?.getPosts()
+        }
     }
 
     func didTouchAddUserButton() {
         let cadastro = CadastroViewController.instantiate()
         presentModal(cadastro, constraintValue: CGFloat(210.0))
-
     }
 
     private func push(_ viewController: UIViewController?, animated: Bool = false) {
@@ -128,6 +149,5 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         defaultModal?.viewController = viewController
         self.navigationController.present(defaultModal!, animated: animated, completion: nil)
         defaultModal?.modifyBottomContraint(value: constraintValue)
-        //self.navigationController.pushViewController(defaultModal!, animated: true)
     }
 }
