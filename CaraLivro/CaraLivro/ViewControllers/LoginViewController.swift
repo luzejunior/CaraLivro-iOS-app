@@ -35,12 +35,13 @@ final class LoginViewController: UIViewController, Storyboarded, FriendListTable
     }
 
     @IBAction func onAddButtonTouched(_ sender: Any) {
-        let newUser = CreateUserJson(first_name: "Luan", last_name: "Lima", email: "luanlima@email.cu", password: "eusouhomem")
-        postDataToServer(object: newUser, path: "user/signup") { () in
-            DispatchQueue.main.async {
-                self.presenter?.fetchData()
-            }
-        }
+        //let newUser = CreateUserJson(first_name: "Luan", last_name: "Lima", email: "luanlima@email.cu", password: "eusouhomem")
+        //postDataToServer(object: newUser, path: "user/signup") { () in
+//            DispatchQueue.main.async {
+//                self.presenter?.fetchData()
+//            }
+//        }
+        coordinator?.didTouchAddUserButton()
     }
 
     func RegisterCells() {

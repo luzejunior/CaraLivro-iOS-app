@@ -15,6 +15,7 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     var window: UIWindow?
 
     var userProfile: UserProfileViewController?
+    var defaultModal: ModalViewController?
 
     init(navigationController: UINavigationController, window: UIWindow?) {
         self.navigationController = navigationController
@@ -83,14 +84,21 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
 
     func didTouchPostButton(postUserID: Int) {
         let createPost = CreatePostViewController.instantiate()
+        createPost.modalPresentationStyle = UIModalPresentationStyle.popover
         createPost.currentMuralUserID = postUserID
         createPost.coordinator = self
-        push(createPost, animated: true)
+        present(createPost, animated: true)
     }
 
     func didTouchPostButton() {
         pop(animated: true)
         userProfile?.presenter?.fetchData()
+    }
+
+    func didTouchAddUserButton() {
+        let cadastro = CadastroViewController.instantiate()
+        presentModal(cadastro, constraintValue: CGFloat(210.0))
+
     }
 
     private func push(_ viewController: UIViewController?, animated: Bool = false) {
@@ -109,5 +117,17 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
             return
         }
         navigationController.view.window?.rootViewController?.present(viewController, animated: animated)
+    }
+
+    private func presentModal(_ viewController: UIViewController?, constraintValue: CGFloat, animated: Bool = false) {
+        guard let viewController = viewController else {
+            return
+        }
+        defaultModal = ModalViewController.instantiate()
+        defaultModal?.modalPresentationStyle = .overCurrentContext
+        defaultModal?.viewController = viewController
+        self.navigationController.present(defaultModal!, animated: animated, completion: nil)
+        defaultModal?.modifyBottomContraint(value: constraintValue)
+        //self.navigationController.pushViewController(defaultModal!, animated: true)
     }
 }

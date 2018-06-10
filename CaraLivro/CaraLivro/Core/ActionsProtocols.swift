@@ -20,6 +20,7 @@ protocol UserProfileViewControllerActions: postButtonProtocol, CommentariesButto
 
 protocol LoginViewControllerActions {
     func didSelectedUserToLogin(currentUser: UserDetails)
+    func didTouchAddUserButton()
 }
 
 // Conform:
