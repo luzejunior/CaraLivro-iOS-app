@@ -29,6 +29,7 @@ struct CreateUserJson: Encodable {
     var last_name: String
     var email: String
     var password: String
+    var ProfilePicture: String?
 }
 
 struct FriendshipRequestJson: Encodable {

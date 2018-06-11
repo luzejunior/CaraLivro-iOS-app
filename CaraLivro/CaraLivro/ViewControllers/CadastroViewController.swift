@@ -14,6 +14,9 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var secondNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var createButton: UIButton!
+    
+    var image: UIImage?
     
     @IBOutlet weak var userImage: UIImageView! {
         didSet {
@@ -44,12 +47,31 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
         }
     }
     
-    var image: UIImage?
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         userImage.image = image
         dismiss(animated:true, completion: nil)
     }
+
+    @IBAction func didTapCreateUserButton(_ sender: Any) {
+        if userImage.image != UIImage(named: "profilePic") {
+            createButton.isEnabled = false
+            createButton.setTitle("Carregando...", for: .disabled)
+            uploadImage(image: image) { (url) in
+                self.postCreateButtonAction(attachmentType: "image", attachmentPath: url)
+            }
+        } else {
+            postCreateButtonAction(attachmentType: nil, attachmentPath: nil)
+        }
+    }
     
+    func postCreateButtonAction(attachmentType: String?, attachmentPath: String?) {
+        let newUser = CreateUserJson(first_name: firstNameTextField.text!, last_name: secondNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, ProfilePicture: attachmentPath)
+        let stringURL = "user/signup"
+        postDataToServer(object: newUser, path: stringURL) {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
 }

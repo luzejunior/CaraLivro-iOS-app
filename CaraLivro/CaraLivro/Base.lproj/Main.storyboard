@@ -422,6 +422,9 @@
                                 <rect key="frame" x="0.0" y="464" width="375" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Cadastrar"/>
+                                <connections>
+                                    <action selector="didTapCreateUserButton:" destination="5wn-SZ-sNl" eventType="touchUpInside" id="BGA-eY-JVb"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="63w-hN-C5T">
                                 <rect key="frame" x="128" y="63" width="120" height="120"/>
@@ -466,6 +469,7 @@
                         <viewLayoutGuide key="safeArea" id="uzf-C0-a2G"/>
                     </view>
                     <connections>
+                        <outlet property="createButton" destination="kt5-JJ-bVE" id="gyG-Hm-lnw"/>
                         <outlet property="emailTextField" destination="MIa-XO-78s" id="KqK-3W-aS2"/>
                         <outlet property="firstNameTextField" destination="Fzk-Bc-s1c" id="N0C-pX-tcV"/>
                         <outlet property="passwordTextField" destination="asF-1X-yI8" id="2P6-gY-ZmG"/>
