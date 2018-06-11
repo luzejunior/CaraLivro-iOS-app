@@ -111,6 +111,59 @@ final class FriendListViewControllerPresenter {
         }
         view?.finishedFetching()
     }
+
+    func acceptFriendRequest(_ friendID: Int) {
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/requests/" + String(describing: friendID ) + "/accept"
+        getDataFromServer(path: stringURL) { (netMessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netMessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
+    }
+
+    func declineFriendRequest(_ friendID: Int) {
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/requests/" + String(describing: friendID ) + "/deny"
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
+    }
+
+    func unmakeFrienship(_ friendID: Int) {
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/unfriend/" + String(describing: friendID )
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
+    }
+
+    func blockUser(_ friendID: Int) {
+
+    }
+
+    func acceptGroupRequest(_ userID: Int) {
+
+    }
+
+    func declineGroupRequest(_ userID: Int) {
+
+    }
+
+    func eraseUserFromGroup(_ userID: Int) {
+
+    }
+
+    func blockUserFromGroup(_ userID: Int) {
+
+    }
 }
 
 // CONTROLLER
@@ -148,31 +201,37 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
 
         if presenter?.listType == .friends && presenter?.listAll == false {
             alert.addAction(UIAlertAction(title: "Desfazer Amizade", style: .destructive, handler: { action in
-
+                self.presenter?.unmakeFrienship(postOwnerID)
             }))
             alert.addAction(UIAlertAction(title: "Bloquear", style: .destructive, handler: { action in
-
+                self.presenter?.blockUser(postOwnerID)
+            }))
+        } else if presenter?.listType == .friends && presenter?.listAll == true {
+            alert.addAction(UIAlertAction(title: "Denunciar", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: "Denunciar", message: "Obrigado pela denuncia! :)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }))
         } else if presenter?.listType == .friendRequests {
             alert.addAction(UIAlertAction(title: "Aceitar", style: .destructive, handler: { action in
-
+                self.presenter?.acceptFriendRequest(postOwnerID)
             }))
             alert.addAction(UIAlertAction(title: "Recusar", style: .default, handler: { action in
-
+                self.presenter?.declineFriendRequest(postOwnerID)
             }))
         } else if presenter?.listType == .groupRequests {
             alert.addAction(UIAlertAction(title: "Aceitar", style: .destructive, handler: { action in
-
+                self.presenter?.acceptGroupRequest(postOwnerID)
             }))
             alert.addAction(UIAlertAction(title: "Recusar", style: .destructive, handler: { action in
-
+                self.presenter?.declineGroupRequest(postOwnerID)
             }))
         } else if presenter?.listType == .groupMembers && presenter?.isGroupAdmin ?? false {
             alert.addAction(UIAlertAction(title: "Remover do Grupo", style: .destructive, handler: { action in
-
+                self.presenter?.eraseUserFromGroup(postOwnerID)
             }))
             alert.addAction(UIAlertAction(title: "Bloquear do Grupo", style: .destructive, handler: { action in
-
+                self.presenter?.blockUserFromGroup(postOwnerID)
             }))
         }
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
@@ -193,6 +252,8 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     func finishedFetching() {
         if presenter?.dataSource.items.isEmpty ?? true {
             messageLabel.isHidden = false
+            tableView.isHidden = true
+            tableView.reloadData()
         } else {
             messageLabel.isHidden = true
             tableView.reloadData()

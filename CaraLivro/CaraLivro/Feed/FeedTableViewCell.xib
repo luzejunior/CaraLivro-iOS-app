@@ -28,6 +28,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="143.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAZ-li-hKi">
+                        <rect key="frame" x="0.0" y="0.0" width="330" height="66"/>
+                        <connections>
+                            <action selector="didSelectedUserButton:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="mJe-LS-SiE"/>
+                        </connections>
+                    </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FpC-AJ-MEM">
                         <rect key="frame" x="16" y="11" width="55" height="55"/>
                         <constraints>
@@ -79,12 +85,6 @@
                         </state>
                         <connections>
                             <action selector="moreOptions:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="clG-Kx-W3N"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAZ-li-hKi">
-                        <rect key="frame" x="0.0" y="0.0" width="330" height="66"/>
-                        <connections>
-                            <action selector="didSelectedUserButton:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="mJe-LS-SiE"/>
                         </connections>
                     </button>
                 </subviews>
