@@ -13,7 +13,7 @@ import UIKit
 }
 
 enum ListType {
-    case friends, groups, friendRequests, groupRequests
+    case friends, groups, friendRequests, groupRequests, groupMembers
 }
 
 final class FriendListTableViewCell: UITableViewCell, UITableViewContent {
@@ -24,7 +24,7 @@ final class FriendListTableViewCell: UITableViewCell, UITableViewContent {
     @IBOutlet weak var userName: UILabel!
     
     @IBAction func moreOptions(_ sender: Any) {
-        presenter?.view?.presentUIAlert()
+        presenter?.view?.presentUIAlert(postID: 0, postOwnerID: presenter?.user?.idUserProfile ?? 0)
     }
 
     @IBAction func didTouchColumn(_ sender: Any) {

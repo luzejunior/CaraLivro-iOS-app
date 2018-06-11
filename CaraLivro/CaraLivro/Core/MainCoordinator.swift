@@ -27,6 +27,10 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         presentLogin()
     }
 
+    func logOut() {
+        presentLogin()
+    }
+
     func presentLogin() {
         let login = LoginViewController.instantiate()
         let loginPresenter = LoginViewControllerPresenter(with: login)
@@ -83,6 +87,23 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         push(friendList, animated: true)
     }
 
+    func didTouchGroupsMemberButton(currentGroupID: Int, isGroupAdmin: Bool) {
+        let friendList = FriendListViewController.instantiate()
+        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .groupMembers, currentGroupID: currentGroupID)
+        friendListPresenter.isGroupAdmin = isGroupAdmin
+        friendList.presenter = friendListPresenter
+        friendList.coordinator = self
+        push(friendList, animated: true)
+    }
+
+    func didTouchGroupsMemberRequestButton(currentGroupID: Int) {
+        let friendList = FriendListViewController.instantiate()
+        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .groupRequests, currentGroupID: currentGroupID)
+        friendList.presenter = friendListPresenter
+        friendList.coordinator = self
+        push(friendList, animated: true)
+    }
+
     func didTouchPostButton(postUserID: Int) {
         let createPost = CreatePostViewController.instantiate()
         createPost.modalPresentationStyle = UIModalPresentationStyle.popover
@@ -119,7 +140,7 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
 
     func didTouchAddUserButton() {
         let cadastro = CadastroViewController.instantiate()
-        presentModal(cadastro, constraintValue: CGFloat(210.0))
+        presentModal(cadastro, constraintValue: CGFloat(140.0))
     }
 
     private func push(_ viewController: UIViewController?, animated: Bool = false) {

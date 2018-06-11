@@ -161,6 +161,17 @@ final class UserProfileViewControllerPresenter {
             }
         }
     }
+
+    func deletePost(postID: Int) {
+        let stringURL = "post/" + String(describing: postID) + "/delete"
+        getDataFromServer(path: stringURL) { (netMessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netMessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
+    }
 }
 
 // CONTROLLER
@@ -194,12 +205,12 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         coordinator?.didTouchPostButton(postUserID: presenter?.currentUser?.idUserProfile ?? 0)
     }
     
-    public func presentUIAlert() {
+    public func presentUIAlert(postID: Int, postOwnerID: Int) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(alert, animated: true, completion: nil)
         
         alert.addAction(UIAlertAction(title: "Apagar", style: .destructive, handler: { action in
-            
+            self.presenter?.deletePost(postID: postID)
         }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
     }

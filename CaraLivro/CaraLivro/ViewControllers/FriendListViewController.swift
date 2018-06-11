@@ -14,14 +14,21 @@ final class FriendListViewControllerPresenter {
     var dataSource = GenericDataSource()
     private var view: FriendListViewController?
     var currentUserID: Int?
+    var currentGroupID: Int?
     var listType: ListType?
     var listAll = false
+    var isGroupAdmin = false
 
     init(with view: FriendListViewController, listType: ListType, currentUserID: Int) {
         self.view = view
         self.currentUserID = currentUserID
         self.listType = listType
+    }
 
+    init(with view: FriendListViewController, listType: ListType, currentGroupID: Int) {
+        self.view = view
+        self.currentGroupID = currentGroupID
+        self.listType = listType
     }
     
     func fetchData() {
@@ -38,16 +45,35 @@ final class FriendListViewControllerPresenter {
                     self.configureFriendListTableView(posts: users)
                 }
             }
-        }
-        if listType == .groups {
+        } else if listType == .friendRequests {
+            let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/requests/received"
+            getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+                DispatchQueue.main.async {
+                    self.configureFriendListTableView(posts: users)
+                }
+            }
+        } else if listType == .groups {
             let stringURL = "groups"
             getDataFromServer(path: stringURL) { (groups: [GroupsDetails]) in
                 DispatchQueue.main.async {
                     self.configureGroupListTableView(posts: groups)
                 }
             }
+        } else if listType == .groupRequests {
+            let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/requests/pending"
+            getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+                DispatchQueue.main.async {
+                    self.configureFriendListTableView(posts: users)
+                }
+            }
+        } else if listType == .groupMembers {
+            let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/members"
+            getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+                DispatchQueue.main.async {
+                    self.configureFriendListTableView(posts: users)
+                }
+            }
         }
-        view?.loadList()
     }
     
     func configureFriendListTableView(posts: [UserDetails]) {
@@ -73,6 +99,7 @@ final class FriendListViewControllerPresenter {
 final class FriendListViewController: UIViewController, Storyboarded, FriendListTableViewCellConform, FriendListViewActions {
     @IBOutlet weak var tableView: UITableView!{
         didSet {
+            tableView.isHidden = true
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.backgroundColor = UIColor.clear
             RegisterCells()
@@ -97,23 +124,46 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
         }
     }
 
-    public func presentUIAlert () {
+    public func presentUIAlert(postID: Int, postOwnerID: Int) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(alert, animated: true, completion: nil)
-        
-        alert.addAction(UIAlertAction(title: "Aceitar", style: .destructive, handler: { action in
 
-        }))
-        alert.addAction(UIAlertAction(title: "Recusar", style: .default, handler: { action in
-            
-        }))
+        if presenter?.listType == .friends && presenter?.listAll == false {
+            alert.addAction(UIAlertAction(title: "Desfazer Amizade", style: .destructive, handler: { action in
+
+            }))
+            alert.addAction(UIAlertAction(title: "Bloquear", style: .destructive, handler: { action in
+
+            }))
+        } else if presenter?.listType == .friendRequests {
+            alert.addAction(UIAlertAction(title: "Aceitar", style: .destructive, handler: { action in
+
+            }))
+            alert.addAction(UIAlertAction(title: "Recusar", style: .default, handler: { action in
+
+            }))
+        } else if presenter?.listType == .groupRequests {
+            alert.addAction(UIAlertAction(title: "Aceitar", style: .destructive, handler: { action in
+
+            }))
+            alert.addAction(UIAlertAction(title: "Recusar", style: .destructive, handler: { action in
+
+            }))
+        } else if presenter?.listType == .groupMembers && presenter?.isGroupAdmin ?? false {
+            alert.addAction(UIAlertAction(title: "Remover do Grupo", style: .destructive, handler: { action in
+
+            }))
+            alert.addAction(UIAlertAction(title: "Bloquear do Grupo", style: .destructive, handler: { action in
+
+            }))
+        }
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let button1 = UIBarButtonItem(title: "Listar Todos", style: .plain, target: self, action: #selector(self.listAll))
-        self.navigationItem.rightBarButtonItem  = button1
+        self.navigationItem.rightBarButtonItem = button1
         presenter?.fetchData()
         tableView.dataSource = presenter?.dataSource
     }
@@ -124,7 +174,13 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     }
     
     func finishedFetching() {
-        tableView.reloadData()
+        if presenter?.dataSource.items.isEmpty ?? true {
+            messageLabel.isHidden = false
+        } else {
+            messageLabel.isHidden = true
+            tableView.reloadData()
+            tableView.isHidden = false
+        }
     }
     
     func RegisterCells() {
@@ -135,16 +191,6 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
         let senderType = sender.presenter?.listType
         if senderType == .groups {
             coordinator?.didTouchGroup(group: (sender.presenter?.group)!)
-        }
-    }
-    
-    func loadList() {
-        if presenter?.dataSource.items.isEmpty ?? true {
-            messageLabel.isHidden = false
-        } else {
-            messageLabel.isHidden = true
-            tableView.reloadData()
-            tableView.isHidden = false
         }
     }
 }

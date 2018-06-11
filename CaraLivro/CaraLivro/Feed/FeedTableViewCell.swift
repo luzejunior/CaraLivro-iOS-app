@@ -32,7 +32,7 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
     }
 
     @IBAction func moreOptions(_ sender: Any) {
-        presenter?.view?.presentUIAlert()
+        presenter?.view?.presentUIAlert(postID: presenter?.postID ?? 0, postOwnerID: presenter?.posterUser?.idUserProfile ?? 0)
     }
 
     @IBAction func didTuchCommentaries(_ sender: Any) {
@@ -49,11 +49,6 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
     }
 
     func configureView() {
-        if presenter?.posterUser?.idUserProfile != currentUserInUse?.idUserProfile {
-            moreButton.isHidden = true
-        } else {
-            moreButton.isHidden = false
-        }
         userName.text = presenter?.userName
         userImage.image = UIImage(named: presenter?.userImage ?? "profilePic")
         contentLabel.text = presenter?.userContent

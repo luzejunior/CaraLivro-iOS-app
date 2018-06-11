@@ -14,6 +14,7 @@ final class GroupViewControllerPresenter {
     var currentGroup: GroupsDetails?
     var isAdm = false
     var isMember = false
+    var isRequested = false
 
     init(with view: GroupViewController, group: GroupsDetails) {
         self.view = view
@@ -33,6 +34,19 @@ final class GroupViewControllerPresenter {
         }
     }
 
+    func getRequested() {
+        let stringURL = "group/" + String(describing: currentGroup?.idGroups ?? 0) + "/requests/pending"
+        getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+            DispatchQueue.main.async {
+                for user in users {
+                    if user.idUserProfile == currentUserInUse?.idUserProfile {
+                        self.isRequested = true
+                    }
+                }
+            }
+        }
+    }
+
     func getGroupUser() {
         let stringURL = "group/" + String(describing: currentGroup?.idGroups ?? 0) + "/members"
         getDataFromServer(path: stringURL) { (users: [UserDetails]) in
@@ -44,7 +58,7 @@ final class GroupViewControllerPresenter {
                 }
             }
         }
-        self.getGroupAdmin()
+
     }
 
     func getPosts() {
@@ -59,6 +73,7 @@ final class GroupViewControllerPresenter {
 
     func fetchData() {
         getGroupUser()
+        getGroupAdmin()
         getPosts()
     }
 
@@ -71,6 +86,17 @@ final class GroupViewControllerPresenter {
         view?.finishedFetching()
         view?.configureGroup()
     }
+
+    func deletePost(postID: Int) {
+        let stringURL = "post/" + String(describing: postID) + "/delete"
+        getDataFromServer(path: stringURL) { (netMessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netMessage.sucess {
+                    self.getPosts()
+                }
+            }
+        }
+    }
 }
 
 final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConform {
@@ -79,12 +105,14 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
     @IBOutlet weak var groupDescription: UILabel!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
+            tableView.isHidden = true
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.backgroundColor = UIColor.clear
             RegisterCells()
         }
     }
     @IBOutlet weak var userButton: UIButton!
+    @IBOutlet weak var messageToUser: UILabel!
 
     var presenter: GroupViewControllerPresenter?
     var coordinator: MainCoordinator?
@@ -100,20 +128,26 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
         coordinator?.didTouchCommentariesButton(postID: postID, postOwnerID: postOwnerID)
     }
 
-    func presentUIAlert() {
+    func presentUIAlert(postID: Int, postOwnerID: Int) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(alert, animated: true, completion: nil)
         if presenter?.isAdm ?? false {
-            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            self.present(alert, animated: true, completion: nil)
-
             alert.addAction(UIAlertAction(title: "Apagar", style: .destructive, handler: { action in
-
+                self.presenter?.deletePost(postID: postID)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        } else {
+            alert.addAction(UIAlertAction(title: "Denunciar", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: "Denunciar", message: "Obrigado pela denuncia! :)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }))
             alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         }
     }
 
     @IBAction func didTouchUserList(_ sender: Any) {
-
+        coordinator?.didTouchGroupsMemberButton(currentGroupID: presenter?.currentGroup?.idGroups ?? 0, isGroupAdmin: presenter?.isAdm ?? false)
     }
 
     @IBAction func didTouchEntrarButton(_ sender: Any) {
@@ -127,13 +161,35 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
     func configureGroup() {
         groupName.text = presenter?.currentGroup?.Name
         groupDescription.text = presenter?.currentGroup?.Description
-        if presenter?.isMember ?? false {
+        if presenter?.isMember ?? false || presenter?.isRequested ?? false{
             userButton.isHidden = true
+        }
+        if presenter?.isAdm ?? false {
+            let button1 = UIBarButtonItem(title: "Gerenciar", style: .plain, target: self, action: #selector(self.adminController))
+            self.navigationItem.rightBarButtonItem  = button1
         }
     }
 
+    @objc func adminController() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(alert, animated: true, completion: nil)
+
+        alert.addAction(UIAlertAction(title: "Aceitar Usuários", style: .destructive, handler: { action in
+            self.coordinator?.didTouchGroupsMemberRequestButton(currentGroupID: self.presenter?.currentGroup?.idGroups ?? 0)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+    }
+
     func finishedFetching() {
-        tableView.reloadData()
+        if presenter?.isMember ?? false {
+            messageToUser.isHidden = true
+            tableView.isHidden = false
+            tableView.reloadData()
+        } else if presenter?.dataSource.items.isEmpty ?? false {
+            messageToUser.text = "Ainda não existe posts neste grupo!"
+        } else {
+            messageToUser.text = "Você não pode ver as mensagens deste grupo"
+        }
     }
 
     func RegisterCells() {

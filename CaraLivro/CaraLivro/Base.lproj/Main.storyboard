@@ -270,7 +270,7 @@
                                 <rect key="frame" x="0.0" y="103.5" width="375" height="505.5"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CARA FACE APP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-V4-Mh7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CARA LIVRO APP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-V4-Mh7">
                                 <rect key="frame" x="0.0" y="629" width="375" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.51429578990000002" alpha="1" colorSpace="calibratedWhite"/>
@@ -553,16 +553,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwq-sR-qC6">
+                                <rect key="frame" x="0.0" y="335" width="375" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nwq-sR-qC6" firstAttribute="width" secondItem="Je1-Jf-w9T" secondAttribute="width" id="39A-em-9D0"/>
                             <constraint firstItem="Jch-sm-aXt" firstAttribute="width" secondItem="Je1-Jf-w9T" secondAttribute="width" id="4jO-1a-AqF"/>
                             <constraint firstItem="Jch-sm-aXt" firstAttribute="top" secondItem="fKR-Zv-MTB" secondAttribute="bottom" constant="8" id="Eba-rI-Fx0"/>
                             <constraint firstItem="5w9-Ed-VJV" firstAttribute="centerX" secondItem="JfZ-yR-89l" secondAttribute="centerX" id="Shc-Lu-2Fu"/>
                             <constraint firstItem="fKR-Zv-MTB" firstAttribute="width" secondItem="Je1-Jf-w9T" secondAttribute="width" id="Sj2-5k-54X"/>
                             <constraint firstItem="Jch-sm-aXt" firstAttribute="centerX" secondItem="JfZ-yR-89l" secondAttribute="centerX" id="VAr-MS-Bna"/>
                             <constraint firstItem="5w9-Ed-VJV" firstAttribute="width" secondItem="Je1-Jf-w9T" secondAttribute="width" id="Wbr-I7-RyG"/>
+                            <constraint firstItem="nwq-sR-qC6" firstAttribute="centerX" secondItem="JfZ-yR-89l" secondAttribute="centerX" id="em3-zA-lhO"/>
                             <constraint firstItem="5w9-Ed-VJV" firstAttribute="top" secondItem="JfZ-yR-89l" secondAttribute="top" constant="8" id="f20-5X-gVk"/>
+                            <constraint firstItem="nwq-sR-qC6" firstAttribute="centerY" secondItem="JfZ-yR-89l" secondAttribute="centerY" id="goi-Qe-IOv"/>
                             <constraint firstItem="fKR-Zv-MTB" firstAttribute="top" secondItem="5w9-Ed-VJV" secondAttribute="bottom" constant="8" id="hDC-t2-3Pv"/>
                             <constraint firstItem="fKR-Zv-MTB" firstAttribute="centerX" secondItem="JfZ-yR-89l" secondAttribute="centerX" id="omk-gN-bd4"/>
                             <constraint firstItem="Jch-sm-aXt" firstAttribute="bottom" secondItem="JfZ-yR-89l" secondAttribute="bottom" constant="1" id="pXz-sF-7dc"/>
@@ -572,6 +581,7 @@
                     <connections>
                         <outlet property="groupDescription" destination="J2g-j4-fUy" id="DBo-WX-a9d"/>
                         <outlet property="groupName" destination="K8s-FF-oOb" id="I20-kh-dkt"/>
+                        <outlet property="messageToUser" destination="nwq-sR-qC6" id="kDo-ao-YPy"/>
                         <outlet property="tableView" destination="Jch-sm-aXt" id="vWc-gW-4Mf"/>
                         <outlet property="userButton" destination="pZP-ne-toc" id="NBD-Ao-4CK"/>
                     </connections>

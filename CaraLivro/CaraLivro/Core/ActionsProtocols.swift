@@ -11,6 +11,7 @@ import Foundation
 // Actions:
 protocol FeedViewControllerActions: CommentariesButtonProtocol, PresentUserButtonProtocol {
     func didTouchProfileButton(userToDisplay: UserDetails)
+    func logOut()
 }
 
 protocol UserProfileViewControllerActions: postButtonProtocol, CommentariesButtonProtocol {
@@ -33,7 +34,7 @@ protocol MoreOptionsConform: UIAlertOptionsConform {
 }
 
 protocol UIAlertOptionsConform {
-    func presentUIAlert()
+    func presentUIAlert(postID: Int, postOwnerID: Int)
 }
 
 protocol CommentariesButtonProtocol {

@@ -29,7 +29,7 @@ final class FeedImageTableViewCell: UITableViewCell, UITableViewContent {
     }
 
     @IBAction func moreOptions(_ sender: Any) {
-        presenter?.view?.presentUIAlert()
+        presenter?.view?.presentUIAlert(postID: 0, postOwnerID: 0)
     }
 
 

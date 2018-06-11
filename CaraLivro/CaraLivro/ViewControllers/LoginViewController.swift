@@ -56,7 +56,7 @@ final class LoginViewController: UIViewController, Storyboarded, FriendListTable
         coordinator?.didSelectedUserToLogin(currentUser: (sender.presenter?.user)!)
     }
 
-    func presentUIAlert() {
+    func presentUIAlert(postID: Int, postOwnerID: Int) {
 
     }
 }
