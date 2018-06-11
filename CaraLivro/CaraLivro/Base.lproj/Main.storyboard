@@ -217,7 +217,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBv-6F-ben">
-                                <rect key="frame" x="16" y="24" width="68" height="30"/>
+                                <rect key="frame" x="16" y="24" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Fechar"/>
                                 <connections>
@@ -225,7 +225,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0Y-ab-wTf">
-                                <rect key="frame" x="253" y="24" width="106" height="30"/>
+                                <rect key="frame" x="309" y="24" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Postar"/>
                                 <connections>
@@ -614,11 +614,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fql-ff-iOi">
-                                <rect key="frame" x="0.0" y="66.5" width="375" height="600.5"/>
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nenhum amigo encontrado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybp-vY-npP">
-                                <rect key="frame" x="76.5" y="334.5" width="222" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhum amigo encontrado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybp-vY-npP">
+                                <rect key="frame" x="77" y="335" width="222" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -627,11 +627,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sMh-48-MdF" firstAttribute="bottom" secondItem="Fql-ff-iOi" secondAttribute="bottom" id="4pr-wN-M3z"/>
+                            <constraint firstItem="ybp-vY-npP" firstAttribute="leading" secondItem="sMh-48-MdF" secondAttribute="leading" constant="77" id="Ct4-0l-QaS"/>
                             <constraint firstItem="Fql-ff-iOi" firstAttribute="height" secondItem="OAh-Nh-PkU" secondAttribute="height" multiplier="0.9" id="LMk-4H-xMV"/>
+                            <constraint firstItem="ybp-vY-npP" firstAttribute="centerX" secondItem="Fql-ff-iOi" secondAttribute="centerX" id="NQj-He-WRc"/>
                             <constraint firstItem="Fql-ff-iOi" firstAttribute="centerX" secondItem="sMh-48-MdF" secondAttribute="centerX" id="YlO-l2-oMB"/>
-                            <constraint firstItem="ybp-vY-npP" firstAttribute="centerX" secondItem="sMh-48-MdF" secondAttribute="centerX" id="aOg-GP-fpg"/>
+                            <constraint firstItem="ybp-vY-npP" firstAttribute="top" secondItem="sMh-48-MdF" secondAttribute="top" constant="315" id="aBu-6I-ImL"/>
                             <constraint firstItem="Fql-ff-iOi" firstAttribute="width" secondItem="OAh-Nh-PkU" secondAttribute="width" id="iCL-g9-rqf"/>
-                            <constraint firstItem="ybp-vY-npP" firstAttribute="centerY" secondItem="sMh-48-MdF" secondAttribute="centerY" id="tT1-v5-waP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sMh-48-MdF"/>
                     </view>

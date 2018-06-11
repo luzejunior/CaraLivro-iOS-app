@@ -75,7 +75,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         navigationController?.navigationBar.topItem?.title = "Feed"
         presenter?.fetchData()
     }
-
+    
     public func presentUIAlert(postID: Int, postOwnerID: Int) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(alert, animated: true, completion: nil)
@@ -96,13 +96,30 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let button1 = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.friendListButtonAction))
+        let button1 = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.allOptionsButton))
         self.navigationItem.rightBarButtonItem  = button1
         let button2 = UIBarButtonItem(title: "Sair", style: .plain, target: self, action: #selector(self.logOut))
         self.navigationItem.leftBarButtonItem = button2
         tableView.dataSource = presenter?.dataSource
     }
 
+    @objc func allOptionsButton() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(alert, animated: true, completion: nil)
+        
+        alert.addAction(UIAlertAction(title: "Blocked users", style: .default, handler: { action in
+            // Blocked users
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Friend requests", style: .default, handler: { action in
+            // Friend requests
+        }))
+        alert.addAction(UIAlertAction(title: "Profile", style: .default, handler: { action in
+            self.friendListButtonAction()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    }
+    
     @objc func logOut() {
         coordinator?.logOut()
     }
