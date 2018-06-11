@@ -246,8 +246,25 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         tableView.dataSource = presenter?.dataSource
         configureUser()
         presenter?.fetchData()
+        
+        let button1 = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.moreOptionsButton))
+        self.navigationItem.rightBarButtonItem  = button1
     }
 
+    @objc func moreOptionsButton() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(alert, animated: true, completion: nil)
+        
+        alert.addAction(UIAlertAction(title: "Blocked users", style: .default, handler: { action in
+            // Blocked users
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Friend requests", style: .default, handler: { action in
+            // Friend requests
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    }
+    
     func openCommentaries(postID: Int, postOwnerID: Int) {
         coordinator?.didTouchCommentariesButton(postID: postID, postOwnerID: postOwnerID)
     }

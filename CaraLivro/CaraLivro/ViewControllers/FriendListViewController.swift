@@ -16,7 +16,6 @@ final class FriendListViewControllerPresenter {
     var currentUserID: Int?
     var currentGroupID: Int?
     var listType: ListType?
-    var listAll = false
     var isGroupAdmin = false
 
     init(with view: FriendListViewController, listType: ListType, currentUserID: Int) {
@@ -167,15 +166,9 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let button1 = UIBarButtonItem(title: "Listar Todos", style: .plain, target: self, action: #selector(self.listAll))
-        self.navigationItem.rightBarButtonItem = button1
+        
         presenter?.fetchData()
         tableView.dataSource = presenter?.dataSource
-    }
-
-    @objc func listAll() {
-        presenter?.listAll = true
-        presenter?.fetchData()
     }
     
     func finishedFetching() {

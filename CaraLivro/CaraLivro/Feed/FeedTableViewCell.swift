@@ -16,7 +16,11 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
 
     weak var presenter: FeedTableViewCellPresenter?
 
-    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userImage: UIImageView! {
+        didSet {
+            userImage.cropAsCircleWithBorder(borderColor: UIColor.black, strokeWidth: 2.0)
+        }
+    }
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!

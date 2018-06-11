@@ -96,26 +96,26 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let button1 = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.allOptionsButton))
+        let button1 = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.moreOptionsButton))
         self.navigationItem.rightBarButtonItem  = button1
         let button2 = UIBarButtonItem(title: "Sair", style: .plain, target: self, action: #selector(self.logOut))
         self.navigationItem.leftBarButtonItem = button2
         tableView.dataSource = presenter?.dataSource
     }
 
-    @objc func allOptionsButton() {
+    @objc func moreOptionsButton() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(alert, animated: true, completion: nil)
         
-        alert.addAction(UIAlertAction(title: "Blocked users", style: .default, handler: { action in
-            // Blocked users
+        alert.addAction(UIAlertAction(title: "All groups", style: .default, handler: { action in
+            // Chamar FriendList (grupos)
         }))
         
-        alert.addAction(UIAlertAction(title: "Friend requests", style: .default, handler: { action in
-            // Friend requests
+        alert.addAction(UIAlertAction(title: "All users", style: .default, handler: { action in
+            // Cahamr FriendList (usuarios)
         }))
         alert.addAction(UIAlertAction(title: "Profile", style: .default, handler: { action in
-            self.friendListButtonAction()
+            self.coordinator?.didTouchProfileButton(userToDisplay: currentUserInUse!)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     }
@@ -126,10 +126,6 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
 
     func openCommentaries(postID: Int, postOwnerID: Int) {
         coordinator?.didTouchCommentariesButton(postID: postID, postOwnerID: postOwnerID)
-    }
-
-    @objc func friendListButtonAction() {
-        coordinator?.didTouchProfileButton(userToDisplay: currentUserInUse!)
     }
 
     func didTouchUser(_ sender: FeedTableViewCell) {

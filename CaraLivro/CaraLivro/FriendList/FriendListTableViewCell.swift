@@ -20,7 +20,11 @@ final class FriendListTableViewCell: UITableViewCell, UITableViewContent {
     
     weak var presenter: FriendListTableViewCellPresenter?
     
-    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userImage: UIImageView! {
+        didSet {
+            userImage.cropAsCircleWithBorder(borderColor: UIColor.black, strokeWidth: 2.0)
+        }
+    }
     @IBOutlet weak var userName: UILabel!
     
     @IBAction func moreOptions(_ sender: Any) {
