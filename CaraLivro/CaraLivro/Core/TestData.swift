@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct UserDetails: Decodable {
     var idUserProfile: Int?
@@ -16,18 +17,11 @@ struct UserDetails: Decodable {
     var Password: String?
     var ProfilePicture: String?
     var NumberOfFriends: Int?
-
-    init(id: Int?, name: String, email: String, imageName: String) {
-        idUserProfile = id
-        FirstName = name
-        ProfilePicture = imageName
-        Email = email
-    }
 }
 
 struct networkingMessage: Decodable {
     var sucess: Bool
-    //var message: String
+    var message: String
 }
 
 struct CreateUserJson: Encodable {
@@ -65,12 +59,8 @@ struct TextPost: Decodable {
     var GroupsMural_idGroups: Int?
     var UserProfileMural_idUserProfile: Int?
     var NumberOfLikes: Int?
-
-    init(id: Int, content: String, user: Int) {
-        idPost = id
-        Text = content
-        UserProfileMural_idUserProfile = user
-    }
+    var attachment_type: String
+    var attachment_path: String
 }
 
 struct CommentInPost: Encodable {
