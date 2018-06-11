@@ -53,7 +53,12 @@ final class FriendListViewControllerPresenter {
                 }
             }
         } else if listType == .groups {
-            let stringURL = "groups"
+            var stringURL = ""
+            if listAll {
+                stringURL = "groups"
+            } else {
+                stringURL = "user/" + String(describing: currentUserID ?? 0) + "/groups"
+            }
             getDataFromServer(path: stringURL) { (groups: [GroupsDetails]) in
                 DispatchQueue.main.async {
                     self.configureGroupListTableView(posts: groups)

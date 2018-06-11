@@ -257,7 +257,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         if presenter?.currentUser?.ProfilePicture == nil {
             userImage.image = UIImage(named: "profilePic")
         } else {
-            //userImage.kf.setImage(with: URL(string: presenter?.currentUser?.ProfilePicture ?? ""))
+            userImage.kf.setImage(with: URL(string: presenter?.currentUser?.ProfilePicture ?? ""))
         }
         userName.text = (presenter?.currentUser?.FirstName ?? "") + " " + (presenter?.currentUser?.LastName ?? "")
         userEmail.text = presenter?.currentUser?.Email ?? ""

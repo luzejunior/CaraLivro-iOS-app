@@ -26,11 +26,15 @@ final class FeedImageTableViewCell: UITableViewCell, UITableViewContent {
     }
 
     @IBAction func commentButtonTouched(_ sender: Any) {
-        print("commented")
+        presenter?.view?.openCommentaries(postID: presenter?.postID ?? 0, postOwnerID: presenter?.posterUser?.idUserProfile ?? 0)
+    }
+
+    @IBAction func didSelectedUser(_ sender: Any) {
+        self.sendAction(#selector(FeedTableViewCellActions.didTouchUser(_:)), sender: self)
     }
 
     @IBAction func moreOptions(_ sender: Any) {
-        presenter?.view?.presentUIAlert(postID: 0, postOwnerID: 0)
+        presenter?.view?.presentUIAlert(postID: presenter?.postID ?? 0, postOwnerID: presenter?.posterUser?.idUserProfile ?? 0)
     }
 
 

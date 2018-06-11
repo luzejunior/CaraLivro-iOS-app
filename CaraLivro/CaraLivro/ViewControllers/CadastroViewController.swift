@@ -17,6 +17,7 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var createButton: UIButton!
     
     var image: UIImage?
+    var coordinator: MainCoordinator?
     
     @IBOutlet weak var userImage: UIImageView! {
         didSet {
@@ -48,7 +49,7 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        image = info[UIImagePickerControllerOriginalImage] as? UIImage
         userImage.image = image
         dismiss(animated:true, completion: nil)
     }
@@ -66,10 +67,11 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
     }
     
     func postCreateButtonAction(attachmentType: String?, attachmentPath: String?) {
-        let newUser = CreateUserJson(first_name: firstNameTextField.text!, last_name: secondNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, ProfilePicture: attachmentPath)
+        let newUser = CreateUserJson(first_name: firstNameTextField.text!, last_name: secondNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, profile_pic: attachmentPath)
         let stringURL = "user/signup"
         postDataToServer(object: newUser, path: stringURL) {
             DispatchQueue.main.async {
+                self.coordinator?.didDismissCadastro()
                 self.dismiss(animated: true, completion: nil)
             }
         }

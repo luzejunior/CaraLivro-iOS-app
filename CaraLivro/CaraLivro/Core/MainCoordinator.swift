@@ -17,6 +17,7 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     var userProfile: UserProfileViewController?
     var groupView: GroupViewController?
     var defaultModal: ModalViewController?
+    var login: LoginViewController?
 
     init(navigationController: UINavigationController, window: UIWindow?) {
         self.navigationController = navigationController
@@ -32,10 +33,10 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     }
 
     func presentLogin() {
-        let login = LoginViewController.instantiate()
-        let loginPresenter = LoginViewControllerPresenter(with: login)
-        login.presenter = loginPresenter
-        login.coordinator = self
+        login = LoginViewController.instantiate()
+        let loginPresenter = LoginViewControllerPresenter(with: login!)
+        login?.presenter = loginPresenter
+        login?.coordinator = self
         push(login, animated: true)
     }
 
@@ -140,7 +141,12 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
 
     func didTouchAddUserButton() {
         let cadastro = CadastroViewController.instantiate()
+        cadastro.coordinator = self
         presentModal(cadastro, constraintValue: CGFloat(85.0))
+    }
+
+    func didDismissCadastro() {
+        login?.presenter?.fetchData()
     }
 
     private func push(_ viewController: UIViewController?, animated: Bool = false) {

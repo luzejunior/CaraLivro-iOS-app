@@ -27,6 +27,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="531.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmu-Ez-cFh">
+                        <rect key="frame" x="16" y="27" width="314" height="59"/>
+                        <connections>
+                            <action selector="didSelectedUser:" destination="Eei-uj-qs1" eventType="touchUpInside" id="5Sx-8T-h9h"/>
+                        </connections>
+                    </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5wf-VU-bwl">
                         <rect key="frame" x="16" y="31" width="55" height="55"/>
                         <constraints>
@@ -90,15 +96,19 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ZXB-5n-8vZ" firstAttribute="centerX" secondItem="SLs-CY-y9w" secondAttribute="centerX" id="0bg-Y0-x1p"/>
+                    <constraint firstItem="xA3-Jh-dSh" firstAttribute="top" secondItem="kmu-Ez-cFh" secondAttribute="bottom" constant="8" id="29e-V3-V8y"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xA3-Jh-dSh" secondAttribute="trailing" id="6gx-2y-x4E"/>
+                    <constraint firstItem="kmu-Ez-cFh" firstAttribute="leading" secondItem="SLs-CY-y9w" secondAttribute="leading" constant="16" id="DVx-tg-aba"/>
                     <constraint firstItem="xA3-Jh-dSh" firstAttribute="centerX" secondItem="SLs-CY-y9w" secondAttribute="centerX" id="GJO-fq-ugG"/>
                     <constraint firstItem="5wf-VU-bwl" firstAttribute="leading" secondItem="SLs-CY-y9w" secondAttribute="leadingMargin" id="Hem-YG-XbH"/>
                     <constraint firstItem="xkI-YF-hlk" firstAttribute="top" secondItem="SLs-CY-y9w" secondAttribute="topMargin" id="IAj-Sx-LoQ"/>
+                    <constraint firstAttribute="trailing" secondItem="kmu-Ez-cFh" secondAttribute="trailing" constant="45" id="RIX-q5-wkP"/>
                     <constraint firstItem="ZXB-5n-8vZ" firstAttribute="top" secondItem="xA3-Jh-dSh" secondAttribute="bottom" constant="8" id="Rdd-HC-hA0"/>
                     <constraint firstItem="1eu-a7-txO" firstAttribute="leading" secondItem="SLs-CY-y9w" secondAttribute="leadingMargin" id="Tuk-XT-wCa"/>
                     <constraint firstItem="1eu-a7-txO" firstAttribute="top" secondItem="ZXB-5n-8vZ" secondAttribute="bottom" constant="21" id="abD-Fm-vUa"/>
                     <constraint firstItem="5wf-VU-bwl" firstAttribute="top" secondItem="SLs-CY-y9w" secondAttribute="topMargin" id="ePg-Ja-rD6"/>
                     <constraint firstItem="xA3-Jh-dSh" firstAttribute="top" secondItem="5wf-VU-bwl" secondAttribute="bottom" constant="8" id="j6E-ix-X4A"/>
+                    <constraint firstItem="kmu-Ez-cFh" firstAttribute="top" secondItem="SLs-CY-y9w" secondAttribute="top" constant="27" id="n1m-bF-612"/>
                     <constraint firstItem="xkI-YF-hlk" firstAttribute="leading" secondItem="5wf-VU-bwl" secondAttribute="trailing" constant="8" id="pwF-Xf-Ls9"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1eu-a7-txO" secondAttribute="bottom" constant="8" id="reE-JL-JAE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1eu-a7-txO" secondAttribute="trailing" id="rw4-w9-1EP"/>
