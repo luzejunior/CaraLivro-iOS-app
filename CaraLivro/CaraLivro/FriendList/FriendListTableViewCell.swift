@@ -13,7 +13,7 @@ import UIKit
 }
 
 enum ListType {
-    case friends, groups, friendRequests, groupRequests, groupMembers
+    case friends, groups, friendRequests, groupRequests, groupMembers, blockedUsers
 }
 
 final class FriendListTableViewCell: UITableViewCell, UITableViewContent {

@@ -23,12 +23,18 @@ final class FriendListViewControllerPresenter {
         self.view = view
         self.currentUserID = currentUserID
         self.listType = listType
+        if currentUserID == -1 {
+            listAll = true
+        }
     }
 
     init(with view: FriendListViewController, listType: ListType, currentGroupID: Int) {
         self.view = view
         self.currentGroupID = currentGroupID
         self.listType = listType
+        if currentGroupID == -1 {
+            listAll = true
+        }
     }
     
     func fetchData() {
@@ -47,6 +53,13 @@ final class FriendListViewControllerPresenter {
             }
         } else if listType == .friendRequests {
             let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/requests/received"
+            getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+                DispatchQueue.main.async {
+                    self.configureFriendListTableView(posts: users)
+                }
+            }
+        } else if listType == .blockedUsers {
+            let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/blocks"
             getDataFromServer(path: stringURL) { (users: [UserDetails]) in
                 DispatchQueue.main.async {
                     self.configureFriendListTableView(posts: users)

@@ -63,7 +63,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
     }
 
     var presenter: FeedViewControllerPresenter?
-    var coordinator: FeedViewControllerActions?
+    var coordinator: MainCoordinator?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -108,11 +108,11 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         self.present(alert, animated: true, completion: nil)
         
         alert.addAction(UIAlertAction(title: "All groups", style: .default, handler: { action in
-            // Chamar FriendList (grupos)
+            self.coordinator?.didTouchGroupsButton(currentUserID: -1)
         }))
         
         alert.addAction(UIAlertAction(title: "All users", style: .default, handler: { action in
-            // Cahamr FriendList (usuarios)
+            self.coordinator?.didTouchFriendListButton(currentUserID: -1)
         }))
         alert.addAction(UIAlertAction(title: "Profile", style: .default, handler: { action in
             self.coordinator?.didTouchProfileButton(userToDisplay: currentUserInUse!)
