@@ -53,8 +53,13 @@ final class UserProfileViewControllerPresenter {
     func configureTableView(posts: [TextPost]) {
         dataSource.items.removeAll()
         for item in posts {
-            let tableContent1 = FeedTableViewCellPresenter(textPost: item, view: view!)
-            dataSource.items.append(tableContent1)
+            if item.Attachment_Path == nil {
+                let tableContent = FeedTableViewCellPresenter(textPost: item, view: view!)
+                dataSource.items.append(tableContent)
+            } else {
+                let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
+                dataSource.items.append(tableContent)
+            }
         }
         view?.finishedFetching()
     }
@@ -248,7 +253,12 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
     }
 
     func configureUser() {
-        userImage.image = UIImage(named: presenter?.currentUser?.ProfilePicture ?? "profilePic")
+        userImage.image = nil
+        if presenter?.currentUser?.ProfilePicture == nil {
+            userImage.image = UIImage(named: "profilePic")
+        } else {
+            //userImage.kf.setImage(with: URL(string: presenter?.currentUser?.ProfilePicture ?? ""))
+        }
         userName.text = (presenter?.currentUser?.FirstName ?? "") + " " + (presenter?.currentUser?.LastName ?? "")
         userEmail.text = presenter?.currentUser?.Email ?? ""
         friendButton.isHidden = presenter?.profileStatus == .uself ? true : false

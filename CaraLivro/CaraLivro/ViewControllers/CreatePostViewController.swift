@@ -52,7 +52,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     var image: UIImage?
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        image = (info[UIImagePickerControllerOriginalImage] as! UIImage)
         imagePicked.image = image
         dismiss(animated:true, completion: nil)
     }

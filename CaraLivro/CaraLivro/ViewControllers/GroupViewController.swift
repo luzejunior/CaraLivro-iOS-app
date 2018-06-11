@@ -80,8 +80,13 @@ final class GroupViewControllerPresenter {
     func configureTableView(posts: [TextPost]) {
         dataSource.items.removeAll()
         for item in posts {
-            let tableContent = FeedTableViewCellPresenter(textPost: item, view: view!)
-            dataSource.items.append(tableContent)
+            if item.Attachment_Path == nil {
+                let tableContent = FeedTableViewCellPresenter(textPost: item, view: view!)
+                dataSource.items.append(tableContent)
+            } else {
+                let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
+                dataSource.items.append(tableContent)
+            }
         }
         view?.finishedFetching()
         view?.configureGroup()
@@ -155,7 +160,13 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
     }
 
     @IBAction func didTouchPostIntoGroup(_ sender: Any) {
-        coordinator?.didTouchPostButton(postGroupID: presenter?.currentGroup?.idGroups ?? 0)
+        if (presenter?.isMember ?? false) {
+            coordinator?.didTouchPostButton(postGroupID: presenter?.currentGroup?.idGroups ?? 0)
+        } else {
+            let alert = UIAlertController(title: "OPS...", message: "Você ainda não é membro deste grupo!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     func configureGroup() {
@@ -181,14 +192,15 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
     }
 
     func finishedFetching() {
-        if presenter?.isMember ?? false {
+        if presenter?.isMember ?? false && !(presenter?.dataSource.items.isEmpty ?? true) {
             messageToUser.isHidden = true
             tableView.isHidden = false
             tableView.reloadData()
-        } else if presenter?.dataSource.items.isEmpty ?? false {
-            messageToUser.text = "Ainda não existe posts neste grupo!"
         } else {
             messageToUser.text = "Você não pode ver as mensagens deste grupo"
+        }
+        if presenter?.dataSource.items.isEmpty ?? false {
+            messageToUser.text = "Ainda não existe posts neste grupo!"
         }
     }
 

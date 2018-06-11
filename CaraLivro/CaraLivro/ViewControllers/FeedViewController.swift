@@ -40,8 +40,13 @@ final class FeedViewControllerPresenter {
     func configureTableView(posts: [TextPost]) {
         dataSource.items.removeAll()
         for item in posts {
-            let tableContent1 = FeedTableViewCellPresenter(textPost: item, view: view!)
-            dataSource.items.append(tableContent1)
+            if item.Attachment_Path == nil {
+                let tableContent = FeedTableViewCellPresenter(textPost: item, view: view!)
+                dataSource.items.append(tableContent)
+            } else {
+                let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
+                dataSource.items.append(tableContent)
+            }
         }
         view?.finishedFetching()
     }

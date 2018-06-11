@@ -2,27 +2,23 @@ PODS:
   - Alamofire (4.6.0)
   - Cloudinary (2.1.0):
     - Alamofire (~> 4.6.0)
+  - Kingfisher (4.6.1)
   - SnapKit (4.0.0)
   - StringStylizer (4.0.0)
 
 DEPENDENCIES:
   - Cloudinary
+  - Kingfisher (~> 4.0)
   - SnapKit (~> 4.0.0)
   - StringStylizer
-
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Alamofire
-    - Cloudinary
-    - SnapKit
-    - StringStylizer
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Cloudinary: e5e1a5288f18f45d4932bfda62c2c50311ccf2a9
+  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   StringStylizer: 6e7fcfe3be0e5456714ef1b8ddcc515396165708
 
-PODFILE CHECKSUM: a57a3c3f4f4520a1928b26529579511365f6bc6b
+PODFILE CHECKSUM: a12d080e7f104938f8b11c99ca72974ec24ef7ae
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.3.1

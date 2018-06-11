@@ -59,8 +59,8 @@ struct TextPost: Decodable {
     var GroupsMural_idGroups: Int?
     var UserProfileMural_idUserProfile: Int?
     var NumberOfLikes: Int?
-    var attachment_type: String
-    var attachment_path: String
+    var Attachment_Path: String?
+    var Attachment_Type: String?
 }
 
 struct CommentInPost: Encodable {

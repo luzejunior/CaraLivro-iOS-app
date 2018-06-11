@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 final class FeedImageTableViewCell: UITableViewCell, UITableViewContent {
 
@@ -40,10 +41,14 @@ final class FeedImageTableViewCell: UITableViewCell, UITableViewContent {
 
     func configureView() {
         userName.text = presenter?.userName
-        userImage.image = UIImage(named: presenter?.userImage ?? "")
-        imagem.image = UIImage(named: presenter?.imageName ?? "")
+        userImage.image = nil
+        if presenter?.userImage == nil {
+            userImage.image = UIImage(named: "profilePic")
+        } else {
+            userImage.kf.setImage(with: URL(string: presenter?.userImage ?? ""))
+        }
+        imagem.kf.setImage(with: URL(string: presenter?.imagePath ?? ""))
         contentLabel.text = presenter?.userContent
-
     }
 }
 
@@ -52,17 +57,40 @@ final class FeedImageTableViewCellPresenter: UITableViewModels {
         return UITableViewContentAssembler<FeedImageTableViewCell>(presenter: self)
     }
 
+    var posterUser: UserDetails?
+    var postID: Int?
     var userName: String?
     var userImage: String?
     var userContent: String?
-    var imageName: String?
     var view: MoreOptionsConform?
+    var isCurrentUser: Bool?
+    var imagePath: String?
+    var image: UIImage?
 
-    init(textPost: ImagePost, view: MoreOptionsConform) {
-        userName = textPost.userPosted?.FirstName
-        userImage = textPost.userPosted?.ProfilePicture
-        imageName = textPost.imageName
-        userContent = textPost.contentText
+    init(textPost: TextPost, view: MoreOptionsConform) {
+        postID = textPost.idPost
+        userContent = textPost.Text
+        imagePath = textPost.Attachment_Path
+        getPostUserData(userID: textPost.UserProfile_idUserProfile_postOwner ?? 0)
+        if textPost.UserProfileMural_idUserProfile != textPost.UserProfile_idUserProfile_postOwner {
+            for user in apiUsers {
+                if user.idUserProfile == textPost.UserProfileMural_idUserProfile {
+                    self.userName = self.userName! + " -> "
+                    self.userName = self.userName! + (user.FirstName ?? "") + " " + (user.LastName ?? "")
+                }
+            }
+        }
         self.view = view
+    }
+
+    func getPostUserData(userID: Int) {
+        for user in apiUsers {
+            if user.idUserProfile == userID {
+                userName = (user.FirstName ?? "") + " " + (user.LastName ?? "")
+                userImage = user.ProfilePicture
+                posterUser = user
+            }
+        }
+        isCurrentUser = userID == currentUserInUse?.idUserProfile ? true : false
     }
 }

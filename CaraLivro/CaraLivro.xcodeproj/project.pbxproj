@@ -19,6 +19,7 @@
 		D4734DBD20CD74D300479EB7 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DBC20CD74D300479EB7 /* ModalViewController.swift */; };
 		D4734DBF20CD7D0300479EB7 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DBE20CD7D0300479EB7 /* CadastroViewController.swift */; };
 		D4734DC120CD9A8700479EB7 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DC020CD9A8700479EB7 /* GroupViewController.swift */; };
+		D4734DC220CF016300479EB7 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4734DC320CF016300479EB7 /* Kingfisher.framework */; };
 		D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */; };
 		D4C6309220BEE25C00CFEC6F /* ActionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */; };
 		D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */; };
@@ -77,6 +78,7 @@
 		D4734DBC20CD74D300479EB7 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		D4734DBE20CD7D0300479EB7 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		D4734DC020CD9A8700479EB7 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		D4734DC320CF016300479EB7 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsProtocols.swift; sourceTree = "<group>"; };
 		D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4734DC220CF016300479EB7 /* Kingfisher.framework in Frameworks */,
 				D4734DB220C7286200479EB7 /* StringStylizer.framework in Frameworks */,
 				70CA0E106313F2E3B7A3F997 /* Pods_CaraLivro.framework in Frameworks */,
 			);
@@ -272,6 +275,7 @@
 		ED8DA12C96E5EC67CE04DF65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4734DC320CF016300479EB7 /* Kingfisher.framework */,
 				D4734DB320C7286200479EB7 /* StringStylizer.framework */,
 				D4C630A520C718F200CFEC6F /* Alamofire.framework */,
 				D4C630A620C718F200CFEC6F /* Cloudinary.framework */,
@@ -294,6 +298,7 @@
 				D4E3441220BD8BE300ADF70F /* Frameworks */,
 				D4E3441320BD8BE300ADF70F /* Resources */,
 				D700662990F7F07AFF0E6C9E /* [CP] Embed Pods Frameworks */,
+				D86B04DADCC5D5B4F9091878 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -313,6 +318,8 @@
 				D4E3442620BD8BE300ADF70F /* Frameworks */,
 				D4E3442720BD8BE300ADF70F /* Resources */,
 				29494A2EF94BA97042210254 /* [CP] Check Pods Manifest.lock */,
+				F1B3A0BE23E9647F5DB59B2A /* [CP] Embed Pods Frameworks */,
+				0F43C3E2588E8C7B78C81D14 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -332,6 +339,8 @@
 				D4E3443020BD8BE300ADF70F /* Sources */,
 				D4E3443120BD8BE300ADF70F /* Frameworks */,
 				D4E3443220BD8BE300ADF70F /* Resources */,
+				30A1B3C9DD1F113D43D314E8 /* [CP] Embed Pods Frameworks */,
+				249974DC3D4EFE1FB2FA9D89 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -421,6 +430,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0F43C3E2588E8C7B78C81D14 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		249974DC3D4EFE1FB2FA9D89 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroUITests/Pods-CaraLivroUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		29494A2EF94BA97042210254 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -437,6 +476,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30A1B3C9DD1F113D43D314E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroUITests/Pods-CaraLivroUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		98E6D83FB7C40354A4394928 /* [CP] Check Pods Manifest.lock */ = {
@@ -502,6 +556,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/StringStylizer/StringStylizer.framework",
 			);
@@ -509,12 +564,43 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StringStylizer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D86B04DADCC5D5B4F9091878 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivro/Pods-CaraLivro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1B3A0BE23E9647F5DB59B2A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaraLivroTests/Pods-CaraLivroTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

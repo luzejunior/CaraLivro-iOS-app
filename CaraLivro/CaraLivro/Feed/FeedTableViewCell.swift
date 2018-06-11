@@ -50,9 +50,13 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
 
     func configureView() {
         userName.text = presenter?.userName
-        userImage.image = UIImage(named: presenter?.userImage ?? "profilePic")
+        userImage.image = nil
+        if presenter?.userImage == nil {
+            userImage.image = UIImage(named: "profilePic")
+        } else {
+            userImage.kf.setImage(with: URL(string: presenter?.userImage ?? ""))
+        }
         contentLabel.text = presenter?.userContent
-
     }
 }
 

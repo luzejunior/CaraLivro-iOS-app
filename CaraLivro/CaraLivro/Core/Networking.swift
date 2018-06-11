@@ -61,14 +61,6 @@ func postDataToServer<T: Encodable>(object: T, path: String, completion: @escapi
     task.resume()
 }
 
-//COMO USAR:
-//getImageFromWeb("http://www.apple.com/euro/ios/ios8/a/generic/images/og.png") { (image) in
-//    if let image = image {
-//        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-//        imageView.image = image
-//        self.view.addSubview(imageView)
-//    } // if you use an Else statement, it will be in background
-//}
 func getImageFromWeb(_ urlString: String, closure: @escaping (UIImage?) -> ()) {
     guard let url = URL(string: urlString) else {
         return closure(nil)
@@ -92,9 +84,7 @@ func getImageFromWeb(_ urlString: String, closure: @escaping (UIImage?) -> ()) {
     }; task.resume()
 }
 
-
 func uploadImage(image: UIImage?, completion: @escaping (String) -> ()){
-    if ((image?.imageAsset) != nil){completion(""); return;}
     guard let image = image else {
         return;
     }
@@ -114,6 +104,8 @@ func uploadImage(image: UIImage?, completion: @escaping (String) -> ()){
             if error == nil {
                 // Adiciona link à variavel url
                 url = (result?.url)!
+                let httpsurl = url.replacingOccurrences(of: "http", with: "https")
+                completion(httpsurl)
                 dispatchGroup.leave()
             }else{
                 print("Erro: \(String(describing: error))")
@@ -121,7 +113,6 @@ func uploadImage(image: UIImage?, completion: @escaping (String) -> ()){
             }
     }
     dispatchGroup.notify(queue: .main) {
-        completion(url)
     }
 }
 
