@@ -140,7 +140,7 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
 
     func didTouchAddUserButton() {
         let cadastro = CadastroViewController.instantiate()
-        presentModal(cadastro, constraintValue: CGFloat(140.0))
+        presentModal(cadastro, constraintValue: CGFloat(85.0))
     }
 
     private func push(_ viewController: UIViewController?, animated: Bool = false) {

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Cloudinary
 
 let stringURL = "http://192.168.100.100:3000/"
 
@@ -91,3 +92,43 @@ func getImageFromWeb(_ urlString: String, closure: @escaping (UIImage?) -> ()) {
     }; task.resume()
 }
 
+
+func uploadImage(image: UIImage?, completion: @escaping (String) -> ()){
+    if ((image?.imageAsset) != nil){completion(""); return;}
+    guard let image = image else {
+        return;
+    }
+    
+    let dispatchGroup = DispatchGroup()
+    let config = CLDConfiguration(cloudName: "dn1glubhp", apiKey: "718496462185294")
+    let cloudinary = CLDCloudinary(configuration: config)
+    
+    dispatchGroup.enter()
+    
+    let size = CGSize(width: 360, height: 270)
+    let imageResized = imageWithImage(image: image, scaledToSize: size)
+    let data = UIImagePNGRepresentation(imageResized)
+    var url = ""
+    cloudinary.createUploader().upload(data: data!, uploadPreset: "presetPamin")
+        .response { (result, error) in
+            if error == nil {
+                // Adiciona link à variavel url
+                url = (result?.url)!
+                dispatchGroup.leave()
+            }else{
+                print("Erro: \(String(describing: error))")
+                dispatchGroup.leave()
+            }
+    }
+    dispatchGroup.notify(queue: .main) {
+        completion(url)
+    }
+}
+
+func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+    UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+    image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+    let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+    UIGraphicsEndImageContext()
+    return newImage
+}

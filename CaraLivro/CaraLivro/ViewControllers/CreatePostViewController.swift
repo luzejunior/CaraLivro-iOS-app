@@ -18,8 +18,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
 
     @IBOutlet weak var inputText: UITextView!
     @IBOutlet weak var imagePicked: UIImageView!
-    
-    var image: UIImage?
+
     var currentMuralUserID: Int?
     var currentMuralGroupID: Int?
     var coordinator: CreatePostViewControllerActions?
@@ -40,8 +39,6 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
         return button
     }()
     
-    var url = ""
-    
     @objc func openPhotoLibraryButton() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let imagePicker = UIImagePickerController()
@@ -52,14 +49,12 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
         }
     }
     
+    var image: UIImage?
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePicked.image = image
         dismiss(animated:true, completion: nil)
-    }
-    
-    func printURL() {
-        print(url)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -136,45 +131,6 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
             }
         }
     }
-    
-    func uploadImage(completion: @escaping () -> ()){
-        if ((self.image?.imageAsset) != nil){completion(); return;}
-        guard let image = imagePicked.image else {
-            return;
-        }
-        
-        let dispatchGroup = DispatchGroup()
-        let config = CLDConfiguration(cloudName: "dn1glubhp", apiKey: "718496462185294")
-        let cloudinary = CLDCloudinary(configuration: config)
-        
-        dispatchGroup.enter()
-        
-        let size = CGSize(width: 360, height: 270)
-        let imageResized = imageWithImage(image: image, scaledToSize: size)
-        let data = UIImagePNGRepresentation(imageResized)
-        cloudinary.createUploader().upload(data: data!, uploadPreset: "presetPamin")
-            .response { (result, error) in
-                if error == nil {
-                    // Adiciona link à variavel url
-                    self.url = (result?.url)!
-                    dispatchGroup.leave()
-                }else{
-                    print("Erro: \(String(describing: error))")
-                    dispatchGroup.leave()
-                }
-            }
-        dispatchGroup.notify(queue: .main) {
-            completion()
-        }
-    }
-    
-    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
-        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return newImage
-    }
 
     @IBAction func didTapCloseButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -184,9 +140,8 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
         if imagePicked.image != nil {
             postarButton.isEnabled = false
             postarButton.setTitle("Carregando...", for: .disabled)
-            uploadImage {
-                self.printURL()
-                self.postButtonAction(attachmentType: "image", attachmentPath: self.url)
+            uploadImage(image: image) { (url) in
+                self.postButtonAction(attachmentType: "image", attachmentPath: url)
             }
         } else {
             postButtonAction(attachmentType: nil, attachmentPath: nil)
