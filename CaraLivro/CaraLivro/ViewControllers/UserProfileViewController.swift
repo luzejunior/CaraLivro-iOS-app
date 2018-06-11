@@ -234,7 +234,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
     }
 
     var presenter: UserProfileViewControllerPresenter?
-    var coordinator: UserProfileViewControllerActions?
+    var coordinator: MainCoordinator?
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -246,9 +246,11 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         tableView.dataSource = presenter?.dataSource
         configureUser()
         presenter?.fetchData()
-        
-        let button1 = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.moreOptionsButton))
-        self.navigationItem.rightBarButtonItem  = button1
+
+        if presenter?.currentUser?.idUserProfile == currentUserInUse?.idUserProfile {
+            let button1 = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.moreOptionsButton))
+            self.navigationItem.rightBarButtonItem  = button1
+        }
     }
 
     @objc func moreOptionsButton() {
@@ -256,11 +258,11 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         self.present(alert, animated: true, completion: nil)
         
         alert.addAction(UIAlertAction(title: "Blocked users", style: .default, handler: { action in
-            // Blocked users
+            self.coordinator?.didTouchBlockedFriendsButton(currentUserID: currentUserInUse?.idUserProfile ?? 0)
         }))
         
         alert.addAction(UIAlertAction(title: "Friend requests", style: .default, handler: { action in
-            // Friend requests
+            self.coordinator?.didTouchFriendRequestListButton(currentUserID: currentUserInUse?.idUserProfile ?? 0)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     }

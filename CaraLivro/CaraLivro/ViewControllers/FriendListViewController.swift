@@ -208,6 +208,8 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
         let senderType = sender.presenter?.listType
         if senderType == .groups {
             coordinator?.didTouchGroup(group: (sender.presenter?.group)!)
+        } else {
+            coordinator?.didTouchProfileButton(userToDisplay: (sender.presenter?.user)!)
         }
     }
 }

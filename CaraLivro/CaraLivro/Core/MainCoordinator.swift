@@ -96,6 +96,14 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         push(friendList, animated: true)
     }
 
+    func didTouchBlockedFriendsButton(currentUserID: Int) {
+        let friendList = FriendListViewController.instantiate()
+        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .blockedUsers, currentUserID: currentUserID)
+        friendList.presenter = friendListPresenter
+        friendList.coordinator = self
+        push(friendList, animated: true)
+    }
+
     func didTouchGroupsMemberButton(currentGroupID: Int, isGroupAdmin: Bool) {
         let friendList = FriendListViewController.instantiate()
         let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .groupMembers, currentGroupID: currentGroupID)
