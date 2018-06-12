@@ -215,7 +215,13 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
     }
 
     @IBAction func postButton(_ sender: Any) {
-        coordinator?.didTouchPostButton(postUserID: presenter?.currentUser?.idUserProfile ?? 0)
+        if presenter?.profileStatus == .friend || presenter?.profileStatus == .uself {
+            coordinator?.didTouchPostButton(postUserID: presenter?.currentUser?.idUserProfile ?? 0)
+        } else {
+            let alert = UIAlertController(title: "OPS...", message: "Vocês ainda não são amigos!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     public func presentUIAlert(postID: Int, postOwnerID: Int) {

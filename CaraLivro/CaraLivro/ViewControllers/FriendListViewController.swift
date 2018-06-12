@@ -42,7 +42,7 @@ final class FriendListViewControllerPresenter {
         if listType == .friends {
             var stringURL = ""
             if listAll {
-                stringURL = "users"
+                stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/list/users"
             } else {
                 stringURL = "user/" + String(describing: currentUserID ?? 0) + "/friends"
             }
