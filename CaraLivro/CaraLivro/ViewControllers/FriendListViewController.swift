@@ -146,23 +146,50 @@ final class FriendListViewControllerPresenter {
     }
 
     func blockUser(_ friendID: Int) {
-
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/block/" + String(describing: friendID )
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
     }
 
     func acceptGroupRequest(_ userID: Int) {
-
+        let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/request/" + String(describing: userID) + "/accept"
+        let object = PostRequestAcceptance(user_admin_id: currentUserInUse?.idUserProfile ?? 0)
+        postDataToServer(object: object, path: stringURL) {
+            DispatchQueue.main.async {
+                self.fetchData()
+            }
+        }
     }
 
     func declineGroupRequest(_ userID: Int) {
-
+        let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/request/" + String(describing: userID) + "/deny"
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
     }
 
     func eraseUserFromGroup(_ userID: Int) {
-
+        let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/member/" + String(describing: userID) + "/remove"
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
     }
 
     func blockUserFromGroup(_ userID: Int) {
-
+        
     }
 }
 
@@ -189,9 +216,19 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if presenter?.listType == .friends {
-            navigationController?.navigationBar.topItem?.title = "Friends List"
+            navigationController?.navigationBar.topItem?.title = "Lista de Amigos"
+        } else if presenter?.listType == .blockedUsers {
+            navigationController?.navigationBar.topItem?.title = "Usuários Bloqueados"
+        } else if presenter?.listType == .friendRequests {
+            navigationController?.navigationBar.topItem?.title = "Solicitações de Amizade"
+        } else if presenter?.listType == .groupRequests {
+            navigationController?.navigationBar.topItem?.title = "Solicitações de Participação"
+        } else if presenter?.listType == .groupMembers {
+            navigationController?.navigationBar.topItem?.title = "Membros do Grupo"
+        } else if presenter?.listType == .groups {
+            navigationController?.navigationBar.topItem?.title = "Lista de Grupos"
         } else {
-            navigationController?.navigationBar.topItem?.title = "Groups List"
+            navigationController?.navigationBar.topItem?.title = "ADICIONAR DEPOIS"
         }
     }
 

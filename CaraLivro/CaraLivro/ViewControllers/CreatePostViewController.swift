@@ -18,12 +18,14 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
 
     @IBOutlet weak var inputText: UITextView!
     @IBOutlet weak var imagePicked: UIImageView!
+    @IBOutlet weak var publicPrivateButton: UIButton!
 
     var currentMuralUserID: Int?
     var currentMuralGroupID: Int?
     var coordinator: CreatePostViewControllerActions?
     var bottomConstraint: NSLayoutConstraint?
     var listType: ListType?
+    var publicFlag = "public"
     @IBOutlet weak var postarButton: UIButton!
 
     let addImagemInputContainerView: UIView = {
@@ -112,7 +114,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     
     func postButtonAction(attachmentType: String?, attachmentPath: String?) {
         if listType == .friends {
-            let post = PostInUserMural(user_id_poster: currentUserInUse?.idUserProfile ?? 0, visibility: "public", text: inputText.text, attachment_type: attachmentType, attachment_path: attachmentPath)
+            let post = PostInUserMural(user_id_poster: currentUserInUse?.idUserProfile ?? 0, visibility: publicFlag, text: inputText.text, attachment_type: attachmentType, attachment_path: attachmentPath)
             let stringURL = "user/" + String(describing: currentMuralUserID ?? 0) + "/mural/post"
             postDataToServer(object: post, path: stringURL) {
                 DispatchQueue.main.async {
@@ -121,7 +123,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
                 }
             }
         } else {
-            let post = PostIntoGroupMural(id_poster: currentMuralGroupID ?? 0, visibility: "public", text: inputText.text, attachment_type: attachmentType, attachment_path: attachmentPath)
+            let post = PostIntoGroupMural(id_poster: currentMuralGroupID ?? 0, visibility: publicFlag, text: inputText.text, attachment_type: attachmentType, attachment_path: attachmentPath)
             let stringURL = "group/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/mural/post"
             postDataToServer(object: post, path: stringURL) {
                 DispatchQueue.main.async {
@@ -147,4 +149,15 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
             postButtonAction(attachmentType: nil, attachmentPath: nil)
         }
     }
+
+    @IBAction func didTapPublic(_ sender: Any) {
+        if publicFlag == "public" {
+            publicPrivateButton.setTitle("Private", for: .normal)
+            publicFlag = "private"
+        } else {
+            publicPrivateButton.setTitle("Public", for: .normal)
+            publicFlag = "public"
+        }
+    }
+
 }

@@ -78,6 +78,10 @@ struct PostIntoGroupMural: Encodable {
     var attachment_path: String?
 }
 
+struct PostRequestAcceptance: Encodable {
+    var user_admin_id: Int
+}
+
 struct ImagePost {
     var contentText: String?
     var imageName: String?

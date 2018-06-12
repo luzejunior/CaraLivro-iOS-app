@@ -102,6 +102,42 @@ final class GroupViewControllerPresenter {
             }
         }
     }
+
+    func requestParticipation() {
+        let json = FriendshipRequestJson(user_requester_id: currentUserInUse?.idUserProfile ?? 0)
+        let stringURL = "group/" + String(describing: currentGroup?.idGroups ?? 0) + "/request"
+        postDataToServer(object: json, path: stringURL) {
+            DispatchQueue.main.async {
+                self.isRequested = true
+                self.view?.changeButtonToRequested()
+            }
+        }
+    }
+
+    func declineParticipation() {
+        let json = FriendshipRequestJson(user_requester_id: currentUserInUse?.idUserProfile ?? 0)
+        let stringURL = "group/" + String(describing: currentGroup?.idGroups ?? 0) + "/request/cancel"
+        postDataToServer(object: json, path: stringURL) {
+            DispatchQueue.main.async {
+                self.isRequested = false
+                self.view?.changeButtonToRequested()
+            }
+        }
+    }
+
+    func removeUser() {
+        let stringURL = "group/" + String(describing: currentGroup?.idGroups ?? 0) + "/member/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/remove"
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.isRequested = false
+                    self.isMember = false
+                    self.view?.changeButtonToRequested()
+                    self.view?.finishedFetching()
+                }
+            }
+        }
+    }
 }
 
 final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConform {
@@ -126,6 +162,7 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
         super.viewDidLoad()
         tableView.dataSource = presenter?.dataSource
         presenter?.fetchData()
+        changeButtonToRequested()
         // Do any additional setup after loading the view.
     }
 
@@ -156,7 +193,13 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
     }
 
     @IBAction func didTouchEntrarButton(_ sender: Any) {
-        
+        if presenter?.isMember ?? false && !(presenter?.isAdm ?? true){
+            self.presenter?.removeUser()
+        } else if presenter?.isRequested ?? false {
+            self.presenter?.declineParticipation()
+        } else {
+            self.presenter?.requestParticipation()
+        }
     }
 
     @IBAction func didTouchPostIntoGroup(_ sender: Any) {
@@ -189,6 +232,18 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
             self.coordinator?.didTouchGroupsMemberRequestButton(currentGroupID: self.presenter?.currentGroup?.idGroups ?? 0)
         }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+    }
+
+    func changeButtonToRequested() {
+        if presenter?.isRequested ?? false {
+            userButton.setImage(UIImage(named: "login"), for: .normal)
+        } else if presenter?.isMember ?? false {
+            userButton.setImage(UIImage(named: "logout"), for: .normal)
+        } else if presenter?.isAdm ?? false {
+            userButton.isHidden = true
+        } else {
+            userButton.setImage(UIImage(named: "new user"), for: .normal)
+        }
     }
 
     func finishedFetching() {

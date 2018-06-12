@@ -31,6 +31,12 @@ final class UserProfileViewControllerPresenter {
     }
 
     func fetchData() {
+        if self.profileStatus != .uself {
+            self.getRequestedMe()
+        }
+        if self.profileStatus != .requestedme {
+            self.getFriendship()
+        }
         var stringURL: String
         if profileStatus == .uself {
             stringURL = "user/" + String(describing: currentUser?.idUserProfile ?? 0) + "/mural/posts"
@@ -41,12 +47,6 @@ final class UserProfileViewControllerPresenter {
             DispatchQueue.main.async {
                 self.configureTableView(posts: posts)
             }
-            if self.profileStatus != .uself {
-                self.getRequestedMe()
-            }
-            if self.profileStatus != .requestedme {
-                self.getFriendship()
-            }
         }
     }
 
@@ -54,11 +54,19 @@ final class UserProfileViewControllerPresenter {
         dataSource.items.removeAll()
         for item in posts {
             if item.Attachment_Path == nil {
-                let tableContent = FeedTableViewCellPresenter(textPost: item, view: view!)
-                dataSource.items.append(tableContent)
+                if item.Visibility == 0 && (profileStatus != .friend && profileStatus != .uself) {
+
+                } else {
+                    let tableContent = FeedTableViewCellPresenter(textPost: item, view: view!)
+                    dataSource.items.append(tableContent)
+                }
             } else {
-                let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
-                dataSource.items.append(tableContent)
+                if item.Visibility == 0 && (profileStatus != .friend || profileStatus != .uself) {
+
+                } else {
+                    let tableContent = FeedImageTableViewCellPresenter(textPost: item, view: view!)
+                    dataSource.items.append(tableContent)
+                }
             }
         }
         view?.finishedFetching()

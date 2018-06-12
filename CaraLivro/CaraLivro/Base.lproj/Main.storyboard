@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -240,6 +240,14 @@
                                     <action selector="didTapPostarButton:" destination="CkY-nD-Agj" eventType="touchUpInside" id="efr-2F-5JB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idp-w5-RCd">
+                                <rect key="frame" x="153" y="24" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Public"/>
+                                <connections>
+                                    <action selector="didTapPublic:" destination="CkY-nD-Agj" eventType="touchUpInside" id="iLE-C9-aMB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -249,6 +257,7 @@
                         <outlet property="imagePicked" destination="EmN-gi-Vdn" id="biB-0g-GGY"/>
                         <outlet property="inputText" destination="GMF-3W-blQ" id="kW5-4r-dK5"/>
                         <outlet property="postarButton" destination="X0Y-ab-wTf" id="gdm-S9-bAY"/>
+                        <outlet property="publicPrivateButton" destination="Idp-w5-RCd" id="uOQ-Ox-QLD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeN-0T-dLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
