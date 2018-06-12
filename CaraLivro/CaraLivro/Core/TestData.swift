@@ -100,12 +100,25 @@ struct Comments: Decodable {
     var Post_idPost: Int?
     var Post_UserProfile_idUserProfile_postOwner: Int?
     var UserProfile_idUserProfile_commenter: Int?
+    var UserProfile_idUserProfile_responder: Int?
     var text: String?
 }
 
-struct CommentResponses {
-    var idResponse: Int?
+struct Responses: Decodable {
+    var idResponses: Int?
+    var Comments_idComments: Int?
+    var Comments_Post_idPost: Int?
+    var Comments_Post_UserProfile_idUserProfile_postOwner: Int?
+    var Comments_UserProfile_idUserProfile_commenter: Int?
+    var UserProfile_idUserProfile_responder: Int?
+    var text: String?
+}
 
+struct CommentResponse : Encodable {
+    var user_id_poster: Int
+    var user_id_commenter: Int
+    var user_id_responder: Int
+    var text: String
 }
 
 var apiUsers = [UserDetails]()

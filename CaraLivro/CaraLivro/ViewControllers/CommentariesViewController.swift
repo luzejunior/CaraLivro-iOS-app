@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+enum ViewType {
+    case commentaries, responses
+}
+
 // PRESENTER
 final class CommentariesViewControllerPresenter {
     
@@ -16,14 +20,24 @@ final class CommentariesViewControllerPresenter {
     private var view: CommentariesViewController?
     var postID: Int?
     var postOwnerID: Int?
+    var viewType: ViewType?
+    var commentToResponse: Comments?
     
-    init(with view: CommentariesViewController, postID: Int, postOwnerID: Int) {
+    init(with view: CommentariesViewController, postID: Int, postOwnerID: Int, viewType: ViewType) {
         self.view = view
         self.postID = postID
         self.postOwnerID = postOwnerID
+        self.viewType = viewType
+    }
+
+    init(with view: CommentariesViewController, comment: Comments, viewType: ViewType) {
+        self.view = view
+        self.viewType = viewType
+        commentToResponse = comment
     }
     
     func fetchData() {
+        dataSource.items.removeAll()
         let stringURL = "post/" + String(describing: postID ?? 0) + "/comments"
         getDataFromServer(path: stringURL) { (posts: [Comments]) in
             DispatchQueue.main.async {
@@ -31,11 +45,30 @@ final class CommentariesViewControllerPresenter {
             }
         }
     }
+
+    func fetchResponses() {
+        dataSource.items.removeAll()
+        let tableContent = CommentTableViewCellPresenter(comment: commentToResponse!, isResponse: true)
+        dataSource.items.append(tableContent)
+        let stringURL = "comments/" + String(describing: commentToResponse?.idComments ?? 0) + "/responses"
+        getDataFromServer(path: stringURL) { (posts: [Responses]) in
+            DispatchQueue.main.async {
+                self.configureTableView(posts: posts)
+            }
+        }
+    }
     
     func configureTableView(posts: [Comments]) {
-        dataSource.items.removeAll()
         for item in posts {
-            let tableContent1 = CommentTableViewCellPresenter(comment: item)
+            let tableContent1 = CommentTableViewCellPresenter(comment: item, isResponse: false)
+            dataSource.items.append(tableContent1)
+        }
+        view?.loadCommentaries()
+    }
+
+    func configureTableView(posts: [Responses]) {
+        for item in posts {
+            let tableContent1 = CommentTableViewCellPresenter(response: item)
             dataSource.items.append(tableContent1)
         }
         view?.loadCommentaries()
@@ -43,11 +76,12 @@ final class CommentariesViewControllerPresenter {
 }
 
 // CONTROLLER
-final class CommentariesViewController: UIViewController, Storyboarded {
+final class CommentariesViewController: UIViewController, Storyboarded, CommentTableViewCellActions {
 
     var presenter: CommentariesViewControllerPresenter?
     var string: NSAttributedString?
     var bottomConstraint: NSLayoutConstraint?
+    var coordinator: MainCoordinator?
 
     let commentInputContainerView: UIView = {
         let view = UIView()
@@ -84,7 +118,16 @@ final class CommentariesViewController: UIViewController, Storyboarded {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "Comments"
+        if presenter?.viewType == .commentaries {
+            navigationController?.navigationBar.topItem?.title = "Comentários"
+        } else {
+            navigationController?.navigationBar.topItem?.title = "Respostas"
+        }
+        if presenter?.viewType == .commentaries {
+            presenter?.fetchData()
+        } else {
+            presenter?.fetchResponses()
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -95,7 +138,6 @@ final class CommentariesViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         tableView.dataSource = presenter?.dataSource
-        presenter?.fetchData()
         
         view.addSubview(commentInputContainerView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: commentInputContainerView)
@@ -111,15 +153,25 @@ final class CommentariesViewController: UIViewController, Storyboarded {
     }
 
     @objc func commentButtonAction() {
-        let comment = CommentInPost(user_id_poster: self.presenter?.postOwnerID ?? 0, user_id_commenter: currentUserInUse?.idUserProfile ?? 0, text: inputTextField.text ?? "")
-        let stringURL = "post/" + String(describing: self.presenter?.postID ?? 0) + "/comment"
-        postDataToServer(object: comment, path: stringURL) {
-            DispatchQueue.main.async {
-                self.presenter?.fetchData()
-
+        if presenter?.viewType == .commentaries {
+            let comment = CommentInPost(user_id_poster: self.presenter?.postOwnerID ?? 0, user_id_commenter: currentUserInUse?.idUserProfile ?? 0, text: inputTextField.text ?? "")
+            let stringURL = "post/" + String(describing: self.presenter?.postID ?? 0) + "/comment"
+            postDataToServer(object: comment, path: stringURL) {
+                DispatchQueue.main.async {
+                    self.presenter?.fetchData()
+                }
             }
+            self.inputTextField.text = ""
+        } else {
+            let comment = CommentResponse(user_id_poster: self.presenter?.commentToResponse?.Post_UserProfile_idUserProfile_postOwner ?? 0, user_id_commenter: self.presenter?.commentToResponse?.UserProfile_idUserProfile_commenter ?? 0, user_id_responder: currentUserInUse?.idUserProfile ?? 0,text: inputTextField.text ?? "")
+            let stringURL = "post/" + String(describing: self.presenter?.commentToResponse?.Post_idPost ?? 0) + "/comment/" + String(describing: self.presenter?.commentToResponse?.idComments ?? 0) + "/respond"
+            postDataToServer(object: comment, path: stringURL) {
+                DispatchQueue.main.async {
+                    self.presenter?.fetchResponses()
+                }
+            }
+            self.inputTextField.text = ""
         }
-        self.inputTextField.text = ""
     }
     
     @objc func handleKeyboardNotification(notification: NSNotification) {
@@ -165,6 +217,13 @@ final class CommentariesViewController: UIViewController, Storyboarded {
             messageLabel.isHidden = true
             tableView.reloadData()
             tableView.isHidden = false
+        }
+    }
+
+    func didSelectedCommentarie(_ sender: CommentTableViewCell) {
+        if presenter?.viewType == .commentaries {
+            let commentarie = sender.presenter?.comment
+            coordinator?.didTouchOpenResponsesButton(comment: commentarie!)
         }
     }
 }

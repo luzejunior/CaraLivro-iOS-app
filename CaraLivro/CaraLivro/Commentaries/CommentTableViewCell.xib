@@ -12,31 +12,51 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="fj2-GQ-dWQ" customClass="CommentTableViewCell" customModule="CaraLivro" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="55" id="fj2-GQ-dWQ" customClass="CommentTableViewCell" customModule="CaraLivro" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fj2-GQ-dWQ" id="eBm-OQ-6Ry">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXN-Vy-bew">
-                        <rect key="frame" x="16" y="11" width="343" height="22"/>
+                        <rect key="frame" x="16" y="11" width="343" height="23.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXi-tT-ftb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                        <connections>
+                            <action selector="didTouchShowResponses:" destination="fj2-GQ-dWQ" eventType="touchUpInside" id="rw8-E7-gY4"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mo-hY-U0x">
+                        <rect key="frame" x="16" y="43" width="343" height="3.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="GXN-Vy-bew" firstAttribute="bottom" secondItem="eBm-OQ-6Ry" secondAttribute="bottomMargin" id="TSF-Zl-Cfx"/>
+                    <constraint firstItem="5Mo-hY-U0x" firstAttribute="leading" secondItem="eBm-OQ-6Ry" secondAttribute="leading" constant="16" id="8Fa-gn-wrC"/>
+                    <constraint firstItem="5Mo-hY-U0x" firstAttribute="top" secondItem="GXN-Vy-bew" secondAttribute="bottom" constant="8" id="D6X-03-Swd"/>
+                    <constraint firstAttribute="trailing" secondItem="5Mo-hY-U0x" secondAttribute="trailing" constant="16" id="MHd-BW-uM3"/>
+                    <constraint firstItem="iXi-tT-ftb" firstAttribute="top" secondItem="eBm-OQ-6Ry" secondAttribute="top" id="RUG-IU-UQp"/>
+                    <constraint firstItem="iXi-tT-ftb" firstAttribute="leading" secondItem="eBm-OQ-6Ry" secondAttribute="leading" id="XzI-pv-rg0"/>
+                    <constraint firstAttribute="trailing" secondItem="iXi-tT-ftb" secondAttribute="trailing" id="Yed-1s-xo0"/>
+                    <constraint firstAttribute="bottom" secondItem="5Mo-hY-U0x" secondAttribute="bottom" constant="8" id="ctg-0W-474"/>
                     <constraint firstItem="GXN-Vy-bew" firstAttribute="leading" secondItem="eBm-OQ-6Ry" secondAttribute="leadingMargin" id="kot-Bd-rqt"/>
                     <constraint firstItem="GXN-Vy-bew" firstAttribute="top" secondItem="eBm-OQ-6Ry" secondAttribute="topMargin" id="pN6-An-pgE"/>
                     <constraint firstItem="GXN-Vy-bew" firstAttribute="trailing" secondItem="eBm-OQ-6Ry" secondAttribute="trailingMargin" id="qxQ-yj-3MW"/>
+                    <constraint firstItem="iXi-tT-ftb" firstAttribute="bottom" secondItem="GXN-Vy-bew" secondAttribute="baseline" id="sk2-jf-lMo"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="commentarieText" destination="GXN-Vy-bew" id="Md2-be-qOH"/>
+                <outlet property="showCommentsButton" destination="5Mo-hY-U0x" id="MJD-8l-hc7"/>
             </connections>
-            <point key="canvasLocation" x="-128.5" y="-187"/>
+            <point key="canvasLocation" x="-128.5" y="-181.5"/>
         </tableViewCell>
     </objects>
 </document>
