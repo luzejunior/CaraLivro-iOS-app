@@ -188,6 +188,10 @@ final class FriendListViewControllerPresenter {
         }
     }
 
+    func promoteToADM(_ userID: Int) {
+        
+    }
+
     func blockUserFromGroup(_ userID: Int) {
         
     }
@@ -271,6 +275,9 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
                 self.presenter?.declineGroupRequest(postOwnerID)
             }))
         } else if presenter?.listType == .groupMembers && presenter?.isGroupAdmin ?? false {
+            alert.addAction(UIAlertAction(title: "Promover à Administrador", style: .default, handler: { action in
+                self.presenter?.eraseUserFromGroup(postOwnerID)
+            }))
             alert.addAction(UIAlertAction(title: "Remover do Grupo", style: .destructive, handler: { action in
                 self.presenter?.eraseUserFromGroup(postOwnerID)
             }))
@@ -285,13 +292,20 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
+        if presenter?.listType ?? .friends == .groups && presenter?.listAll ?? false {
+            let button1 = UIBarButtonItem(title: "Criar Grupo", style: .plain, target: self, action: #selector(self.createGroupButton))
+            self.navigationItem.rightBarButtonItem  = button1
+        }
         presenter?.fetchData()
         tableView.dataSource = presenter?.dataSource
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         tableView.refreshControl = refreshControl
+    }
+
+    @objc func createGroupButton() {
+        coordinator?.didTouchCreateGroup()
     }
     
     @objc func refresh(refreshControl: UIRefreshControl) {

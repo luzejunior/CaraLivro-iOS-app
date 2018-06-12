@@ -20,6 +20,7 @@
 		D4734DBF20CD7D0300479EB7 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DBE20CD7D0300479EB7 /* CadastroViewController.swift */; };
 		D4734DC120CD9A8700479EB7 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DC020CD9A8700479EB7 /* GroupViewController.swift */; };
 		D4734DC220CF016300479EB7 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4734DC320CF016300479EB7 /* Kingfisher.framework */; };
+		D4734DC520D05E0E00479EB7 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4734DC420D05E0E00479EB7 /* CreateGroupViewController.swift */; };
 		D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */; };
 		D4C6309220BEE25C00CFEC6F /* ActionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */; };
 		D4C6309420BEE71600CFEC6F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */; };
@@ -79,6 +80,7 @@
 		D4734DBE20CD7D0300479EB7 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		D4734DC020CD9A8700479EB7 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		D4734DC320CF016300479EB7 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4734DC420D05E0E00479EB7 /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		D4C6308D20BE5BE100CFEC6F /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		D4C6309120BEE25C00CFEC6F /* ActionsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsProtocols.swift; sourceTree = "<group>"; };
 		D4C6309320BEE71600CFEC6F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				D4734DBC20CD74D300479EB7 /* ModalViewController.swift */,
 				D4734DBE20CD7D0300479EB7 /* CadastroViewController.swift */,
 				D4734DC020CD9A8700479EB7 /* GroupViewController.swift */,
+				D4734DC420D05E0E00479EB7 /* CreateGroupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				D4E3444E20BDDB4B00ADF70F /* FeedTableViewCell.swift in Sources */,
 				D4734DC120CD9A8700479EB7 /* GroupViewController.swift in Sources */,
 				D4E3445020BE266900ADF70F /* CoordinatorProtocols.swift in Sources */,
+				D4734DC520D05E0E00479EB7 /* CreateGroupViewController.swift in Sources */,
 				D4734DB820C86E7C00479EB7 /* CommentTableViewCell.swift in Sources */,
 				D4734DBD20CD74D300479EB7 /* ModalViewController.swift in Sources */,
 				D4C6308E20BE5BE100CFEC6F /* FriendListViewController.swift in Sources */,

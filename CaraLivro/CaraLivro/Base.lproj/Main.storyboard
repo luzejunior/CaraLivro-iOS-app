@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -660,43 +660,46 @@
             </objects>
             <point key="canvasLocation" x="813.60000000000002" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Group View Controller-->
         <scene sceneID="WLd-QV-QNC">
             <objects>
-                <viewController id="x3d-DT-tnk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateGroupViewController" id="x3d-DT-tnk" customClass="CreateGroupViewController" customModule="CaraLivro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jeX-9m-akI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlX-JJ-D6i">
-                                <rect key="frame" x="56" y="63" width="263" height="18"/>
+                                <rect key="frame" x="56.5" y="63" width="262.5" height="18"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gw2-du-hR9">
-                                <rect key="frame" x="56" y="84" width="263" height="30"/>
+                                <rect key="frame" x="57" y="84" width="262.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next" textContentType="name"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5we-cn-m5W">
-                                <rect key="frame" x="56" y="122" width="263" height="18"/>
+                                <rect key="frame" x="56.5" y="122" width="262.5" height="18"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YUm-5j-hKx">
-                                <rect key="frame" x="56" y="140" width="263" height="106"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YUm-5j-hKx">
+                                <rect key="frame" x="38" y="148" width="300" height="111"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="bns-mi-1H0"/>
+                                </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdo-lG-QCI">
-                                <rect key="frame" x="0.0" y="267" width="375" height="34"/>
+                                <rect key="frame" x="56.5" y="267" width="262.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="CRIAR GRUPO"/>
@@ -704,22 +707,21 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5we-cn-m5W" firstAttribute="centerX" secondItem="MEH-eC-4eP" secondAttribute="centerX" id="2Jf-un-8bS"/>
-                            <constraint firstItem="xlX-JJ-D6i" firstAttribute="top" secondItem="MEH-eC-4eP" secondAttribute="top" constant="43" id="7k2-hx-pEw"/>
-                            <constraint firstItem="Vdo-lG-QCI" firstAttribute="centerX" secondItem="MEH-eC-4eP" secondAttribute="centerX" id="98b-Ap-2pX"/>
-                            <constraint firstItem="Vdo-lG-QCI" firstAttribute="width" secondItem="jeX-9m-akI" secondAttribute="width" id="Avv-8P-b8h"/>
-                            <constraint firstItem="gw2-du-hR9" firstAttribute="centerX" secondItem="MEH-eC-4eP" secondAttribute="centerX" id="Q7V-gP-ld5"/>
-                            <constraint firstItem="YUm-5j-hKx" firstAttribute="leading" secondItem="5we-cn-m5W" secondAttribute="leading" id="QrL-dq-VSo"/>
-                            <constraint firstItem="5we-cn-m5W" firstAttribute="width" secondItem="jeX-9m-akI" secondAttribute="width" constant="-112" id="XNZ-52-CKa"/>
-                            <constraint firstItem="5we-cn-m5W" firstAttribute="top" secondItem="gw2-du-hR9" secondAttribute="bottom" constant="8" id="XvR-f4-DRx"/>
-                            <constraint firstItem="gw2-du-hR9" firstAttribute="top" secondItem="xlX-JJ-D6i" secondAttribute="bottom" constant="3" id="bD9-hU-qQk"/>
-                            <constraint firstItem="YUm-5j-hKx" firstAttribute="top" secondItem="5we-cn-m5W" secondAttribute="bottom" id="d7f-M1-tMv"/>
-                            <constraint firstItem="Vdo-lG-QCI" firstAttribute="centerX" secondItem="YUm-5j-hKx" secondAttribute="centerX" id="kfz-kc-jny"/>
-                            <constraint firstItem="xlX-JJ-D6i" firstAttribute="width" secondItem="jeX-9m-akI" secondAttribute="width" multiplier="0.8" constant="-37" id="mfa-6V-dNK"/>
-                            <constraint firstItem="gw2-du-hR9" firstAttribute="width" secondItem="jeX-9m-akI" secondAttribute="width" multiplier="0.7" id="nD8-C0-OMe"/>
-                            <constraint firstItem="MEH-eC-4eP" firstAttribute="bottom" secondItem="Vdo-lG-QCI" secondAttribute="bottom" constant="366" id="nJf-Un-V9F"/>
-                            <constraint firstItem="Vdo-lG-QCI" firstAttribute="top" secondItem="YUm-5j-hKx" secondAttribute="bottom" constant="21" id="oMc-io-31q"/>
-                            <constraint firstItem="xlX-JJ-D6i" firstAttribute="centerX" secondItem="MEH-eC-4eP" secondAttribute="centerX" id="t8C-OJ-5QR"/>
+                            <constraint firstItem="xlX-JJ-D6i" firstAttribute="top" secondItem="MEH-eC-4eP" secondAttribute="top" priority="999" constant="43" id="1Rj-27-VyF"/>
+                            <constraint firstItem="xlX-JJ-D6i" firstAttribute="centerX" secondItem="MEH-eC-4eP" secondAttribute="centerX" id="6Cv-Fa-SVK"/>
+                            <constraint firstItem="5we-cn-m5W" firstAttribute="centerX" secondItem="MEH-eC-4eP" secondAttribute="centerX" id="8T7-uD-e6k"/>
+                            <constraint firstItem="YUm-5j-hKx" firstAttribute="centerX" secondItem="MEH-eC-4eP" secondAttribute="centerX" id="DrZ-iB-19g"/>
+                            <constraint firstItem="gw2-du-hR9" firstAttribute="centerX" secondItem="MEH-eC-4eP" secondAttribute="centerX" id="GuX-HY-anI"/>
+                            <constraint firstItem="Vdo-lG-QCI" firstAttribute="width" secondItem="jeX-9m-akI" secondAttribute="width" multiplier="0.7" id="Ivv-O9-K6b"/>
+                            <constraint firstItem="YUm-5j-hKx" firstAttribute="top" secondItem="5we-cn-m5W" secondAttribute="bottom" constant="8" id="KQq-0y-LZx"/>
+                            <constraint firstItem="gw2-du-hR9" firstAttribute="width" secondItem="jeX-9m-akI" secondAttribute="width" multiplier="0.7" id="Uj0-55-PqL"/>
+                            <constraint firstItem="YUm-5j-hKx" firstAttribute="width" secondItem="jeX-9m-akI" secondAttribute="width" multiplier="0.8" id="Umh-wf-IKZ"/>
+                            <constraint firstItem="5we-cn-m5W" firstAttribute="top" secondItem="gw2-du-hR9" secondAttribute="bottom" constant="8" id="WUt-3h-Sbe"/>
+                            <constraint firstItem="Vdo-lG-QCI" firstAttribute="top" secondItem="YUm-5j-hKx" secondAttribute="bottom" constant="8" id="XMR-Tx-x8Q"/>
+                            <constraint firstItem="5we-cn-m5W" firstAttribute="width" secondItem="jeX-9m-akI" secondAttribute="width" multiplier="0.7" id="Y4W-4d-Oz6"/>
+                            <constraint firstItem="Vdo-lG-QCI" firstAttribute="centerX" secondItem="MEH-eC-4eP" secondAttribute="centerX" id="hfM-5S-fcR"/>
+                            <constraint firstItem="xlX-JJ-D6i" firstAttribute="width" secondItem="jeX-9m-akI" secondAttribute="width" multiplier="0.7" id="kTO-aB-LA0"/>
+                            <constraint firstItem="gw2-du-hR9" firstAttribute="top" secondItem="xlX-JJ-D6i" secondAttribute="bottom" constant="3" id="nJK-6c-QuK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MEH-eC-4eP"/>
                     </view>

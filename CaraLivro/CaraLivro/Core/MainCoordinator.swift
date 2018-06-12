@@ -170,6 +170,13 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         presentModal(cadastro, constraintValue: CGFloat(90.0))
     }
 
+    func didTouchCreateGroup() {
+        let createGroup = CreateGroupViewController.instantiate()
+        createGroup.coordinator = self
+        presentModal(createGroup, constraintValue: CGFloat(130.0), animated: true)
+    }
+
+
     func didDismissCadastro() {
         login?.presenter?.fetchData()
     }
