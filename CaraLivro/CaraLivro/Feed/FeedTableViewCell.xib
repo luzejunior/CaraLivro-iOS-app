@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -43,40 +35,16 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User:Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmW-NC-5mx">
                         <rect key="frame" x="79" y="11" width="280" height="20.5"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="User:Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWw-q6-3on">
-                        <rect key="frame" x="16" y="74" width="343" height="17"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                        <rect key="frame" x="16" y="74" width="343" height="13"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QXA-km-WJR">
-                        <rect key="frame" x="16" y="99" width="343" height="26"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWE-yo-Wvr">
-                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="26"/>
-                                <state key="normal" title="Like"/>
-                                <connections>
-                                    <action selector="likeButtonTouched:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="rkC-8q-nph"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hs-h0-ajQ">
-                                <rect key="frame" x="180.5" y="0.0" width="162.5" height="26"/>
-                                <state key="normal" title="Comments"/>
-                                <connections>
-                                    <action selector="commentButtonTouched:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="0p1-o0-Gvx"/>
-                                    <action selector="didTuchCommentaries:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="2gr-oM-qxY"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="uWE-yo-Wvr" firstAttribute="centerY" secondItem="QXA-km-WJR" secondAttribute="centerY" id="TiQ-cI-A4i"/>
-                            <constraint firstItem="6Hs-h0-ajQ" firstAttribute="centerY" secondItem="QXA-km-WJR" secondAttribute="centerY" id="aFu-bi-ZB4"/>
-                        </constraints>
-                    </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-vE-5vR">
                         <rect key="frame" x="338" y="6" width="30" height="24"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
@@ -87,6 +55,29 @@
                             <action selector="moreOptions:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="clG-Kx-W3N"/>
                         </connections>
                     </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QXA-km-WJR">
+                        <rect key="frame" x="16" y="103" width="343" height="30"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWE-yo-Wvr">
+                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="30"/>
+                                <state key="normal" title="Curtir"/>
+                                <connections>
+                                    <action selector="likeButtonTouched:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="rkC-8q-nph"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hs-h0-ajQ">
+                                <rect key="frame" x="180.5" y="0.0" width="162.5" height="30"/>
+                                <state key="normal" title="Comentários"/>
+                                <connections>
+                                    <action selector="commentButtonTouched:" destination="qfx-Sq-r0A" eventType="touchUpInside" id="0p1-o0-Gvx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="uWE-yo-Wvr" firstAttribute="centerY" secondItem="QXA-km-WJR" secondAttribute="centerY" id="TiQ-cI-A4i"/>
+                            <constraint firstItem="6Hs-h0-ajQ" firstAttribute="centerY" secondItem="QXA-km-WJR" secondAttribute="centerY" id="aFu-bi-ZB4"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="LmW-NC-5mx" firstAttribute="top" secondItem="sXO-TD-A5B" secondAttribute="topMargin" id="8A4-BV-Tmc"/>
@@ -96,12 +87,12 @@
                     <constraint firstItem="KWw-q6-3on" firstAttribute="top" secondItem="FpC-AJ-MEM" secondAttribute="bottom" constant="8" id="It5-bn-mzl"/>
                     <constraint firstItem="FpC-AJ-MEM" firstAttribute="leading" secondItem="sXO-TD-A5B" secondAttribute="leadingMargin" id="J6W-Xh-UIH"/>
                     <constraint firstItem="yAZ-li-hKi" firstAttribute="top" secondItem="sXO-TD-A5B" secondAttribute="top" id="JaJ-eG-qAz"/>
-                    <constraint firstItem="QXA-km-WJR" firstAttribute="top" secondItem="KWw-q6-3on" secondAttribute="bottom" constant="8" id="KW3-yg-7Cv"/>
+                    <constraint firstItem="QXA-km-WJR" firstAttribute="top" secondItem="KWw-q6-3on" secondAttribute="bottom" constant="16" id="KW3-yg-7Cv"/>
                     <constraint firstItem="KWw-q6-3on" firstAttribute="leading" secondItem="sXO-TD-A5B" secondAttribute="leadingMargin" id="NUH-fO-n2I"/>
                     <constraint firstAttribute="trailing" secondItem="Inr-vE-5vR" secondAttribute="trailing" constant="7" id="RMN-Oo-xck"/>
                     <constraint firstItem="FpC-AJ-MEM" firstAttribute="top" secondItem="sXO-TD-A5B" secondAttribute="topMargin" id="TvA-qB-Zdp"/>
                     <constraint firstAttribute="trailingMargin" secondItem="KWw-q6-3on" secondAttribute="trailing" id="ZMH-NL-Ffz"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="QXA-km-WJR" secondAttribute="bottom" constant="8" id="aM1-or-WLs"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="QXA-km-WJR" secondAttribute="bottom" id="aM1-or-WLs"/>
                     <constraint firstItem="LmW-NC-5mx" firstAttribute="leading" secondItem="FpC-AJ-MEM" secondAttribute="trailing" constant="8" id="ft3-E6-lg0"/>
                     <constraint firstItem="KWw-q6-3on" firstAttribute="centerX" secondItem="sXO-TD-A5B" secondAttribute="centerX" id="jgM-f8-VAf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="QXA-km-WJR" secondAttribute="trailing" id="lBq-dK-NK4"/>

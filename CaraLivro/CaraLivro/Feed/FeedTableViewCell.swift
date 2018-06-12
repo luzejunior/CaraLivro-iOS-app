@@ -27,20 +27,23 @@ final class FeedTableViewCell: UITableViewCell, UITableViewContent {
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
 
+    var isOn = false
     @IBAction func likeButtonTouched(_ sender: Any) {
-        print("Liked")
+        if isOn == false {
+            likeButton.setTitle("Curtir", for: .normal)
+            isOn = true
+        } else {
+            likeButton.setTitle("Descurtir", for: .normal)
+            isOn = false
+        }
     }
 
     @IBAction func commentButtonTouched(_ sender: Any) {
-        print("commented")
+        presenter?.view?.openCommentaries(postID: presenter?.postID ?? 0, postOwnerID: presenter?.posterUser?.idUserProfile ?? 0)
     }
 
     @IBAction func moreOptions(_ sender: Any) {
         presenter?.view?.presentUIAlert(postID: presenter?.postID ?? 0, postOwnerID: presenter?.posterUser?.idUserProfile ?? 0)
-    }
-
-    @IBAction func didTuchCommentaries(_ sender: Any) {
-        presenter?.view?.openCommentaries(postID: presenter?.postID ?? 0, postOwnerID: presenter?.posterUser?.idUserProfile ?? 0)
     }
 
     @IBAction func didSelectedUserButton(_ sender: Any) {

@@ -119,9 +119,9 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if presenter?.viewType == .commentaries {
-            navigationController?.navigationBar.topItem?.title = "Comentários"
+            navigationController?.navigationBar.topItem?.title = "COMENTÁRIOS"
         } else {
-            navigationController?.navigationBar.topItem?.title = "Respostas"
+            navigationController?.navigationBar.topItem?.title = "RESPOSTAS"
         }
         if presenter?.viewType == .commentaries {
             presenter?.fetchData()
@@ -138,6 +138,8 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         tableView.dataSource = presenter?.dataSource
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         view.addSubview(commentInputContainerView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: commentInputContainerView)

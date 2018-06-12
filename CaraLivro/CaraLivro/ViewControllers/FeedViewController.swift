@@ -72,7 +72,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "Feed"
+        navigationController?.navigationBar.topItem?.title = "FEED"
         presenter?.fetchData()
     }
     
@@ -85,7 +85,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
                 self.presenter?.deletePost(postID: postID)
                 }))
         } else {
-            alert.addAction(UIAlertAction(title: "Denunciar", style: .default, handler: { action in
+            alert.addAction(UIAlertAction(title: "Denunciar", style: .destructive, handler: { action in
                 let alert = UIAlertController(title: "Denunciar", message: "Obrigado pela denúncia! :)", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
@@ -97,7 +97,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.tintColor = .black
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         let button1 = UIBarButtonItem(title: "Mais opções", style: .plain, target: self, action: #selector(self.moreOptionsButton))
         self.navigationItem.rightBarButtonItem  = button1

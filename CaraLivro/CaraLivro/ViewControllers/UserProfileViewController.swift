@@ -252,7 +252,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "Perfil"
+        navigationController?.navigationBar.topItem?.title = "PERFIL"
     }
 
     override func viewDidLoad() {

@@ -216,18 +216,25 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if presenter?.listType == .friends {
-            navigationController?.navigationBar.topItem?.title = "Lista de Amigos"
+            messageLabel.text = "Nenhum amigo encontrado"
+            navigationController?.navigationBar.topItem?.title = "LISTA DE AMIGOS"
         } else if presenter?.listType == .blockedUsers {
-            navigationController?.navigationBar.topItem?.title = "Usuários Bloqueados"
+            messageLabel.text = "Não há usuários bloqueados"
+            navigationController?.navigationBar.topItem?.title = "USUÁRIOS BLOQUEADOS"
         } else if presenter?.listType == .friendRequests {
-            navigationController?.navigationBar.topItem?.title = "Solicitações de Amizade"
+            messageLabel.text = "Não há solicitações de amizade"
+            navigationController?.navigationBar.topItem?.title = "SOLICITAÇÕES DE AMIZADE"
         } else if presenter?.listType == .groupRequests {
-            navigationController?.navigationBar.topItem?.title = "Solicitações de Participação"
+            messageLabel.text = "Não há solicitações de participação"
+            navigationController?.navigationBar.topItem?.title = "SOLICITAÇÕES DE PARTICIPAÇÕES"
         } else if presenter?.listType == .groupMembers {
-            navigationController?.navigationBar.topItem?.title = "Membros do Grupo"
+            messageLabel.text = "Não há membros no grupo"
+            navigationController?.navigationBar.topItem?.title = "MEMBROS DO GRUPO"
         } else if presenter?.listType == .groups {
-            navigationController?.navigationBar.topItem?.title = "Lista de Grupos"
+            messageLabel.text = "Nenhum grupo encontrado"
+            navigationController?.navigationBar.topItem?.title = "LISTA DE GRUPOS"
         } else {
+            messageLabel.text = "ADICIONAR DEPOIS?"
             navigationController?.navigationBar.topItem?.title = "ADICIONAR DEPOIS"
         }
     }

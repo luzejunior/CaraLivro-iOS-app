@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -42,39 +34,16 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User:Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkI-YF-hlk">
                         <rect key="frame" x="79" y="31" width="280" height="20.5"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="User:Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xA3-Jh-dSh">
                         <rect key="frame" x="16" y="94" width="343" height="17"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="1eu-a7-txO">
-                        <rect key="frame" x="16" y="483" width="343" height="30"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fw-u3-TPk">
-                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="30"/>
-                                <state key="normal" title="Like"/>
-                                <connections>
-                                    <action selector="likeButtonTouched:" destination="Eei-uj-qs1" eventType="touchUpInside" id="nW9-EA-bFy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTC-h1-lba">
-                                <rect key="frame" x="180.5" y="0.0" width="162.5" height="30"/>
-                                <state key="normal" title="Comments"/>
-                                <connections>
-                                    <action selector="commentButtonTouched:" destination="Eei-uj-qs1" eventType="touchUpInside" id="e3U-Ya-Z7l"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="lTC-h1-lba" firstAttribute="centerY" secondItem="1eu-a7-txO" secondAttribute="centerY" id="KvD-jy-xLo"/>
-                            <constraint firstItem="6fw-u3-TPk" firstAttribute="centerY" secondItem="1eu-a7-txO" secondAttribute="centerY" id="bK5-aV-exz"/>
-                        </constraints>
-                    </stackView>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Of2-nH-el5">
                         <rect key="frame" x="349" y="6" width="19" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -93,6 +62,29 @@
                             <constraint firstAttribute="height" constant="343" id="uii-l0-vYV"/>
                         </constraints>
                     </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="1eu-a7-txO">
+                        <rect key="frame" x="16" y="491" width="343" height="30"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fw-u3-TPk">
+                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="30"/>
+                                <state key="normal" title="Curtir"/>
+                                <connections>
+                                    <action selector="likeButtonTouched:" destination="Eei-uj-qs1" eventType="touchUpInside" id="nW9-EA-bFy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTC-h1-lba">
+                                <rect key="frame" x="180.5" y="0.0" width="162.5" height="30"/>
+                                <state key="normal" title="Comentários"/>
+                                <connections>
+                                    <action selector="commentButtonTouched:" destination="Eei-uj-qs1" eventType="touchUpInside" id="e3U-Ya-Z7l"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="lTC-h1-lba" firstAttribute="centerY" secondItem="1eu-a7-txO" secondAttribute="centerY" id="KvD-jy-xLo"/>
+                            <constraint firstItem="6fw-u3-TPk" firstAttribute="centerY" secondItem="1eu-a7-txO" secondAttribute="centerY" id="bK5-aV-exz"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ZXB-5n-8vZ" firstAttribute="centerX" secondItem="SLs-CY-y9w" secondAttribute="centerX" id="0bg-Y0-x1p"/>
@@ -105,12 +97,12 @@
                     <constraint firstAttribute="trailing" secondItem="kmu-Ez-cFh" secondAttribute="trailing" constant="45" id="RIX-q5-wkP"/>
                     <constraint firstItem="ZXB-5n-8vZ" firstAttribute="top" secondItem="xA3-Jh-dSh" secondAttribute="bottom" constant="8" id="Rdd-HC-hA0"/>
                     <constraint firstItem="1eu-a7-txO" firstAttribute="leading" secondItem="SLs-CY-y9w" secondAttribute="leadingMargin" id="Tuk-XT-wCa"/>
-                    <constraint firstItem="1eu-a7-txO" firstAttribute="top" secondItem="ZXB-5n-8vZ" secondAttribute="bottom" constant="21" id="abD-Fm-vUa"/>
+                    <constraint firstItem="1eu-a7-txO" firstAttribute="top" secondItem="ZXB-5n-8vZ" secondAttribute="bottom" constant="29" id="abD-Fm-vUa"/>
                     <constraint firstItem="5wf-VU-bwl" firstAttribute="top" secondItem="SLs-CY-y9w" secondAttribute="topMargin" id="ePg-Ja-rD6"/>
                     <constraint firstItem="xA3-Jh-dSh" firstAttribute="top" secondItem="5wf-VU-bwl" secondAttribute="bottom" constant="8" id="j6E-ix-X4A"/>
                     <constraint firstItem="kmu-Ez-cFh" firstAttribute="top" secondItem="SLs-CY-y9w" secondAttribute="top" constant="27" id="n1m-bF-612"/>
                     <constraint firstItem="xkI-YF-hlk" firstAttribute="leading" secondItem="5wf-VU-bwl" secondAttribute="trailing" constant="8" id="pwF-Xf-Ls9"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="1eu-a7-txO" secondAttribute="bottom" constant="8" id="reE-JL-JAE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="1eu-a7-txO" secondAttribute="bottom" id="reE-JL-JAE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1eu-a7-txO" secondAttribute="trailing" id="rw4-w9-1EP"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xkI-YF-hlk" secondAttribute="trailing" id="yGn-b9-7Iv"/>
                     <constraint firstItem="xA3-Jh-dSh" firstAttribute="leading" secondItem="SLs-CY-y9w" secondAttribute="leadingMargin" id="zqg-0Q-K2f"/>

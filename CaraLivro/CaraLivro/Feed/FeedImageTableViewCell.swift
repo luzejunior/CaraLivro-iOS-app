@@ -25,8 +25,15 @@ final class FeedImageTableViewCell: UITableViewCell, UITableViewContent {
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var imagem: UIImageView!
 
+    var isOn = false
     @IBAction func likeButtonTouched(_ sender: Any) {
-        print("Liked")
+        if isOn == true {
+            likeButton.setTitle("Descurtir", for: .normal)
+            isOn = false
+        } else {
+            likeButton.setTitle("Curtir", for: .normal)
+            isOn = true
+        }
     }
 
     @IBAction func commentButtonTouched(_ sender: Any) {

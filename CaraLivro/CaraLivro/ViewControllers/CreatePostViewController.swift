@@ -61,7 +61,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "Novo Post"
+        navigationController?.navigationBar.topItem?.title = "NOVO POST"
     }
 
     override func viewDidLoad() {

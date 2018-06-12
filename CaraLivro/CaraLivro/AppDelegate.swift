@@ -24,6 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
 
+        let attrs = [
+            NSAttributedStringKey.foregroundColor: UIColor.black,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18, weight: .light)
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = attrs
+        UINavigationBar.appearance().tintColor = .black
+        
         return true
     }
 
