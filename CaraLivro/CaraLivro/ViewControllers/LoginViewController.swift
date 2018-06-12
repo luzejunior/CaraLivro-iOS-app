@@ -15,7 +15,7 @@ final class LoginViewController: UIViewController, Storyboarded, FriendListTable
         didSet {
             //tableView.isHidden = true
             tableView.rowHeight = UITableViewAutomaticDimension
-            tableView.backgroundColor = UIColor.clear
+            tableView.backgroundColor = .white
             RegisterCells()
         }
     }
