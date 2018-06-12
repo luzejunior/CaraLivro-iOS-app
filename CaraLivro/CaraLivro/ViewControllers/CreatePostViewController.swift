@@ -66,6 +66,9 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         inputText.placeholder = "Digite seu texto"
         inputText.layer.cornerRadius = 10
         

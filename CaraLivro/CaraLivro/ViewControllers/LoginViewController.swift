@@ -22,6 +22,8 @@ final class LoginViewController: UIViewController, Storyboarded, FriendListTable
 
     var presenter: LoginViewControllerPresenter?
     var coordinator: LoginViewControllerActions?
+    
+    var refreshControl = UIRefreshControl()
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -29,11 +31,25 @@ final class LoginViewController: UIViewController, Storyboarded, FriendListTable
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         tableView.dataSource = presenter?.dataSource
         presenter?.fetchData()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
     }
-
+    
+    @objc func refresh(refreshControl: UIRefreshControl) {
+        presenter?.fetchData()
+        refreshControl.endRefreshing()
+    }
+    
+    
     @IBAction func onAddButtonTouched(_ sender: Any) {
         coordinator?.didTouchAddUserButton()
     }

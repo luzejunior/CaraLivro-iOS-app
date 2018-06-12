@@ -257,6 +257,9 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         tableView.dataSource = presenter?.dataSource
         configureUser()
         presenter?.fetchData()
@@ -267,6 +270,16 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
             button1.image = UIImage(named: "friends more options")
             button1.tintColor = .black
         }
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc func refresh(refreshControl: UIRefreshControl) {
+        presenter?.fetchData()
+        refreshControl.endRefreshing()
     }
 
     @objc func moreOptionsButton() {

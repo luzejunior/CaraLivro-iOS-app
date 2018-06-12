@@ -160,10 +160,22 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         tableView.dataSource = presenter?.dataSource
         presenter?.fetchData()
         changeButtonToRequested()
-        // Do any additional setup after loading the view.
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc func refresh(refreshControl: UIRefreshControl) {
+        presenter?.fetchData()
+        refreshControl.endRefreshing()
     }
 
     func openCommentaries(postID: Int, postOwnerID: Int) {

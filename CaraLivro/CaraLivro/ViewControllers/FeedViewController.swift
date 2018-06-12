@@ -108,6 +108,16 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         button2.image = UIImage(named: "logout")
         button2.tintColor = .black
         tableView.dataSource = presenter?.dataSource
+    
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc func refresh(refreshControl: UIRefreshControl) {
+        presenter?.fetchData()
+        refreshControl.endRefreshing()
     }
 
     @objc func moreOptionsButton() {

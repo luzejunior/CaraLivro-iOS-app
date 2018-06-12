@@ -136,10 +136,11 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        tableView.dataSource = presenter?.dataSource
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        self.hideKeyboardWhenTappedAround()
+        tableView.dataSource = presenter?.dataSource
         
         view.addSubview(commentInputContainerView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: commentInputContainerView)
@@ -152,6 +153,16 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc func refresh(refreshControl: UIRefreshControl) {
+        presenter?.fetchData()
+        refreshControl.endRefreshing()
     }
 
     @objc func commentButtonAction() {
