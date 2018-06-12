@@ -296,9 +296,9 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
 
     func configureAddButton() {
         if presenter?.profileStatus == .requested || presenter?.profileStatus == .requestedme {
-            friendButton.setImage(UIImage(named: "friend accepted"), for: .normal)
-        } else if presenter?.profileStatus == .friend {
             friendButton.setImage(UIImage(named: "friend requested"), for: .normal)
+        } else if presenter?.profileStatus == .friend {
+            friendButton.setImage(UIImage(named: "friend accepted"), for: .normal)
         } else {
             friendButton.setImage(UIImage(named: "friend request open"), for: .normal)
         }
