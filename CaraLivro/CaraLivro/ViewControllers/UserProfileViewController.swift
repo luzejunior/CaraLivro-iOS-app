@@ -251,6 +251,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
             let button1 = UIBarButtonItem(title: "More Options", style: .plain, target: self, action: #selector(self.moreOptionsButton))
             self.navigationItem.rightBarButtonItem  = button1
             button1.image = UIImage(named: "friends more options")
+            button1.tintColor = .black
         }
     }
 
@@ -265,6 +266,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         let requestIcon = UIImage(named: "friend request list")
         request.setValue(requestIcon, forKey: "image")
         request.setValue(0, forKey: "titleTextAlignment")
+        request.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(request)
         
         let blockedUsers = UIAlertAction(title: "Blocked Users", style: .default) { (action) in
@@ -273,9 +275,12 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         let blockedUsersIcon = UIImage(named: "blocked user")
         blockedUsers.setValue(blockedUsersIcon, forKey: "image")
         blockedUsers.setValue(0, forKey: "titleTextAlignment")
+        blockedUsers.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(blockedUsers)
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        actionSheet.addAction(cancel)
     }
 
     func openCommentaries(postID: Int, postOwnerID: Int) {

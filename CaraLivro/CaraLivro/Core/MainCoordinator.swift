@@ -158,7 +158,7 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     func didTouchAddUserButton() {
         let cadastro = CadastroViewController.instantiate()
         cadastro.coordinator = self
-        presentModal(cadastro, constraintValue: CGFloat(85.0))
+        presentModal(cadastro, constraintValue: CGFloat(80.0))
     }
 
     func didDismissCadastro() {

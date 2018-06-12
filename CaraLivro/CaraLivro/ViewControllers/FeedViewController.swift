@@ -97,12 +97,16 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.tintColor = .black
+        
         let button1 = UIBarButtonItem(title: "More Options", style: .plain, target: self, action: #selector(self.moreOptionsButton))
         self.navigationItem.rightBarButtonItem  = button1
         button1.image = UIImage(named: "more options")
+        button1.tintColor = .black
         let button2 = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.logOut))
         self.navigationItem.leftBarButtonItem = button2
         button2.image = UIImage(named: "logout")
+        button2.tintColor = .black
         tableView.dataSource = presenter?.dataSource
     }
 
@@ -116,6 +120,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         let groupsIcon = UIImage(named: "groups")
         groups.setValue(groupsIcon, forKey: "image")
         groups.setValue(0, forKey: "titleTextAlignment")
+        groups.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(groups)
         
         let users = UIAlertAction(title: "All users", style: .default) { (action) in
@@ -124,6 +129,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         let usersIcon = UIImage(named: "users")
         users.setValue(usersIcon, forKey: "image")
         users.setValue(0, forKey: "titleTextAlignment")
+        users.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(users)
         
         let profile = UIAlertAction(title: "Profile", style: .default) { (action) in
@@ -132,9 +138,12 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         let profileIcon = UIImage(named: "profile")
         profile.setValue(profileIcon, forKey: "image")
         profile.setValue(0, forKey: "titleTextAlignment")
+        profile.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(profile)
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        actionSheet.addAction(cancel)
     }
     
     @objc func logOut() {
