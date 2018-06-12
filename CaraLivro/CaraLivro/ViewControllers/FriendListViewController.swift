@@ -243,6 +243,12 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
             alert.addAction(UIAlertAction(title: "Bloquear", style: .destructive, handler: { action in
                 self.presenter?.blockUser(postOwnerID)
             }))
+        } else if presenter?.listType == .friends && presenter?.listAll == true {
+            alert.addAction(UIAlertAction(title: "Denunciar", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: "Denunciar", message: "Obrigado pela denúncia! :)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                 self.present(alert, animated: true, completion: nil)
+            }))
         } else if presenter?.listType == .friendRequests {
             alert.addAction(UIAlertAction(title: "Aceitar", style: .default, handler: { action in
                 self.presenter?.acceptFriendRequest(postOwnerID)

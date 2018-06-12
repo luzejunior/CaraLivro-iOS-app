@@ -177,6 +177,12 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
             alert.addAction(UIAlertAction(title: "Apagar", style: .destructive, handler: { action in
                 self.presenter?.deletePost(postID: postID)
             }))
+        } else {
+            alert.addAction(UIAlertAction(title: "Denunciar", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: "Denunciar", message: "Obrigado pela denúncia! :)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }))
         }
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
     }
