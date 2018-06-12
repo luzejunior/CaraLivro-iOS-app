@@ -96,28 +96,45 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let button1 = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.moreOptionsButton))
+        
+        let button1 = UIBarButtonItem(title: "More Options", style: .plain, target: self, action: #selector(self.moreOptionsButton))
         self.navigationItem.rightBarButtonItem  = button1
-        let button2 = UIBarButtonItem(title: "Sair", style: .plain, target: self, action: #selector(self.logOut))
+        button1.image = UIImage(named: "more options")
+        let button2 = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.logOut))
         self.navigationItem.leftBarButtonItem = button2
+        button2.image = UIImage(named: "logout")
         tableView.dataSource = presenter?.dataSource
     }
 
     @objc func moreOptionsButton() {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        self.present(alert, animated: true, completion: nil)
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(actionSheet, animated: true, completion: nil)
         
-        alert.addAction(UIAlertAction(title: "All groups", style: .default, handler: { action in
+        let groups = UIAlertAction(title: "All groups", style: .default) { (action) in
             self.coordinator?.didTouchGroupsButton(currentUserID: -1)
-        }))
+        }
+        let groupsIcon = UIImage(named: "groups")
+        groups.setValue(groupsIcon, forKey: "image")
+        groups.setValue(0, forKey: "titleTextAlignment")
+        actionSheet.addAction(groups)
         
-        alert.addAction(UIAlertAction(title: "All users", style: .default, handler: { action in
+        let users = UIAlertAction(title: "All users", style: .default) { (action) in
             self.coordinator?.didTouchFriendListButton(currentUserID: -1)
-        }))
-        alert.addAction(UIAlertAction(title: "Profile", style: .default, handler: { action in
+        }
+        let usersIcon = UIImage(named: "users")
+        users.setValue(usersIcon, forKey: "image")
+        users.setValue(0, forKey: "titleTextAlignment")
+        actionSheet.addAction(users)
+        
+        let profile = UIAlertAction(title: "Profile", style: .default) { (action) in
             self.coordinator?.didTouchProfileButton(userToDisplay: currentUserInUse!)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        }
+        let profileIcon = UIImage(named: "profile")
+        profile.setValue(profileIcon, forKey: "image")
+        profile.setValue(0, forKey: "titleTextAlignment")
+        actionSheet.addAction(profile)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     }
     
     @objc func logOut() {

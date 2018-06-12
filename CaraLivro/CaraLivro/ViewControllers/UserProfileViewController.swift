@@ -248,25 +248,36 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         presenter?.fetchData()
 
         if presenter?.currentUser?.idUserProfile == currentUserInUse?.idUserProfile {
-            let button1 = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.moreOptionsButton))
+            let button1 = UIBarButtonItem(title: "More Options", style: .plain, target: self, action: #selector(self.moreOptionsButton))
             self.navigationItem.rightBarButtonItem  = button1
+            button1.image = UIImage(named: "friends more options")
         }
     }
 
     @objc func moreOptionsButton() {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        self.present(alert, animated: true, completion: nil)
         
-        alert.addAction(UIAlertAction(title: "Blocked users", style: .default, handler: { action in
-            self.coordinator?.didTouchBlockedFriendsButton(currentUserID: currentUserInUse?.idUserProfile ?? 0)
-        }))
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(actionSheet, animated: true, completion: nil)
         
-        alert.addAction(UIAlertAction(title: "Friend requests", style: .default, handler: { action in
+        let request = UIAlertAction(title: "Friend requests", style: .default) { (action) in
             self.coordinator?.didTouchFriendRequestListButton(currentUserID: currentUserInUse?.idUserProfile ?? 0)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        }
+        let requestIcon = UIImage(named: "friend request list")
+        request.setValue(requestIcon, forKey: "image")
+        request.setValue(0, forKey: "titleTextAlignment")
+        actionSheet.addAction(request)
+        
+        let blockedUsers = UIAlertAction(title: "Blocked Users", style: .default) { (action) in
+            self.coordinator?.didTouchBlockedFriendsButton(currentUserID: currentUserInUse?.idUserProfile ?? 0)
+        }
+        let blockedUsersIcon = UIImage(named: "blocked user")
+        blockedUsers.setValue(blockedUsersIcon, forKey: "image")
+        blockedUsers.setValue(0, forKey: "titleTextAlignment")
+        actionSheet.addAction(blockedUsers)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     }
-    
+
     func openCommentaries(postID: Int, postOwnerID: Int) {
         coordinator?.didTouchCommentariesButton(postID: postID, postOwnerID: postOwnerID)
     }
@@ -274,7 +285,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
     func configureUser() {
         userImage.image = nil
         if presenter?.currentUser?.ProfilePicture == nil {
-            userImage.image = UIImage(named: "profilePic")
+            userImage.image = UIImage(named: "profile pic")
         } else {
             userImage.kf.setImage(with: URL(string: presenter?.currentUser?.ProfilePicture ?? ""))
         }
@@ -285,11 +296,11 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
 
     func configureAddButton() {
         if presenter?.profileStatus == .requested || presenter?.profileStatus == .requestedme {
-            friendButton.setImage(UIImage(named: "requests_icon"), for: .normal)
+            friendButton.setImage(UIImage(named: "friend accepted"), for: .normal)
         } else if presenter?.profileStatus == .friend {
-            friendButton.setImage(UIImage(named: "add_feeling_btn"), for: .normal)
+            friendButton.setImage(UIImage(named: "profile pic"), for: .normal)
         } else {
-            friendButton.setImage(UIImage(named: "tag_friend_btn"), for: .normal)
+            friendButton.setImage(UIImage(named: "friend request open"), for: .normal)
         }
     }
 

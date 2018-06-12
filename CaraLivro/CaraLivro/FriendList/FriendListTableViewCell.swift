@@ -44,7 +44,7 @@ final class FriendListTableViewCell: UITableViewCell, UITableViewContent {
         userName.text = presenter?.userName
         userImage.image = nil
         if presenter?.userImage == nil {
-            userImage.image = UIImage(named: presenter?.userImage ?? "profilePic")
+            userImage.image = UIImage(named: presenter?.userImage ?? "profile pic")
         } else {
             userImage.kf.setImage(with: URL(string: presenter?.userImage ?? ""))
         }

@@ -27,7 +27,7 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userImage.image = UIImage(named: "profilePic")
+        userImage.image = UIImage(named: "profile pic")
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         userImage.isUserInteractionEnabled = true
@@ -55,7 +55,7 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
     }
 
     @IBAction func didTapCreateUserButton(_ sender: Any) {
-        if userImage.image != UIImage(named: "profilePic") {
+        if userImage.image != UIImage(named: "profile pic") {
             createButton.isEnabled = false
             createButton.setTitle("Carregando...", for: .disabled)
             uploadImage(image: image) { (url) in

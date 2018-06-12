@@ -51,7 +51,7 @@ final class FeedImageTableViewCell: UITableViewCell, UITableViewContent {
         userName.text = presenter?.userName
         userImage.image = nil
         if presenter?.userImage == nil {
-            userImage.image = UIImage(named: "profilePic")
+            userImage.image = UIImage(named: "profile pic")
         } else {
             userImage.kf.setImage(with: URL(string: presenter?.userImage ?? ""))
         }

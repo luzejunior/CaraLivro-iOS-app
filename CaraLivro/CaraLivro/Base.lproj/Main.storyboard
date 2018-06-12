@@ -63,7 +63,7 @@
                                             <constraint firstAttribute="height" constant="22" id="e52-Jh-6ff"/>
                                             <constraint firstAttribute="width" constant="33" id="oYP-fa-FBh"/>
                                         </constraints>
-                                        <state key="normal" image="tag_friend_btn"/>
+                                        <state key="normal" image="friend request open"/>
                                         <connections>
                                             <action selector="addFriendButtonAction:" destination="R9r-gD-STu" eventType="touchUpInside" id="2sa-Ce-p2t"/>
                                         </connections>
@@ -276,13 +276,12 @@
                                 <color key="textColor" white="0.51429578990000002" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1i-rA-EX9">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1i-rA-EX9">
                                 <rect key="frame" x="313" y="40" width="46" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="YtM-Jn-tok"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="+"/>
+                                <state key="normal" title="+" image="new user"/>
                                 <connections>
                                     <action selector="onAddButtonTouched:" destination="pNL-NW-oje" eventType="touchUpInside" id="Wbk-pa-0pJ"/>
                                 </connections>
@@ -507,10 +506,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZP-ne-toc">
-                                        <rect key="frame" x="304" y="14" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZP-ne-toc">
+                                        <rect key="frame" x="315" y="17" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Entrar"/>
+                                        <state key="normal" image="login"/>
                                         <connections>
                                             <action selector="didTouchEntrarButton:" destination="jdZ-Vw-VZO" eventType="touchUpInside" id="i11-nb-FHt"/>
                                         </connections>
@@ -647,6 +646,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tag_friend_btn" width="26" height="19"/>
+        <image name="friend request open" width="25" height="25"/>
+        <image name="login" width="25" height="25"/>
+        <image name="new user" width="25" height="25"/>
     </resources>
 </document>
