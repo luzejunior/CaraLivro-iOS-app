@@ -123,4 +123,5 @@ struct CommentResponse : Encodable {
 
 var apiUsers = [UserDetails]()
 var apiGroups = [GroupsDetails]()
+var apiBlockedMe = [UserDetails]()
 var currentUserInUse: UserDetails?

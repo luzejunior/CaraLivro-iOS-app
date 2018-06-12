@@ -63,6 +63,7 @@ final class LoginViewController: UIViewController, Storyboarded, FriendListTable
     }
 
     func didSelectedFriend(_ sender: FriendListTableViewCell) {
+        presenter?.lookForUsersBlockedByMe(sender.presenter?.user?.idUserProfile ?? 0)
         coordinator?.didSelectedUserToLogin(currentUser: (sender.presenter?.user)!)
     }
 
@@ -98,5 +99,16 @@ final class LoginViewControllerPresenter {
             dataSource.items.append(tableContent)
         }
         view?.finishedFetching()
+    }
+
+    func lookForUsersBlockedByMe(_ userID: Int) {
+        let stringURL = "user/" + String(describing: userID ) + "/blockeds"
+        getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+            DispatchQueue.main.async {
+                for user in users {
+                    apiBlockedMe.append(user)
+                }
+            }
+        }
     }
 }

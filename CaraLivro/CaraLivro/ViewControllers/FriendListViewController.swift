@@ -156,6 +156,17 @@ final class FriendListViewControllerPresenter {
         }
     }
 
+    func unblockUser(_ friendID: Int) {
+        let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/unblock/" + String(describing: friendID )
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
+    }
+
     func acceptGroupRequest(_ userID: Int) {
         let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/request/" + String(describing: userID) + "/accept"
         let object = PostRequestAcceptance(user_admin_id: currentUserInUse?.idUserProfile ?? 0)
@@ -189,7 +200,14 @@ final class FriendListViewControllerPresenter {
     }
 
     func promoteToADM(_ userID: Int) {
-        
+        let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/admin/add/" + String(describing: userID)
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
     }
 
     func blockUserFromGroup(_ userID: Int) {
@@ -276,13 +294,17 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
             }))
         } else if presenter?.listType == .groupMembers && presenter?.isGroupAdmin ?? false {
             alert.addAction(UIAlertAction(title: "Promover à Administrador", style: .default, handler: { action in
-                self.presenter?.eraseUserFromGroup(postOwnerID)
+                self.presenter?.promoteToADM(postOwnerID)
             }))
             alert.addAction(UIAlertAction(title: "Remover do Grupo", style: .destructive, handler: { action in
                 self.presenter?.eraseUserFromGroup(postOwnerID)
             }))
             alert.addAction(UIAlertAction(title: "Bloquear do Grupo", style: .destructive, handler: { action in
                 self.presenter?.blockUserFromGroup(postOwnerID)
+            }))
+        } else if presenter?.listType == .blockedUsers {
+            alert.addAction(UIAlertAction(title: "Remover Bloqueio", style: .default, handler: { action in
+                self.presenter?.unblockUser(postOwnerID)
             }))
         }
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
@@ -293,7 +315,7 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         if presenter?.listType ?? .friends == .groups && presenter?.listAll ?? false {
-            let button1 = UIBarButtonItem(title: "Criar Grupo", style: .plain, target: self, action: #selector(self.createGroupButton))
+            let button1 = UIBarButtonItem(title: "Criar", style: .plain, target: self, action: #selector(self.createGroupButton))
             self.navigationItem.rightBarButtonItem  = button1
         }
         presenter?.fetchData()
