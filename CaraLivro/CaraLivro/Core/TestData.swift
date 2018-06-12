@@ -32,6 +32,12 @@ struct CreateUserJson: Encodable {
     var profile_pic: String?
 }
 
+struct CreateGroupJson: Encodable {
+    var name: String
+    var description: String
+    var user_creator_id: Int
+}
+
 struct FriendshipRequestJson: Encodable {
     var user_requester_id: Int?
 }

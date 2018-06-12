@@ -173,7 +173,7 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     func didTouchCreateGroup() {
         let createGroup = CreateGroupViewController.instantiate()
         createGroup.coordinator = self
-        presentModal(createGroup, constraintValue: CGFloat(130.0), animated: true)
+        presentModal(createGroup, constraintValue: CGFloat(70.0), animated: true)
     }
 
 

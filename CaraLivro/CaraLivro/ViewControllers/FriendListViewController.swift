@@ -293,7 +293,7 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         if presenter?.listType ?? .friends == .groups && presenter?.listAll ?? false {
-            let button1 = UIBarButtonItem(title: "Criar Grupo", style: .plain, target: self, action: #selector(self.createGroupButton))
+            let button1 = UIBarButtonItem(title: "Criar", style: .plain, target: self, action: #selector(self.createGroupButton))
             self.navigationItem.rightBarButtonItem  = button1
         }
         presenter?.fetchData()
