@@ -252,7 +252,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "Profile"
+        navigationController?.navigationBar.topItem?.title = "Perfil"
     }
 
     override func viewDidLoad() {
@@ -274,7 +274,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(actionSheet, animated: true, completion: nil)
         
-        let request = UIAlertAction(title: "Friend requests", style: .default) { (action) in
+        let request = UIAlertAction(title: "Solicitações de Amizade", style: .default) { (action) in
             self.coordinator?.didTouchFriendRequestListButton(currentUserID: currentUserInUse?.idUserProfile ?? 0)
         }
         let requestIcon = UIImage(named: "friend request list")
@@ -283,7 +283,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         request.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(request)
         
-        let blockedUsers = UIAlertAction(title: "Blocked Users", style: .default) { (action) in
+        let blockedUsers = UIAlertAction(title: "Usuários Bloqueados", style: .default) { (action) in
             self.coordinator?.didTouchBlockedFriendsButton(currentUserID: currentUserInUse?.idUserProfile ?? 0)
         }
         let blockedUsersIcon = UIImage(named: "blocked user")

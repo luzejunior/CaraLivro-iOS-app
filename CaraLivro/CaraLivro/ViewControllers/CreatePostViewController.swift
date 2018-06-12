@@ -61,7 +61,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "CreatePost"
+        navigationController?.navigationBar.topItem?.title = "Novo Post"
     }
 
     override func viewDidLoad() {
@@ -152,10 +152,10 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
 
     @IBAction func didTapPublic(_ sender: Any) {
         if publicFlag == "public" {
-            publicPrivateButton.setTitle("Private", for: .normal)
+            publicPrivateButton.setTitle("Privado", for: .normal)
             publicFlag = "private"
         } else {
-            publicPrivateButton.setTitle("Public", for: .normal)
+            publicPrivateButton.setTitle("Público", for: .normal)
             publicFlag = "public"
         }
     }

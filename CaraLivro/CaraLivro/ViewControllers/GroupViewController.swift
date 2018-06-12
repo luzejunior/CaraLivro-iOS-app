@@ -177,15 +177,8 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
             alert.addAction(UIAlertAction(title: "Apagar", style: .destructive, handler: { action in
                 self.presenter?.deletePost(postID: postID)
             }))
-            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        } else {
-            alert.addAction(UIAlertAction(title: "Denunciar", style: .destructive, handler: { action in
-                let alert = UIAlertController(title: "Denunciar", message: "Obrigado pela denuncia! :)", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }))
-            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         }
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
     }
 
     @IBAction func didTouchUserList(_ sender: Any) {
@@ -228,7 +221,7 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(alert, animated: true, completion: nil)
 
-        alert.addAction(UIAlertAction(title: "Aceitar Usuários", style: .destructive, handler: { action in
+        alert.addAction(UIAlertAction(title: "Aceitar Usuários", style: .default, handler: { action in
             self.coordinator?.didTouchGroupsMemberRequestButton(currentGroupID: self.presenter?.currentGroup?.idGroups ?? 0)
         }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))

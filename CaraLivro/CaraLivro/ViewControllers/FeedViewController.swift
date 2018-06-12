@@ -84,12 +84,6 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
             alert.addAction(UIAlertAction(title: "Apagar", style: .destructive, handler: { action in
                 self.presenter?.deletePost(postID: postID)
             }))
-        } else {
-            alert.addAction(UIAlertAction(title: "Denunciar", style: .default, handler: { action in
-                let alert = UIAlertController(title: "Denunciar", message: "Obrigado pela denuncia! :)", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }))
         }
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
     }
@@ -99,7 +93,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         
         navigationController?.navigationBar.tintColor = .black
         
-        let button1 = UIBarButtonItem(title: "More Options", style: .plain, target: self, action: #selector(self.moreOptionsButton))
+        let button1 = UIBarButtonItem(title: "Mais opções", style: .plain, target: self, action: #selector(self.moreOptionsButton))
         self.navigationItem.rightBarButtonItem  = button1
         button1.image = UIImage(named: "more options")
         button1.tintColor = .black
@@ -114,7 +108,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(actionSheet, animated: true, completion: nil)
         
-        let groups = UIAlertAction(title: "All groups", style: .default) { (action) in
+        let groups = UIAlertAction(title: "Todos os grupos", style: .default) { (action) in
             self.coordinator?.didTouchGroupsButton(currentUserID: -1)
         }
         let groupsIcon = UIImage(named: "groups")
@@ -123,7 +117,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         groups.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(groups)
         
-        let users = UIAlertAction(title: "All users", style: .default) { (action) in
+        let users = UIAlertAction(title: "Todos os usuários", style: .default) { (action) in
             self.coordinator?.didTouchFriendListButton(currentUserID: -1)
         }
         let usersIcon = UIImage(named: "users")
@@ -132,7 +126,7 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         users.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(users)
         
-        let profile = UIAlertAction(title: "Profile", style: .default) { (action) in
+        let profile = UIAlertAction(title: "Perfil", style: .default) { (action) in
             self.coordinator?.didTouchProfileButton(userToDisplay: currentUserInUse!)
         }
         let profileIcon = UIImage(named: "profile")

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,6 +15,7 @@
         <!--Feed View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FeedViewController" id="BYZ-38-t0r" customClass="FeedViewController" customModule="CaraLivro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -40,7 +41,6 @@
                         <outlet property="tableView" destination="L10-QI-1Bf" id="aKK-tR-iu6"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
@@ -240,14 +240,6 @@
                                     <action selector="didTapPostarButton:" destination="CkY-nD-Agj" eventType="touchUpInside" id="efr-2F-5JB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idp-w5-RCd">
-                                <rect key="frame" x="153" y="24" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Public"/>
-                                <connections>
-                                    <action selector="didTapPublic:" destination="CkY-nD-Agj" eventType="touchUpInside" id="iLE-C9-aMB"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -257,7 +249,6 @@
                         <outlet property="imagePicked" destination="EmN-gi-Vdn" id="biB-0g-GGY"/>
                         <outlet property="inputText" destination="GMF-3W-blQ" id="kW5-4r-dK5"/>
                         <outlet property="postarButton" destination="X0Y-ab-wTf" id="gdm-S9-bAY"/>
-                        <outlet property="publicPrivateButton" destination="Idp-w5-RCd" id="uOQ-Ox-QLD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeN-0T-dLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -604,6 +595,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="nwq-sR-qC6" firstAttribute="width" secondItem="Je1-Jf-w9T" secondAttribute="width" id="39A-em-9D0"/>
                             <constraint firstItem="Jch-sm-aXt" firstAttribute="width" secondItem="Je1-Jf-w9T" secondAttribute="width" id="4jO-1a-AqF"/>
@@ -636,6 +628,7 @@
         <!--Friend List View Controller-->
         <scene sceneID="CbM-Ue-Fin">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ts6-su-CPA" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FriendListViewController" id="P2n-os-G2j" customClass="FriendListViewController" customModule="CaraLivro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OAh-Nh-PkU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -671,7 +664,6 @@
                         <outlet property="tableView" destination="Fql-ff-iOi" id="OzL-ov-vG4"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ts6-su-CPA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="813.60000000000002" y="133.5832083958021"/>
         </scene>
