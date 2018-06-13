@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L10-QI-1Bf">
-                                <rect key="frame" x="0.0" y="66.5" width="375" height="600.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </tableView>
@@ -31,7 +31,7 @@
                         <constraints>
                             <constraint firstItem="L10-QI-1Bf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="94M-N3-c9w"/>
                             <constraint firstItem="L10-QI-1Bf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cct-qq-akD"/>
-                            <constraint firstItem="L10-QI-1Bf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.9" id="d7v-YC-Id2"/>
+                            <constraint firstItem="L10-QI-1Bf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="d7v-YC-Id2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L10-QI-1Bf" secondAttribute="bottom" id="s5q-3c-Abf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -52,7 +52,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T02-el-q67">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T02-el-q67">
                                 <rect key="frame" x="0.0" y="268.5" width="375" height="398.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -627,7 +627,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fql-ff-iOi">
-                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </tableView>
@@ -643,7 +643,7 @@
                         <constraints>
                             <constraint firstItem="sMh-48-MdF" firstAttribute="bottom" secondItem="Fql-ff-iOi" secondAttribute="bottom" id="4pr-wN-M3z"/>
                             <constraint firstItem="ybp-vY-npP" firstAttribute="leading" secondItem="sMh-48-MdF" secondAttribute="leading" constant="77" id="Ct4-0l-QaS"/>
-                            <constraint firstItem="Fql-ff-iOi" firstAttribute="height" secondItem="OAh-Nh-PkU" secondAttribute="height" multiplier="0.9" id="LMk-4H-xMV"/>
+                            <constraint firstItem="Fql-ff-iOi" firstAttribute="height" secondItem="OAh-Nh-PkU" secondAttribute="height" id="LMk-4H-xMV"/>
                             <constraint firstItem="ybp-vY-npP" firstAttribute="centerX" secondItem="Fql-ff-iOi" secondAttribute="centerX" id="NQj-He-WRc"/>
                             <constraint firstItem="Fql-ff-iOi" firstAttribute="centerX" secondItem="sMh-48-MdF" secondAttribute="centerX" id="YlO-l2-oMB"/>
                             <constraint firstItem="ybp-vY-npP" firstAttribute="top" secondItem="sMh-48-MdF" secondAttribute="top" constant="315" id="aBu-6I-ImL"/>

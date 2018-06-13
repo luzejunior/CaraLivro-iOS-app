@@ -115,11 +115,11 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        let button1 = UIBarButtonItem(title: "Mais opções", style: .plain, target: self, action: #selector(self.moreOptionsButton))
+        let button1 = UIBarButtonItem(title: " ", style: .plain, target: self, action: #selector(self.moreOptionsButton))
         self.navigationItem.rightBarButtonItem  = button1
         button1.image = UIImage(named: "more options")
         button1.tintColor = .black
-        let button2 = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.logOut))
+        let button2 = UIBarButtonItem(title: " ", style: .plain, target: self, action: #selector(self.logOut))
         self.navigationItem.leftBarButtonItem = button2
         button2.image = UIImage(named: "logout")
         button2.tintColor = .black

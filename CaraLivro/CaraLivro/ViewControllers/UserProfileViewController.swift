@@ -265,7 +265,7 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         presenter?.fetchData()
 
         if presenter?.currentUser?.idUserProfile == currentUserInUse?.idUserProfile {
-            let button1 = UIBarButtonItem(title: "More Options", style: .plain, target: self, action: #selector(self.moreOptionsButton))
+            let button1 = UIBarButtonItem(title: " ", style: .plain, target: self, action: #selector(self.moreOptionsButton))
             self.navigationItem.rightBarButtonItem  = button1
             button1.image = UIImage(named: "friends more options")
             button1.tintColor = .black

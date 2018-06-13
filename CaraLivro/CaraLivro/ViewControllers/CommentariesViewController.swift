@@ -190,7 +190,11 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
     }
     
     @objc func refresh(refreshControl: UIRefreshControl) {
-        presenter?.fetchData()
+        if presenter?.viewType == .commentaries {
+            presenter?.fetchData()
+        } else {
+            presenter?.fetchResponses()
+        }
         refreshControl.endRefreshing()
     }
 
