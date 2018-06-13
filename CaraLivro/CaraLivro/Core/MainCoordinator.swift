@@ -18,6 +18,7 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     var groupView: GroupViewController?
     var defaultModal: ModalViewController?
     var login: LoginViewController?
+    var groupList: FriendListViewController?
 
     init(navigationController: UINavigationController, window: UIWindow?) {
         self.navigationController = navigationController
@@ -98,11 +99,11 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
     }
 
     func didTouchGroupsButton(currentUserID: Int) {
-        let friendList = FriendListViewController.instantiate()
-        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .groups, currentUserID: currentUserID)
-        friendList.presenter = friendListPresenter
-        friendList.coordinator = self
-        push(friendList, animated: true)
+        groupList = FriendListViewController.instantiate()
+        let friendListPresenter = FriendListViewControllerPresenter(with: groupList!, listType: .groups, currentUserID: currentUserID)
+        groupList?.presenter = friendListPresenter
+        groupList?.coordinator = self
+        push(groupList!, animated: true)
     }
 
     func didTouchBlockedFriendsButton(currentUserID: Int) {
@@ -179,6 +180,10 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
 
     func didDismissCadastro() {
         login?.presenter?.fetchData()
+    }
+
+    func didDismissCreateGroup() {
+        groupList?.presenter?.fetchData()
     }
 
     private func push(_ viewController: UIViewController?, animated: Bool = false) {

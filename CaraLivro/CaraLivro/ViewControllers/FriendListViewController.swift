@@ -97,11 +97,11 @@ final class FriendListViewControllerPresenter {
     func configureFriendListTableView(posts: [UserDetails]) {
         dataSource.items.removeAll()
         for user in posts {
-            for blocked in apiBlockedMe {
-                if apiBlockedMe.isEmpty {
-                    let tableContent = FriendListTableViewCellPresenter(userDetails: user, view: view!, list: .friends)
-                    dataSource.items.append(tableContent)
-                } else {
+            if apiBlockedMe.isEmpty {
+                let tableContent = FriendListTableViewCellPresenter(userDetails: user, view: view!, list: .friends)
+                dataSource.items.append(tableContent)
+            } else {
+                for blocked in apiBlockedMe {
                     if user.idUserProfile == blocked.idUserProfile && !(listType == .blockedUsers) {
                         break
                     } else {
@@ -251,6 +251,9 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
         if presenter?.listType == .friends {
             messageLabel.text = "Nenhum amigo encontrado"
             navigationController?.navigationBar.topItem?.title = "LISTA DE AMIGOS"
+        } else if presenter?.listType == .friends && presenter?.listAll ?? false {
+            messageLabel.text = "Nenhum usuário encontrado"
+            navigationController?.navigationBar.topItem?.title = "LISTA DE USUÁRIOS"
         } else if presenter?.listType == .blockedUsers {
             messageLabel.text = "Não há usuários bloqueados"
             navigationController?.navigationBar.topItem?.title = "USUÁRIOS BLOQUEADOS"
@@ -342,6 +345,7 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
     }
     
     @objc func refresh(refreshControl: UIRefreshControl) {
+        tableView.isHidden = true
         presenter?.fetchData()
         refreshControl.endRefreshing()
     }

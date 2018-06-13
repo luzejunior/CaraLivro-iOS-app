@@ -36,7 +36,7 @@ final class CreateGroupViewController: UIViewController, Storyboarded {
         let stringURL = "group/create"
         postDataToServer(object: newGroup, path: stringURL) {
             DispatchQueue.main.async {
-                self.coordinator?.didDismissCadastro()
+                self.coordinator?.didDismissCreateGroup()
                 self.dismiss(animated: true, completion: nil)
             }
         }

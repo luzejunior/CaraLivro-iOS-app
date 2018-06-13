@@ -274,7 +274,7 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
         if indexPath.row == 0 && self.presenter?.viewType == .responses {
             isTopComment = true
         }
-        let delete = UITableViewRowAction(style: .normal, title: "Apagar") { (action, indexPath) in
+        let delete = UITableViewRowAction(style: .destructive, title: "Apagar") { (action, indexPath) in
             if self.presenter?.viewType == .commentaries && !(isTopComment) {
                 self.presenter?.deleteCommentarie(indexPath.row)
             } else {
