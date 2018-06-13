@@ -68,7 +68,7 @@ final class FriendListViewControllerPresenter {
         } else if listType == .groups {
             var stringURL = ""
             if listAll {
-                stringURL = "groups"
+                stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/list/groups"
             } else {
                 stringURL = "user/" + String(describing: currentUserID ?? 0) + "/groups"
             }
@@ -86,6 +86,20 @@ final class FriendListViewControllerPresenter {
             }
         } else if listType == .groupMembers {
             let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/members"
+            getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+                DispatchQueue.main.async {
+                    self.configureFriendListTableView(posts: users)
+                }
+            }
+        } else if listType == .groupBlockedUsers {
+            let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/members/blocked"
+            getDataFromServer(path: stringURL) { (users: [UserDetails]) in
+                DispatchQueue.main.async {
+                    self.configureFriendListTableView(posts: users)
+                }
+            }
+        } else if listType == .groupAdmins {
+            let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/admins"
             getDataFromServer(path: stringURL) { (users: [UserDetails]) in
                 DispatchQueue.main.async {
                     self.configureFriendListTableView(posts: users)
@@ -221,8 +235,37 @@ final class FriendListViewControllerPresenter {
         }
     }
 
+    func removeADMFromUSer(_ userID: Int) {
+        let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/admin/remove/" + String(describing: userID)
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
+    }
+
     func blockUserFromGroup(_ userID: Int) {
-        
+        let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/member/" + String(describing: userID) + "/block"
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
+    }
+
+    func unblockUserFromGroup(_ userID: Int) {
+        let stringURL = "group/" + String(describing: currentGroupID ?? 0) + "/member/" + String(describing: userID) + "/unblock"
+        getDataFromServer(path: stringURL) { (netmessage: networkingMessage) in
+            DispatchQueue.main.async {
+                if netmessage.sucess {
+                    self.fetchData()
+                }
+            }
+        }
     }
 }
 
@@ -269,6 +312,12 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
         } else if presenter?.listType == .groups {
             messageLabel.text = "Nenhum grupo encontrado"
             navigationController?.navigationBar.topItem?.title = "LISTA DE GRUPOS"
+        } else if presenter?.listType == .groupAdmins {
+            messageLabel.text = "Nenhum Admin encontrado"
+            navigationController?.navigationBar.topItem?.title = "LISTA DE ADMINS"
+        } else if presenter?.listType == .groupBlockedUsers {
+            messageLabel.text = "Nenhum usuário encontrado"
+            navigationController?.navigationBar.topItem?.title = "LISTA DE USUÁRIOS BLOQUEADOS"
         } else {
             messageLabel.text = "ADICIONAR DEPOIS?"
             navigationController?.navigationBar.topItem?.title = "ADICIONAR DEPOIS"
@@ -316,9 +365,17 @@ final class FriendListViewController: UIViewController, Storyboarded, FriendList
             alert.addAction(UIAlertAction(title: "Bloquear do Grupo", style: .destructive, handler: { action in
                 self.presenter?.blockUserFromGroup(postOwnerID)
             }))
+        } else if presenter?.listType == .groupBlockedUsers {
+            alert.addAction(UIAlertAction(title: "Remover Bloqueio", style: .default, handler: { action in
+                self.presenter?.unblockUserFromGroup(postOwnerID)
+            }))
         } else if presenter?.listType == .blockedUsers {
             alert.addAction(UIAlertAction(title: "Remover Bloqueio", style: .default, handler: { action in
                 self.presenter?.unblockUser(postOwnerID)
+            }))
+        } else if presenter?.listType == .groupAdmins {
+            alert.addAction(UIAlertAction(title: "Remover Privilégios de Administrador", style: .default, handler: { action in
+                self.presenter?.removeADMFromUSer(postOwnerID)
             }))
         }
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))

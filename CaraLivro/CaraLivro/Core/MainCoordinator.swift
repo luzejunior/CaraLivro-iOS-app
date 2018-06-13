@@ -131,6 +131,22 @@ final class MainCoordinator: Coordinator, FeedViewControllerActions, UserProfile
         push(friendList, animated: true)
     }
 
+    func didTouchGroupsMemberBlockedButton(currentGroupID: Int) {
+        let friendList = FriendListViewController.instantiate()
+        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .groupBlockedUsers, currentGroupID: currentGroupID)
+        friendList.presenter = friendListPresenter
+        friendList.coordinator = self
+        push(friendList, animated: true)
+    }
+
+    func didTouchGroupsMemberAdminsButton(currentGroupID: Int) {
+        let friendList = FriendListViewController.instantiate()
+        let friendListPresenter = FriendListViewControllerPresenter(with: friendList, listType: .groupAdmins, currentGroupID: currentGroupID)
+        friendList.presenter = friendListPresenter
+        friendList.coordinator = self
+        push(friendList, animated: true)
+    }
+
     func didTouchPostButton(postUserID: Int) {
         let createPost = CreatePostViewController.instantiate()
         createPost.modalPresentationStyle = UIModalPresentationStyle.popover

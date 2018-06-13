@@ -242,6 +242,12 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
         alert.addAction(UIAlertAction(title: "Aceitar Usuários", style: .default, handler: { action in
             self.coordinator?.didTouchGroupsMemberRequestButton(currentGroupID: self.presenter?.currentGroup?.idGroups ?? 0)
         }))
+        alert.addAction(UIAlertAction(title: "Usuários Bloqueados", style: .default, handler: { action in
+            self.coordinator?.didTouchGroupsMemberBlockedButton(currentGroupID: self.presenter?.currentGroup?.idGroups ?? 0)
+        }))
+        alert.addAction(UIAlertAction(title: "Gerenciar Administradores", style: .default, handler: { action in
+            self.coordinator?.didTouchGroupsMemberAdminsButton(currentGroupID: self.presenter?.currentGroup?.idGroups ?? 0)
+        }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
     }
 
