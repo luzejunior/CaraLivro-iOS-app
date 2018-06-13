@@ -97,8 +97,19 @@ final class FriendListViewControllerPresenter {
     func configureFriendListTableView(posts: [UserDetails]) {
         dataSource.items.removeAll()
         for user in posts {
-            let tableContent = FriendListTableViewCellPresenter(userDetails: user, view: view!, list: .friends)
-            dataSource.items.append(tableContent)
+            for blocked in apiBlockedMe {
+                if apiBlockedMe.isEmpty {
+                    let tableContent = FriendListTableViewCellPresenter(userDetails: user, view: view!, list: .friends)
+                    dataSource.items.append(tableContent)
+                } else {
+                    if user.idUserProfile == blocked.idUserProfile && !(listType == .blockedUsers) {
+                        break
+                    } else {
+                        let tableContent = FriendListTableViewCellPresenter(userDetails: user, view: view!, list: .friends)
+                        dataSource.items.append(tableContent)
+                    }
+                }
+            }
         }
         view?.finishedFetching()
     }

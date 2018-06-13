@@ -102,6 +102,7 @@ final class LoginViewControllerPresenter {
     }
 
     func lookForUsersBlockedByMe(_ userID: Int) {
+        apiBlockedMe.removeAll()
         let stringURL = "user/" + String(describing: userID ) + "/blockeds"
         getDataFromServer(path: stringURL) { (users: [UserDetails]) in
             DispatchQueue.main.async {
