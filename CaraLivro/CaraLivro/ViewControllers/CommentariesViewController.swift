@@ -22,6 +22,8 @@ final class CommentariesViewControllerPresenter {
     var postOwnerID: Int?
     var viewType: ViewType?
     var commentToResponse: Comments?
+    var commentID = [Int]()
+    var responsesID = [Int]()
     
     init(with view: CommentariesViewController, postID: Int, postOwnerID: Int, viewType: ViewType) {
         self.view = view
@@ -38,6 +40,7 @@ final class CommentariesViewControllerPresenter {
     
     func fetchData() {
         dataSource.items.removeAll()
+        commentID.removeAll()
         let stringURL = "post/" + String(describing: postID ?? 0) + "/comments"
         getDataFromServer(path: stringURL) { (posts: [Comments]) in
             DispatchQueue.main.async {
@@ -48,6 +51,7 @@ final class CommentariesViewControllerPresenter {
 
     func fetchResponses() {
         dataSource.items.removeAll()
+        responsesID.removeAll()
         let tableContent = CommentTableViewCellPresenter(comment: commentToResponse!, isResponse: true)
         dataSource.items.append(tableContent)
         let stringURL = "comments/" + String(describing: commentToResponse?.idComments ?? 0) + "/responses"
@@ -60,6 +64,7 @@ final class CommentariesViewControllerPresenter {
     
     func configureTableView(posts: [Comments]) {
         for item in posts {
+            commentID.append(item.idComments ?? 0)
             let tableContent1 = CommentTableViewCellPresenter(comment: item, isResponse: false)
             dataSource.items.append(tableContent1)
         }
@@ -68,15 +73,38 @@ final class CommentariesViewControllerPresenter {
 
     func configureTableView(posts: [Responses]) {
         for item in posts {
+            responsesID.append(item.idResponses ?? 0)
             let tableContent1 = CommentTableViewCellPresenter(response: item)
             dataSource.items.append(tableContent1)
         }
         view?.loadCommentaries()
     }
+
+    func deleteCommentarie(_ indexPath: Int) {
+        let stringURL = "post/" + String(describing: postID ?? 0) + "/comments/" + String(describing: commentID[indexPath]) + "/delete"
+        getDataFromServer(path: stringURL) { (response: networkingMessage) in
+            DispatchQueue.main.async {
+                if response.sucess {
+                    self.fetchData()
+                }
+            }
+        }
+    }
+
+    func deleteResponse(_ indexPath: Int) {
+        let stringURL = "comments/" + String(describing: commentToResponse?.idComments ?? 0) + "/responses/" + String(describing: responsesID[(indexPath-1)]) + "/delete"
+        getDataFromServer(path: stringURL) { (response: networkingMessage) in
+            DispatchQueue.main.async {
+                if response.sucess {
+                    self.fetchResponses()
+                }
+            }
+        }
+    }
 }
 
 // CONTROLLER
-final class CommentariesViewController: UIViewController, Storyboarded, CommentTableViewCellActions {
+final class CommentariesViewController: UIViewController, Storyboarded, CommentTableViewCellActions, UITableViewDelegate {
 
     var presenter: CommentariesViewControllerPresenter?
     var string: NSAttributedString?
@@ -138,6 +166,7 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        tableView.delegate = self
         
         self.hideKeyboardWhenTappedAround()
         tableView.dataSource = presenter?.dataSource
@@ -238,5 +267,24 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
             let commentarie = sender.presenter?.comment
             coordinator?.didTouchOpenResponsesButton(comment: commentarie!)
         }
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        var isTopComment = false
+        if indexPath.row == 0 && self.presenter?.viewType == .responses {
+            isTopComment = true
+        }
+        let delete = UITableViewRowAction(style: .normal, title: "Apagar") { (action, indexPath) in
+            if self.presenter?.viewType == .commentaries && !(isTopComment) {
+                self.presenter?.deleteCommentarie(indexPath.row)
+            } else {
+                self.presenter?.deleteResponse(indexPath.row)
+            }
+        }
+
+        if isTopComment {
+            return []
+        }
+        return [delete]
     }
 }
