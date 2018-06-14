@@ -249,10 +249,10 @@
                                     <action selector="didTapCloseButton:" destination="CkY-nD-Agj" eventType="touchUpInside" id="kd6-DB-iGQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0Y-ab-wTf">
-                                <rect key="frame" x="294" y="24" width="65" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0Y-ab-wTf">
+                                <rect key="frame" x="252" y="24" width="107" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="XOx-o7-pgP"/>
+                                    <constraint firstAttribute="width" constant="107" id="XOx-o7-pgP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Postar"/>
