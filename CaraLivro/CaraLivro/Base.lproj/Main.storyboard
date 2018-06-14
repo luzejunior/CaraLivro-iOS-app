@@ -381,32 +381,36 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1w-G0-uNa">
                                 <rect key="frame" x="29" y="45" width="317" height="577"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ak-cL-d3X">
+                                        <rect key="frame" x="8" y="8" width="67" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="67" id="BI9-yz-NLv"/>
+                                            <constraint firstAttribute="height" constant="30" id="mWv-mW-lIv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="Fechar">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTouchFecharButton:" destination="LL9-k9-AgD" eventType="touchUpInside" id="3r8-fv-REv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ak-cL-d3X">
-                                <rect key="frame" x="42" y="70" width="67" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="BI9-yz-NLv"/>
-                                    <constraint firstAttribute="height" constant="30" id="mWv-mW-lIv"/>
+                                    <constraint firstItem="7ak-cL-d3X" firstAttribute="top" secondItem="H1w-G0-uNa" secondAttribute="topMargin" id="u1P-hK-rT7"/>
+                                    <constraint firstItem="7ak-cL-d3X" firstAttribute="leading" secondItem="H1w-G0-uNa" secondAttribute="leadingMargin" id="xmm-zs-bqe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="Fechar">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTouchFecharButton:" destination="LL9-k9-AgD" eventType="touchUpInside" id="3r8-fv-REv"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.44772046232876711" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2tU-i0-dBp" firstAttribute="trailing" secondItem="H1w-G0-uNa" secondAttribute="trailing" constant="29" id="5Zf-X3-fgx"/>
-                            <constraint firstItem="7ak-cL-d3X" firstAttribute="leading" secondItem="2tU-i0-dBp" secondAttribute="leading" constant="42" id="GjW-5i-1rt"/>
                             <constraint firstItem="2tU-i0-dBp" firstAttribute="bottom" secondItem="H1w-G0-uNa" secondAttribute="bottom" constant="45" id="PBD-ox-InT"/>
                             <constraint firstItem="H1w-G0-uNa" firstAttribute="centerY" secondItem="2tU-i0-dBp" secondAttribute="centerY" priority="999" id="f86-1k-Mrq"/>
-                            <constraint firstItem="7ak-cL-d3X" firstAttribute="top" secondItem="5aH-gz-FxT" secondAttribute="topMargin" constant="50" id="pTs-7z-sND"/>
                             <constraint firstItem="H1w-G0-uNa" firstAttribute="leading" secondItem="2tU-i0-dBp" secondAttribute="leading" constant="29" id="qW3-ME-7CM"/>
                             <constraint firstItem="H1w-G0-uNa" firstAttribute="top" secondItem="5aH-gz-FxT" secondAttribute="top" constant="45" id="t7s-8T-BMV"/>
                         </constraints>
@@ -433,7 +437,7 @@
                                 <rect key="frame" x="40" y="222" width="295" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4y5-7r-VbB">
                                 <rect key="frame" x="56" y="203" width="263" height="18"/>
@@ -447,7 +451,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next" textContentType="family-name"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobrenome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozR-Uo-aNz">
                                 <rect key="frame" x="56" y="260" width="263" height="18"/>
@@ -461,7 +465,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YZ-1y-K7U">
                                 <rect key="frame" x="56" y="317" width="263" height="18"/>
@@ -475,7 +479,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLj-VZ-SEJ">
                                 <rect key="frame" x="56" y="374" width="263" height="18"/>
