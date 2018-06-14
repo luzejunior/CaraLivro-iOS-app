@@ -80,7 +80,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     }
     
     func openPhotoLibraryButton() {
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
