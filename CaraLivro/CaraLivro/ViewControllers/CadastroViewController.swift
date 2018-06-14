@@ -38,14 +38,52 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
     }
 
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        openPhotoLibraryButton()
+        openImageOptions()
+    }
+    
+    @objc func openImageOptions() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        self.present(actionSheet, animated: true, completion: nil)
+        
+        let groups = UIAlertAction(title: "Tirar foto", style: .default) { (action) in
+            self.openCameraButton()
+        }
+        let groupsIcon = UIImage(named: "camera")
+        groups.setValue(groupsIcon, forKey: "image")
+        groups.setValue(0, forKey: "titleTextAlignment")
+        groups.setValue(UIColor.black, forKey: "titleTextColor")
+        actionSheet.addAction(groups)
+        
+        let users = UIAlertAction(title: "Abrir galeria", style: .default) { (action) in
+            self.openPhotoLibraryButton()
+        }
+        let usersIcon = UIImage(named: "gallery")
+        users.setValue(usersIcon, forKey: "image")
+        users.setValue(0, forKey: "titleTextAlignment")
+        users.setValue(UIColor.black, forKey: "titleTextColor")
+        actionSheet.addAction(users)
+        
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        actionSheet.addAction(cancel)
+    }
+    
+    func openCameraButton() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        
     }
     
     func openPhotoLibraryButton() {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
-            imagePicker.sourceType = .photoLibrary;
+            imagePicker.sourceType = .photoLibrary
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         }
