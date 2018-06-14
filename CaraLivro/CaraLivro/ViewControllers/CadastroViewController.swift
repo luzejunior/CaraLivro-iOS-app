@@ -45,23 +45,23 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(actionSheet, animated: true, completion: nil)
         
-        let groups = UIAlertAction(title: "Tirar foto", style: .default) { (action) in
+        let camera = UIAlertAction(title: "Tirar foto", style: .default) { (action) in
             self.openCameraButton()
         }
-        let groupsIcon = UIImage(named: "camera")
-        groups.setValue(groupsIcon, forKey: "image")
-        groups.setValue(0, forKey: "titleTextAlignment")
-        groups.setValue(UIColor.black, forKey: "titleTextColor")
-        actionSheet.addAction(groups)
+        let cameraIcon = UIImage(named: "camera")
+        camera.setValue(cameraIcon, forKey: "image")
+        camera.setValue(0, forKey: "titleTextAlignment")
+        camera.setValue(UIColor.black, forKey: "titleTextColor")
+        actionSheet.addAction(camera)
         
-        let users = UIAlertAction(title: "Abrir galeria", style: .default) { (action) in
+        let gallery = UIAlertAction(title: "Abrir galeria", style: .default) { (action) in
             self.openPhotoLibraryButton()
         }
-        let usersIcon = UIImage(named: "gallery")
-        users.setValue(usersIcon, forKey: "image")
-        users.setValue(0, forKey: "titleTextAlignment")
-        users.setValue(UIColor.black, forKey: "titleTextColor")
-        actionSheet.addAction(users)
+        let galleryIcon = UIImage(named: "gallery")
+        gallery.setValue(galleryIcon, forKey: "image")
+        gallery.setValue(0, forKey: "titleTextAlignment")
+        gallery.setValue(UIColor.black, forKey: "titleTextColor")
+        actionSheet.addAction(gallery)
         
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         cancel.setValue(UIColor.black, forKey: "titleTextColor")
@@ -69,7 +69,7 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
     }
     
     func openCameraButton() {
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .camera
@@ -80,7 +80,7 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
     }
     
     func openPhotoLibraryButton() {
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
