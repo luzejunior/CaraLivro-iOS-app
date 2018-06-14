@@ -46,7 +46,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary;
-            imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
@@ -54,7 +54,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
     var image: UIImage?
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        image = (info[UIImagePickerControllerOriginalImage] as! UIImage)
+        image = (info[UIImagePickerControllerEditedImage] as! UIImage)
         imagePicked.image = image
         dismiss(animated:true, completion: nil)
     }

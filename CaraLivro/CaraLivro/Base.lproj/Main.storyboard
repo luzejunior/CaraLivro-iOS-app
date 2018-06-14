@@ -215,45 +215,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GMF-3W-blQ">
-                                <rect key="frame" x="16" y="62" width="343" height="245"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GMF-3W-blQ">
+                                <rect key="frame" x="19" y="62" width="338" height="245"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EmN-gi-Vdn">
-                                <rect key="frame" x="16" y="315" width="343" height="300"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EmN-gi-Vdn">
+                                <rect key="frame" x="19" y="315" width="338" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="gjM-F4-Gna"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBv-6F-ben">
-                                <rect key="frame" x="16" y="24" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBv-6F-ben">
+                                <rect key="frame" x="16" y="24" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="EEg-9C-1mg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <state key="normal" title="Fechar"/>
                                 <connections>
                                     <action selector="didTapCloseButton:" destination="CkY-nD-Agj" eventType="touchUpInside" id="kd6-DB-iGQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0Y-ab-wTf">
-                                <rect key="frame" x="309" y="24" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0Y-ab-wTf">
+                                <rect key="frame" x="294" y="24" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="XOx-o7-pgP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Postar"/>
                                 <connections>
                                     <action selector="didTapPostarButton:" destination="CkY-nD-Agj" eventType="touchUpInside" id="efr-2F-5JB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-VX-Gle">
+                                <rect key="frame" x="131" y="24" width="113" height="30"/>
+                                <state key="normal" title="Public"/>
+                                <connections>
+                                    <action selector="didTapPublic:" destination="CkY-nD-Agj" eventType="touchUpInside" id="WZx-a1-JhK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="rMW-VX-Gle" firstAttribute="width" secondItem="mnI-HI-F05" secondAttribute="width" multiplier="0.3" id="4yS-Tn-H2E"/>
+                            <constraint firstItem="EmN-gi-Vdn" firstAttribute="top" secondItem="GMF-3W-blQ" secondAttribute="bottom" constant="8" id="7GI-FD-Ckv"/>
+                            <constraint firstItem="BBv-6F-ben" firstAttribute="leading" secondItem="o7r-KG-VeF" secondAttribute="leading" constant="16" id="DzR-0T-OoG"/>
+                            <constraint firstItem="GMF-3W-blQ" firstAttribute="top" secondItem="rMW-VX-Gle" secondAttribute="bottom" constant="8" id="Qn7-AS-hCl"/>
+                            <constraint firstItem="BBv-6F-ben" firstAttribute="top" secondItem="o7r-KG-VeF" secondAttribute="top" constant="4" id="S26-kQ-avq"/>
+                            <constraint firstItem="o7r-KG-VeF" firstAttribute="bottom" secondItem="EmN-gi-Vdn" secondAttribute="bottom" constant="52" id="YvR-3O-xLX"/>
+                            <constraint firstItem="GMF-3W-blQ" firstAttribute="width" secondItem="mnI-HI-F05" secondAttribute="width" multiplier="0.9" id="ZfD-Er-Tkb"/>
+                            <constraint firstItem="EmN-gi-Vdn" firstAttribute="width" secondItem="mnI-HI-F05" secondAttribute="width" multiplier="0.9" id="cfE-3q-sLe"/>
+                            <constraint firstItem="rMW-VX-Gle" firstAttribute="top" secondItem="o7r-KG-VeF" secondAttribute="top" constant="4" id="oaD-bO-7ex"/>
+                            <constraint firstItem="rMW-VX-Gle" firstAttribute="centerX" secondItem="o7r-KG-VeF" secondAttribute="centerX" id="pRg-eU-B21"/>
+                            <constraint firstItem="GMF-3W-blQ" firstAttribute="centerX" secondItem="o7r-KG-VeF" secondAttribute="centerX" id="qwd-UL-1cC"/>
+                            <constraint firstItem="EmN-gi-Vdn" firstAttribute="centerX" secondItem="o7r-KG-VeF" secondAttribute="centerX" id="uPE-ns-Xgz"/>
+                            <constraint firstItem="o7r-KG-VeF" firstAttribute="trailing" secondItem="X0Y-ab-wTf" secondAttribute="trailing" constant="16" id="vDe-cj-bU6"/>
+                            <constraint firstItem="X0Y-ab-wTf" firstAttribute="top" secondItem="o7r-KG-VeF" secondAttribute="top" constant="4" id="wH0-pU-YSb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="o7r-KG-VeF"/>
                     </view>
                     <connections>
                         <outlet property="imagePicked" destination="EmN-gi-Vdn" id="biB-0g-GGY"/>
                         <outlet property="inputText" destination="GMF-3W-blQ" id="kW5-4r-dK5"/>
                         <outlet property="postarButton" destination="X0Y-ab-wTf" id="gdm-S9-bAY"/>
+                        <outlet property="publicPrivateButton" destination="rMW-VX-Gle" id="bdH-5H-N5K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeN-0T-dLe" userLabel="First Responder" sceneMemberID="firstResponder"/>

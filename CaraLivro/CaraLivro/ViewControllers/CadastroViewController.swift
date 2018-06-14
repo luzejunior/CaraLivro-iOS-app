@@ -31,7 +31,7 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         userImage.image = UIImage(named: "profile pic")
-        
+        self.hideKeyboardWhenTappedAround()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         userImage.isUserInteractionEnabled = true
         userImage.addGestureRecognizer(tapGestureRecognizer)
@@ -46,13 +46,13 @@ final class CadastroViewController: UIViewController, UIImagePickerControllerDel
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary;
-            imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        image = info[UIImagePickerControllerEditedImage] as? UIImage
         userImage.image = image
         dismiss(animated:true, completion: nil)
     }

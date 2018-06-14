@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Cloudinary
 
-let stringURL = "http://192.168.100.104:3000/"
+let stringURL = "https://shielded-crag-58680.herokuapp.com/"
 
 func getDataFromServer<T: Decodable>(path: String, completion: @escaping (T) -> ()) {
     let urlPath = stringURL + path
