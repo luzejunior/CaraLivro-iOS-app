@@ -95,7 +95,7 @@ func uploadImage(image: UIImage?, completion: @escaping (String) -> ()){
     
     dispatchGroup.enter()
     
-    let size = CGSize(width: 360, height: 270)
+    let size = CGSize(width: 360, height: 360)
     let imageResized = imageWithImage(image: image, scaledToSize: size)
     let data = UIImagePNGRepresentation(imageResized)
     var url = ""
