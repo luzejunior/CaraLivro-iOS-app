@@ -165,7 +165,7 @@ final class CreatePostViewController: UIViewController, UIImagePickerControllerD
             }
         } else {
             let post = PostIntoGroupMural(id_poster: currentMuralGroupID ?? 0, visibility: publicFlag, text: inputText.text, attachment_type: attachmentType, attachment_path: attachmentPath)
-            let stringURL = "group/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/mural/post"
+            let stringURL = "group/" + String(describing: currentMuralGroupID ?? 0) + "/mural/post"
             postDataToServer(object: post, path: stringURL) {
                 DispatchQueue.main.async {
                     self.coordinator?.didTouchPostButton(listType: self.listType!)
