@@ -25,18 +25,28 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ol-qy-K0l">
+                                <rect key="frame" x="0.0" y="333.5" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
+                            <constraint firstItem="7ol-qy-K0l" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="0mm-J1-4ae"/>
                             <constraint firstItem="L10-QI-1Bf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="94M-N3-c9w"/>
                             <constraint firstItem="L10-QI-1Bf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cct-qq-akD"/>
+                            <constraint firstItem="7ol-qy-K0l" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IsO-ol-tcq"/>
                             <constraint firstItem="L10-QI-1Bf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="d7v-YC-Id2"/>
+                            <constraint firstItem="7ol-qy-K0l" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="fHi-04-gA2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L10-QI-1Bf" secondAttribute="bottom" id="s5q-3c-Abf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="label" destination="7ol-qy-K0l" id="edy-XG-la6"/>
                         <outlet property="tableView" destination="L10-QI-1Bf" id="aKK-tR-iu6"/>
                     </connections>
                 </viewController>
@@ -375,7 +385,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ak-cL-d3X">
-                                <rect key="frame" x="42" y="57" width="67" height="30"/>
+                                <rect key="frame" x="42" y="70" width="67" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="BI9-yz-NLv"/>
                                     <constraint firstAttribute="height" constant="30" id="mWv-mW-lIv"/>
@@ -396,7 +406,7 @@
                             <constraint firstItem="7ak-cL-d3X" firstAttribute="leading" secondItem="2tU-i0-dBp" secondAttribute="leading" constant="42" id="GjW-5i-1rt"/>
                             <constraint firstItem="2tU-i0-dBp" firstAttribute="bottom" secondItem="H1w-G0-uNa" secondAttribute="bottom" constant="45" id="PBD-ox-InT"/>
                             <constraint firstItem="H1w-G0-uNa" firstAttribute="centerY" secondItem="2tU-i0-dBp" secondAttribute="centerY" priority="999" id="f86-1k-Mrq"/>
-                            <constraint firstItem="7ak-cL-d3X" firstAttribute="top" secondItem="5aH-gz-FxT" secondAttribute="topMargin" constant="37" id="pTs-7z-sND"/>
+                            <constraint firstItem="7ak-cL-d3X" firstAttribute="top" secondItem="5aH-gz-FxT" secondAttribute="topMargin" constant="50" id="pTs-7z-sND"/>
                             <constraint firstItem="H1w-G0-uNa" firstAttribute="leading" secondItem="2tU-i0-dBp" secondAttribute="leading" constant="29" id="qW3-ME-7CM"/>
                             <constraint firstItem="H1w-G0-uNa" firstAttribute="top" secondItem="5aH-gz-FxT" secondAttribute="top" constant="45" id="t7s-8T-BMV"/>
                         </constraints>

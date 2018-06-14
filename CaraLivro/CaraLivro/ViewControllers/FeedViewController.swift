@@ -18,6 +18,9 @@ final class FeedViewControllerPresenter {
     }
 
     func fetchData() {
+        view?.tableView.isHidden = true
+        view?.label.text = "Carregando..."
+        view?.label.isHidden = false
         let stringURL = "user/" + String(describing: currentUserInUse?.idUserProfile ?? 0) + "/feed"
         getDataFromServer(path: stringURL) { (posts: [TextPost]) in
             DispatchQueue.main.async {
@@ -72,11 +75,14 @@ final class FeedViewControllerPresenter {
 final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConform, FeedTableViewCellActions {
     @IBOutlet weak var tableView: UITableView!{
         didSet {
+            tableView.isHidden = true
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.backgroundColor = UIColor.clear
             RegisterCells()
         }
     }
+    @IBOutlet weak var label: UILabel!
+
 
     var presenter: FeedViewControllerPresenter?
     var coordinator: MainCoordinator?
@@ -185,7 +191,16 @@ final class FeedViewController: UIViewController, Storyboarded, MoreOptionsConfo
     }
 
     func finishedFetching() {
-        tableView.reloadData()
+        if presenter?.dataSource.items.isEmpty ?? false {
+            label.text = "Nenhum post criado!"
+            tableView.isHidden = true
+            label.isHidden = false
+        } else {
+            label.isHidden = true
+            tableView.reloadData()
+            tableView.isHidden = false
+        }
+
     }
 
     func RegisterCells() {

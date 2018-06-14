@@ -6,15 +6,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CaraLivro/ViewControllers/CommentariesViewController.swift"
-            timestampString = "550628559.211082"
+            timestampString = "550641386.012938"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "loadCommentaries()"
             landmarkType = "7">
          </BreakpointContent>

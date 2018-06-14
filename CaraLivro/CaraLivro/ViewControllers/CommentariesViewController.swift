@@ -39,6 +39,9 @@ final class CommentariesViewControllerPresenter {
     }
     
     func fetchData() {
+        view?.messageLabel.text = "Carregando..."
+        view?.messageLabel.isHidden = false
+        view?.tableView.isHidden = true
         dataSource.items.removeAll()
         commentID.removeAll()
         let stringURL = "post/" + String(describing: postID ?? 0) + "/comments"
@@ -50,6 +53,9 @@ final class CommentariesViewControllerPresenter {
     }
 
     func fetchResponses() {
+        view?.messageLabel.text = "Carregando..."
+        view?.messageLabel.isHidden = false
+        view?.tableView.isHidden = true
         dataSource.items.removeAll()
         responsesID.removeAll()
         let tableContent = CommentTableViewCellPresenter(comment: commentToResponse!, isResponse: true)
@@ -140,7 +146,7 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
     }
     @IBOutlet weak var messageLabel: UILabel! {
         didSet {
-            messageLabel.isHidden = true
+            messageLabel.isHidden = false
         }
     }
 
@@ -167,7 +173,7 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         tableView.delegate = self
-        
+        messageLabel.text = "Carregando..."
         self.hideKeyboardWhenTappedAround()
         tableView.dataSource = presenter?.dataSource
         
@@ -258,7 +264,9 @@ final class CommentariesViewController: UIViewController, Storyboarded, CommentT
 
     func loadCommentaries() {
         if presenter?.dataSource.items.isEmpty ?? true {
+            messageLabel.text = "Esse post não tem comentários"
             messageLabel.isHidden = false
+            tableView.isHidden = true
         } else {
             messageLabel.isHidden = true
             tableView.reloadData()
