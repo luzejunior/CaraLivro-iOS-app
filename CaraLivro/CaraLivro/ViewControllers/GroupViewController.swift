@@ -139,7 +139,7 @@ final class GroupViewControllerPresenter {
     }
 }
 
-final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConform {
+final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConform, FeedTableViewCellActions {
 
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var groupDescription: UILabel!
@@ -228,7 +228,7 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
         groupName.text = presenter?.currentGroup?.Name
         groupDescription.text = presenter?.currentGroup?.Description
         if presenter?.isMember ?? false || presenter?.isRequested ?? false{
-            userButton.isHidden = true
+            userButton.isHidden = false
         }
         if presenter?.isAdm ?? false {
             let button1 = UIBarButtonItem(title: "Gerenciar", style: .plain, target: self, action: #selector(self.adminController))
@@ -256,6 +256,7 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
         if presenter?.isRequested ?? false {
             userButton.setImage(UIImage(named: "group requested"), for: .normal)
         } else if presenter?.isMember ?? false {
+            userButton.isHidden = false
             userButton.setImage(UIImage(named: "logout"), for: .normal)
         } else if presenter?.isAdm ?? false {
             userButton.isHidden = true
@@ -269,15 +270,22 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
             messageToUser.isHidden = true
             tableView.isHidden = false
             tableView.reloadData()
+            changeButtonToRequested()
         } else {
             messageToUser.text = "Você não pode ver as mensagens deste grupo"
         }
         if presenter?.dataSource.items.isEmpty ?? false {
+            changeButtonToRequested()
             messageToUser.text = "Ainda não existe posts neste grupo!"
         }
     }
 
+    func didTouchUser(_ sender: FeedTableViewCell) {
+        coordinator?.presentUserPage(user: (sender.presenter?.posterUser)!)
+    }
+
     func RegisterCells() {
         tableView.register(FeedTableViewCell.self)
+        tableView.register(FeedImageTableViewCell.self)
     }
 }

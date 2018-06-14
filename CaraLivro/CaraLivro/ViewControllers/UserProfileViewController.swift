@@ -188,7 +188,7 @@ final class UserProfileViewControllerPresenter {
 }
 
 // CONTROLLER
-final class UserProfileViewController: UIViewController, Storyboarded, MoreOptionsConform {
+final class UserProfileViewController: UIViewController, Storyboarded, MoreOptionsConform, FeedTableViewCellActions {
 
     @IBOutlet weak var tableView: UITableView!{
         didSet {
@@ -355,6 +355,9 @@ final class UserProfileViewController: UIViewController, Storyboarded, MoreOptio
         }
     }
 
+    func didTouchUser(_ sender: FeedTableViewCell) {
+        coordinator?.presentUserPage(user: (sender.presenter?.posterUser)!)
+    }
 
     func finishedFetching() {
             tableView.reloadData()
