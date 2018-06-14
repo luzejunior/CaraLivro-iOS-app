@@ -186,7 +186,7 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
     func presentUIAlert(postID: Int, postOwnerID: Int) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.present(alert, animated: true, completion: nil)
-        if presenter?.isAdm ?? false {
+        if presenter?.isAdm ?? false || (postOwnerID == currentUserInUse?.idUserProfile) {
             alert.addAction(UIAlertAction(title: "Apagar", style: .destructive, handler: { action in
                 self.presenter?.deletePost(postID: postID)
             }))
