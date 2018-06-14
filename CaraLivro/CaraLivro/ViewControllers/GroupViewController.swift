@@ -254,13 +254,13 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
 
     func changeButtonToRequested() {
         if presenter?.isRequested ?? false {
-            userButton.setImage(UIImage(named: "login"), for: .normal)
+            userButton.setImage(UIImage(named: "group requested"), for: .normal)
         } else if presenter?.isMember ?? false {
             userButton.setImage(UIImage(named: "logout"), for: .normal)
         } else if presenter?.isAdm ?? false {
             userButton.isHidden = true
         } else {
-            userButton.setImage(UIImage(named: "new user"), for: .normal)
+            userButton.setImage(UIImage(named: "login"), for: .normal)
         }
     }
 
