@@ -63,7 +63,6 @@ final class GroupViewControllerPresenter {
 
     func getPosts() {
         let stringURL = "group/" + String(describing: currentGroup?.idGroups ?? 0) + "/mural/posts"
-        print(stringURL)
         getDataFromServer(path: stringURL) { (posts: [TextPost]) in
             DispatchQueue.main.async {
                 self.configureTableView(posts: posts)
@@ -166,6 +165,8 @@ final class GroupViewController: UIViewController, Storyboarded, MoreOptionsConf
         tableView.dataSource = presenter?.dataSource
         presenter?.fetchData()
         changeButtonToRequested()
+        
+        groupDescription.lineBreakMode = .byWordWrapping
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
